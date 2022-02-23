@@ -29,12 +29,21 @@
 
 <main>
   <Title />
-  {#await promise then dataset}
+  {#await promise}
+    <div>
+      Loading...
+    </div>
+  {:then dataset}
     <MapContainer dataset={datasets} bind:selectedRegion={selectedRegion}/>
     <SmallMultiples bind:selectedRegion={selectedRegion}/>
   {/await}
 </main>
 
 <style>
-
+  div {
+    height: 40vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 </style>
