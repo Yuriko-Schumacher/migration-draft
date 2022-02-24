@@ -3,34 +3,13 @@
   import { scaleLinear, extent, select, selectAll } from 'd3';
   import { forceSimulation, forceCollide, forceX, forceY } from "d3-force"
 
+  import regions from './regions.js';
+
   export let data;
   export let projection;
   export let butterflies;
   export let selectedRegion;
-
-  const regions = [
-      { name: 'Polynesia', shape: 0, color: "#676767" },
-      { name: 'Melanesia', shape: 0, color: "#5A20A3" },
-      { name: 'Southern Africa', shape: 0, color: "#E08F56" },
-      { name: 'Central America', shape: 0, color: "#B6050F" },
-      { name: 'Caribbean', shape: 0, color: "#B6050F" },
-      { name: 'Middle Africa', shape: 0, color: "#E08F56" },
-      { name: 'Northern Africa', shape: 0, color: "#E08F56" },
-      { name: 'South America', shape: 0, color: "#AF70A5" },
-      { name: 'Eastern Africa', shape: 0, color: "#E08F56" },
-      { name: 'Western Africa', shape: 0, color: "#E08F56" },
-      { name: 'South-Eastern Asia', shape: 1, color: "#F6CC52" },
-      { name: 'Eastern Asia', shape: 1, color: "#F6CC52" },
-      { name: 'Central Asia', shape: 1, color: "#F6CC52" },
-      { name: 'Southern Europe', shape: 1, color: "#78B2EB" },
-      { name: 'Northern Europe', shape: 1, color: "#78B2EB" },
-      { name: 'Australia and New Zealand', shape: 0, color: "#AFD164" },
-      { name: 'Western Asia', shape: 1, color: "#F6CC52" },
-      { name: 'Southern Asia', shape: 1, color: "#F6CC52" },
-      { name: 'Western Europe', shape: 1, color: "#78B2EB" },
-      { name: 'Eastern Europe', shape: 1, color: "#78B2EB" },
-      { name: 'Northern America', shape: 0, color: "#AF70A5" }
-  ]
+  export let selectedCountry;
 
   const sScale = scaleLinear().domain(extent(data.features, d => d.properties.VALUE)).range([0.25, 1])
 
@@ -76,10 +55,18 @@
   }
 
   function handleClick() {
-    selectAll("use").attr('fill-opacity', 0.5)
+    select(".map-points").selectAll("use").attr('fill-opacity', 0.5)
     select(this).attr('fill-opacity', 1)
     let selectedRegionIndex = select(this).attr('data-region-index')
     selectedRegion = regions[selectedRegionIndex].name
+
+    if (selectedCountry !== "") {
+      let container = select(".country-cards__container")
+      let color = select(this).attr("fill")
+      container.selectAll('.country-card').style("background", "white")
+      container.selectAll("use").attr("fill", color).attr("stroke", color)
+      container.selectAll(".country-card__country-name").style("color", "black")
+    }
   }
 
   function findRegionIndex(region) {
