@@ -19,12 +19,11 @@
   let butterflies = dataset[2];
   let regions = dataset[8];
   let regionFlow = dataset[9];
-  let totalMigrants = dataset[10];
 
   let w;
 
   $: h = 5 * w / 9;
-  $: projection = geoNaturalEarth1().fitSize([w, h], outlineD).rotate([-5, 0, 0])
+  $: projection = geoNaturalEarth1().fitSize([w, h], outlineD) // .rotate([45, 0, 0]) would cut out Alaska
   $: path = geoPath(projection)
 
 </script>
@@ -32,13 +31,10 @@
 <section class="map__container" bind:clientWidth={w}>
   {#if w !== undefined}
     <Modal show={$modal} transitionBgProps={{ duration: 0 }} styleCloseButton={{cursor: "pointer"}}>
-      <svg id="world-map" width={w} height={h}>
+      <svg width={w} height={h}>
         <MapPath data={outlineD} path={path}/>
-        <MapPoints width={w} data={centroidsD} regionFlow ={regionFlow} projection={projection} butterflies={butterflies} bind:selectedRegion={selectedRegion} bind:hoveredRegionCode={hoveredRegionCode} bind:selectedCountry={selectedCountry} datasets={dataset}/>
+        <MapPoints data={centroidsD} regionFlow ={regionFlow} projection={projection} butterflies={butterflies} bind:selectedRegion={selectedRegion} bind:hoveredRegionCode={hoveredRegionCode} bind:selectedCountry={selectedCountry} datasets={dataset}/>
       </svg>
-      <div id="legend">
-        <Legend width={w} height={h} data={centroidsD}/>
-      </div>
     </Modal>
   {/if}
 </section>

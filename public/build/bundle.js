@@ -1222,6 +1222,51 @@ var app = (function () {
       return stop < start ? -step1 : step1;
     }
 
+<<<<<<< HEAD
+=======
+    function max(values, valueof) {
+      let max;
+      if (valueof === undefined) {
+        for (const value of values) {
+          if (value != null
+              && (max < value || (max === undefined && value >= value))) {
+            max = value;
+          }
+        }
+      } else {
+        let index = -1;
+        for (let value of values) {
+          if ((value = valueof(value, ++index, values)) != null
+              && (max < value || (max === undefined && value >= value))) {
+            max = value;
+          }
+        }
+      }
+      return max;
+    }
+
+    function min(values, valueof) {
+      let min;
+      if (valueof === undefined) {
+        for (const value of values) {
+          if (value != null
+              && (min > value || (min === undefined && value >= value))) {
+            min = value;
+          }
+        }
+      } else {
+        let index = -1;
+        for (let value of values) {
+          if ((value = valueof(value, ++index, values)) != null
+              && (min > value || (min === undefined && value >= value))) {
+            min = value;
+          }
+        }
+      }
+      return min;
+    }
+
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     function* flatten(arrays) {
       for (const array of arrays) {
         yield* array;
@@ -5449,7 +5494,11 @@ var app = (function () {
     var cos = Math.cos;
     var sin = Math.sin;
     var sign = Math.sign || function(x) { return x > 0 ? 1 : x < 0 ? -1 : 0; };
+<<<<<<< HEAD
     var sqrt$1 = Math.sqrt;
+=======
+    var sqrt = Math.sqrt;
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
 
     function acos(x) {
       return x > 1 ? 0 : x < -1 ? pi : Math.acos(x);
@@ -5559,7 +5608,11 @@ var app = (function () {
 
     // TODO return d
     function cartesianNormalizeInPlace(d) {
+<<<<<<< HEAD
       var l = sqrt$1(d[0] * d[0] + d[1] * d[1] + d[2] * d[2]);
+=======
+      var l = sqrt(d[0] * d[0] + d[1] * d[1] + d[2] * d[2]);
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
       d[0] /= l, d[1] /= l, d[2] /= l;
     }
 
@@ -6200,7 +6253,11 @@ var app = (function () {
 
         if (t2 < 0) return;
 
+<<<<<<< HEAD
         var t = sqrt$1(t2),
+=======
+        var t = sqrt(t2),
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
             q = cartesianScale(u, (-w - t) / uu);
         cartesianAddInPlace(q, A);
         q = spherical(q);
@@ -6605,7 +6662,11 @@ var app = (function () {
     }
 
     function centroidPointLine(x, y) {
+<<<<<<< HEAD
       var dx = x - x0$1, dy = y - y0$1, z = sqrt$1(dx * dx + dy * dy);
+=======
+      var dx = x - x0$1, dy = y - y0$1, z = sqrt(dx * dx + dy * dy);
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
       X1 += z * (x0$1 + x) / 2;
       Y1 += z * (y0$1 + y) / 2;
       Z1 += z;
@@ -6632,7 +6693,11 @@ var app = (function () {
     function centroidPointRing(x, y) {
       var dx = x - x0$1,
           dy = y - y0$1,
+<<<<<<< HEAD
           z = sqrt$1(dx * dx + dy * dy);
+=======
+          z = sqrt(dx * dx + dy * dy);
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
 
       X1 += z * (x0$1 + x) / 2;
       Y1 += z * (y0$1 + y) / 2;
@@ -6726,7 +6791,11 @@ var app = (function () {
 
     function lengthPoint(x, y) {
       x0 -= x, y0 -= y;
+<<<<<<< HEAD
       lengthSum.add(sqrt$1(x0 * x0 + y0 * y0));
+=======
+      lengthSum.add(sqrt(x0 * x0 + y0 * y0));
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
       x0 = x, y0 = y;
     }
 
@@ -6937,7 +7006,11 @@ var app = (function () {
           var a = a0 + a1,
               b = b0 + b1,
               c = c0 + c1,
+<<<<<<< HEAD
               m = sqrt$1(a * a + b * b + c * c),
+=======
+              m = sqrt(a * a + b * b + c * c),
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
               phi2 = asin(c /= m),
               lambda2 = abs(abs(c) - 1) < epsilon || abs(lambda0 - lambda1) < epsilon ? (lambda0 + lambda1) / 2 : atan2(b, a),
               p = project(lambda2, phi2),
@@ -7136,7 +7209,11 @@ var app = (function () {
       };
 
       projection.precision = function(_) {
+<<<<<<< HEAD
         return arguments.length ? (projectResample = resample(projectTransform, delta2 = _ * _), reset()) : sqrt$1(delta2);
+=======
+        return arguments.length ? (projectResample = resample(projectTransform, delta2 = _ * _), reset()) : sqrt(delta2);
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
       };
 
       projection.fitExtent = function(extent, object) {
@@ -7436,6 +7513,7 @@ var app = (function () {
       return linearish(scale);
     }
 
+<<<<<<< HEAD
     function transformPow(exponent) {
       return function(x) {
         return x < 0 ? -Math.pow(-x, exponent) : Math.pow(x, exponent);
@@ -7483,6 +7561,8 @@ var app = (function () {
       return pow.apply(null, arguments).exponent(0.5);
     }
 
+=======
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     function constant(x) {
       return function constant() {
         return x;
@@ -7589,9 +7669,15 @@ var app = (function () {
 
     /* src/TItle.svelte generated by Svelte v3.46.4 */
 
+<<<<<<< HEAD
     const file$a = "src/TItle.svelte";
 
     function create_fragment$c(ctx) {
+=======
+    const file$9 = "src/TItle.svelte";
+
+    function create_fragment$b(ctx) {
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     	let div;
     	let h1;
 
@@ -7601,9 +7687,15 @@ var app = (function () {
     			h1 = element("h1");
     			h1.textContent = "World Migration Data Project";
     			attr_dev(h1, "class", "svelte-1voonu8");
+<<<<<<< HEAD
     			add_location(h1, file$a, 5, 2, 29);
     			attr_dev(div, "class", "svelte-1voonu8");
     			add_location(div, file$a, 4, 0, 21);
+=======
+    			add_location(h1, file$9, 5, 2, 29);
+    			attr_dev(div, "class", "svelte-1voonu8");
+    			add_location(div, file$9, 4, 0, 21);
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -7622,7 +7714,11 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
+<<<<<<< HEAD
     		id: create_fragment$c.name,
+=======
+    		id: create_fragment$b.name,
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     		type: "component",
     		source: "",
     		ctx
@@ -7631,7 +7727,11 @@ var app = (function () {
     	return block;
     }
 
+<<<<<<< HEAD
     function instance$c($$self, $$props) {
+=======
+    function instance$b($$self, $$props) {
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots('TItle', slots, []);
     	const writable_props = [];
@@ -7646,22 +7746,36 @@ var app = (function () {
     class TItle extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
+<<<<<<< HEAD
     		init$1(this, options, instance$c, create_fragment$c, safe_not_equal, {});
+=======
+    		init$1(this, options, instance$b, create_fragment$b, safe_not_equal, {});
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
 
     		dispatch_dev("SvelteRegisterComponent", {
     			component: this,
     			tagName: "TItle",
     			options,
+<<<<<<< HEAD
     			id: create_fragment$c.name
+=======
+    			id: create_fragment$b.name
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     		});
     	}
     }
 
     /* src/MapPath.svelte generated by Svelte v3.46.4 */
 
+<<<<<<< HEAD
     const file$9 = "src/MapPath.svelte";
 
     function create_fragment$b(ctx) {
+=======
+    const file$8 = "src/MapPath.svelte";
+
+    function create_fragment$a(ctx) {
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     	let g;
     	let path_1;
     	let path_1_d_value;
@@ -7673,9 +7787,15 @@ var app = (function () {
     			attr_dev(path_1, "d", path_1_d_value = /*path*/ ctx[1](/*data*/ ctx[0].features[0]));
     			attr_dev(path_1, "fill", "#eeeeee");
     			attr_dev(path_1, "stroke-width", "0");
+<<<<<<< HEAD
     			add_location(path_1, file$9, 6, 2, 81);
     			attr_dev(g, "class", "map-path");
     			add_location(g, file$9, 5, 0, 58);
+=======
+    			add_location(path_1, file$8, 6, 2, 81);
+    			attr_dev(g, "class", "map-path");
+    			add_location(g, file$8, 5, 0, 58);
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -7698,7 +7818,11 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
+<<<<<<< HEAD
     		id: create_fragment$b.name,
+=======
+    		id: create_fragment$a.name,
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     		type: "component",
     		source: "",
     		ctx
@@ -7707,7 +7831,11 @@ var app = (function () {
     	return block;
     }
 
+<<<<<<< HEAD
     function instance$b($$self, $$props, $$invalidate) {
+=======
+    function instance$a($$self, $$props, $$invalidate) {
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots('MapPath', slots, []);
     	let { data } = $$props;
@@ -7740,13 +7868,21 @@ var app = (function () {
     class MapPath extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
+<<<<<<< HEAD
     		init$1(this, options, instance$b, create_fragment$b, safe_not_equal, { data: 0, path: 1 });
+=======
+    		init$1(this, options, instance$a, create_fragment$a, safe_not_equal, { data: 0, path: 1 });
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
 
     		dispatch_dev("SvelteRegisterComponent", {
     			component: this,
     			tagName: "MapPath",
     			options,
+<<<<<<< HEAD
     			id: create_fragment$b.name
+=======
+    			id: create_fragment$a.name
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     		});
 
     		const { ctx } = this.$$;
@@ -7969,12 +8105,16 @@ var app = (function () {
       { name: "Central Asia", shape: 1, color: "#F6CC52", code: "5500" },
       { name: "Southern Europe", shape: 1, color: "#78B2EB", code: "925" },
       { name: "Northern Europe", shape: 1, color: "#78B2EB", code: "924" },
+<<<<<<< HEAD
       {
         name: "Australia and New Zealand",
         shape: 0,
         color: "#AFD164",
         code: "927",
       },
+=======
+      { name: "Australia and New Zealand", shape: 0, color: "#AFD164", code: "927" },
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
       { name: "Western Asia", shape: 1, color: "#F6CC52", code: "922" },
       { name: "Southern Asia", shape: 1, color: "#F6CC52", code: "5501" },
       { name: "Western Europe", shape: 1, color: "#78B2EB", code: "926" },
@@ -7983,23 +8123,37 @@ var app = (function () {
     ];
 
     /* src/CountryCards.svelte generated by Svelte v3.46.4 */
+<<<<<<< HEAD
     const file$8 = "src/CountryCards.svelte";
 
     function get_each_context$2(ctx, list, i) {
+=======
+    const file$7 = "src/CountryCards.svelte";
+
+    function get_each_context$1(ctx, list, i) {
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     	const child_ctx = ctx.slice();
     	child_ctx[9] = list[i];
     	return child_ctx;
     }
 
     // (63:2) {#if selectedRegion !== ""}
+<<<<<<< HEAD
     function create_if_block$5(ctx) {
+=======
+    function create_if_block$4(ctx) {
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     	let each_1_anchor;
     	let each_value = /*selectedRegionD*/ ctx[1];
     	validate_each_argument(each_value);
     	let each_blocks = [];
 
     	for (let i = 0; i < each_value.length; i += 1) {
+<<<<<<< HEAD
     		each_blocks[i] = create_each_block$2(get_each_context$2(ctx, each_value, i));
+=======
+    		each_blocks[i] = create_each_block$1(get_each_context$1(ctx, each_value, i));
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     	}
 
     	const block = {
@@ -8024,12 +8178,20 @@ var app = (function () {
     				let i;
 
     				for (i = 0; i < each_value.length; i += 1) {
+<<<<<<< HEAD
     					const child_ctx = get_each_context$2(ctx, each_value, i);
+=======
+    					const child_ctx = get_each_context$1(ctx, each_value, i);
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
 
     					if (each_blocks[i]) {
     						each_blocks[i].p(child_ctx, dirty);
     					} else {
+<<<<<<< HEAD
     						each_blocks[i] = create_each_block$2(child_ctx);
+=======
+    						each_blocks[i] = create_each_block$1(child_ctx);
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     						each_blocks[i].c();
     						each_blocks[i].m(each_1_anchor.parentNode, each_1_anchor);
     					}
@@ -8050,7 +8212,11 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
+<<<<<<< HEAD
     		id: create_if_block$5.name,
+=======
+    		id: create_if_block$4.name,
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     		type: "if",
     		source: "(63:2) {#if selectedRegion !== \\\"\\\"}",
     		ctx
@@ -8060,7 +8226,11 @@ var app = (function () {
     }
 
     // (64:4) {#each selectedRegionD as d}
+<<<<<<< HEAD
     function create_each_block$2(ctx) {
+=======
+    function create_each_block$1(ctx) {
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     	let div2;
     	let div0;
     	let svg;
@@ -8096,6 +8266,7 @@ var app = (function () {
     			attr_dev(use, "fill", use_fill_value = /*selectedRegionInfo*/ ctx[2].color);
     			attr_dev(use, "data-country", use_data_country_value = /*d*/ ctx[9].country);
     			attr_dev(use, "data-color", use_data_color_value = /*selectedRegionInfo*/ ctx[2].color);
+<<<<<<< HEAD
     			add_location(use, file$8, 74, 12, 2406);
     			attr_dev(svg, "width", "100");
     			attr_dev(svg, "height", "100");
@@ -8108,6 +8279,20 @@ var app = (function () {
     			attr_dev(div2, "class", "country-card svelte-f9fvk4");
     			set_style(div2, "background", "white");
     			add_location(div2, file$8, 65, 6, 2126);
+=======
+    			add_location(use, file$7, 74, 12, 2406);
+    			attr_dev(svg, "width", "100");
+    			attr_dev(svg, "height", "100");
+    			add_location(svg, file$7, 73, 10, 2367);
+    			attr_dev(div0, "class", "country-card__butterfly");
+    			add_location(div0, file$7, 72, 8, 2319);
+    			attr_dev(div1, "class", "country-card__country-name");
+    			set_style(div1, "color", "black");
+    			add_location(div1, file$7, 85, 8, 2878);
+    			attr_dev(div2, "class", "country-card svelte-f9fvk4");
+    			set_style(div2, "background", "white");
+    			add_location(div2, file$7, 65, 6, 2126);
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div2, anchor);
@@ -8165,7 +8350,11 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
+<<<<<<< HEAD
     		id: create_each_block$2.name,
+=======
+    		id: create_each_block$1.name,
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     		type: "each",
     		source: "(64:4) {#each selectedRegionD as d}",
     		ctx
@@ -8174,16 +8363,26 @@ var app = (function () {
     	return block;
     }
 
+<<<<<<< HEAD
     function create_fragment$a(ctx) {
     	let div;
     	let if_block = /*selectedRegion*/ ctx[0] !== "" && create_if_block$5(ctx);
+=======
+    function create_fragment$9(ctx) {
+    	let div;
+    	let if_block = /*selectedRegion*/ ctx[0] !== "" && create_if_block$4(ctx);
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
 
     	const block = {
     		c: function create() {
     			div = element("div");
     			if (if_block) if_block.c();
     			attr_dev(div, "class", "country-cards__container svelte-f9fvk4");
+<<<<<<< HEAD
     			add_location(div, file$8, 61, 0, 1955);
+=======
+    			add_location(div, file$7, 61, 0, 1955);
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -8197,7 +8396,11 @@ var app = (function () {
     				if (if_block) {
     					if_block.p(ctx, dirty);
     				} else {
+<<<<<<< HEAD
     					if_block = create_if_block$5(ctx);
+=======
+    					if_block = create_if_block$4(ctx);
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     					if_block.c();
     					if_block.m(div, null);
     				}
@@ -8216,7 +8419,11 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
+<<<<<<< HEAD
     		id: create_fragment$a.name,
+=======
+    		id: create_fragment$9.name,
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     		type: "component",
     		source: "",
     		ctx
@@ -8225,7 +8432,11 @@ var app = (function () {
     	return block;
     }
 
+<<<<<<< HEAD
     function instance$a($$self, $$props, $$invalidate) {
+=======
+    function instance$9($$self, $$props, $$invalidate) {
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots('CountryCards', slots, []);
     	let { selectedRegion } = $$props;
@@ -8341,7 +8552,11 @@ var app = (function () {
     	constructor(options) {
     		super(options);
 
+<<<<<<< HEAD
     		init$1(this, options, instance$a, create_fragment$a, safe_not_equal, {
+=======
+    		init$1(this, options, instance$9, create_fragment$9, safe_not_equal, {
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     			selectedRegion: 0,
     			selectedCountry: 6,
     			data: 7
@@ -8351,7 +8566,11 @@ var app = (function () {
     			component: this,
     			tagName: "CountryCards",
     			options,
+<<<<<<< HEAD
     			id: create_fragment$a.name
+=======
+    			id: create_fragment$9.name
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     		});
 
     		const { ctx } = this.$$;
@@ -8397,10 +8616,17 @@ var app = (function () {
 
     /* src/CountryCardContainer.svelte generated by Svelte v3.46.4 */
 
+<<<<<<< HEAD
     const { console: console_1$2 } = globals;
     const file$7 = "src/CountryCardContainer.svelte";
 
     function create_fragment$9(ctx) {
+=======
+    const { console: console_1$1 } = globals;
+    const file$6 = "src/CountryCardContainer.svelte";
+
+    function create_fragment$8(ctx) {
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     	let section;
     	let h1;
     	let t0;
@@ -8443,8 +8669,13 @@ var app = (function () {
     			t0 = text$1(/*selectedRegion*/ ctx[0]);
     			t1 = space();
     			create_component(countrycards.$$.fragment);
+<<<<<<< HEAD
     			add_location(h1, file$7, 12, 2, 185);
     			add_location(section, file$7, 11, 0, 173);
+=======
+    			add_location(h1, file$6, 12, 2, 185);
+    			add_location(section, file$6, 11, 0, 173);
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -8493,7 +8724,11 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
+<<<<<<< HEAD
     		id: create_fragment$9.name,
+=======
+    		id: create_fragment$8.name,
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     		type: "component",
     		source: "",
     		ctx
@@ -8502,7 +8737,11 @@ var app = (function () {
     	return block;
     }
 
+<<<<<<< HEAD
     function instance$9($$self, $$props, $$invalidate) {
+=======
+    function instance$8($$self, $$props, $$invalidate) {
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots('CountryCardContainer', slots, []);
     	let { selectedRegion } = $$props;
@@ -8512,7 +8751,11 @@ var app = (function () {
     	const writable_props = ['selectedRegion', 'selectedCountry', 'data'];
 
     	Object.keys($$props).forEach(key => {
+<<<<<<< HEAD
     		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console_1$2.warn(`<CountryCardContainer> was created with unknown prop '${key}'`);
+=======
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console_1$1.warn(`<CountryCardContainer> was created with unknown prop '${key}'`);
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     	});
 
     	function countrycards_selectedRegion_binding(value) {
@@ -8561,7 +8804,11 @@ var app = (function () {
     	constructor(options) {
     		super(options);
 
+<<<<<<< HEAD
     		init$1(this, options, instance$9, create_fragment$9, safe_not_equal, {
+=======
+    		init$1(this, options, instance$8, create_fragment$8, safe_not_equal, {
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     			selectedRegion: 0,
     			selectedCountry: 1,
     			data: 2
@@ -8571,13 +8818,18 @@ var app = (function () {
     			component: this,
     			tagName: "CountryCardContainer",
     			options,
+<<<<<<< HEAD
     			id: create_fragment$9.name
+=======
+    			id: create_fragment$8.name
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     		});
 
     		const { ctx } = this.$$;
     		const props = options.props || {};
 
     		if (/*selectedRegion*/ ctx[0] === undefined && !('selectedRegion' in props)) {
+<<<<<<< HEAD
     			console_1$2.warn("<CountryCardContainer> was created without expected prop 'selectedRegion'");
     		}
 
@@ -8587,6 +8839,17 @@ var app = (function () {
 
     		if (/*data*/ ctx[2] === undefined && !('data' in props)) {
     			console_1$2.warn("<CountryCardContainer> was created without expected prop 'data'");
+=======
+    			console_1$1.warn("<CountryCardContainer> was created without expected prop 'selectedRegion'");
+    		}
+
+    		if (/*selectedCountry*/ ctx[1] === undefined && !('selectedCountry' in props)) {
+    			console_1$1.warn("<CountryCardContainer> was created without expected prop 'selectedCountry'");
+    		}
+
+    		if (/*data*/ ctx[2] === undefined && !('data' in props)) {
+    			console_1$1.warn("<CountryCardContainer> was created without expected prop 'data'");
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     		}
     	}
 
@@ -8617,10 +8880,17 @@ var app = (function () {
 
     /* src/BigButterflyContainer.svelte generated by Svelte v3.46.4 */
 
+<<<<<<< HEAD
     const file$6 = "src/BigButterflyContainer.svelte";
 
     // (7:0) {#if selectedCountry !== ""}
     function create_if_block$4(ctx) {
+=======
+    const file$5 = "src/BigButterflyContainer.svelte";
+
+    // (7:0) {#if selectedCountry !== ""}
+    function create_if_block$3(ctx) {
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     	let section;
     	let h10;
     	let t0;
@@ -8639,12 +8909,21 @@ var app = (function () {
     			div = element("div");
     			h11 = element("h1");
     			h11.textContent = "More stuff coming...";
+<<<<<<< HEAD
     			add_location(h10, file$6, 8, 4, 139);
     			add_location(h11, file$6, 12, 6, 222);
     			attr_dev(div, "class", "svelte-vr1saa");
     			add_location(div, file$6, 11, 4, 210);
     			attr_dev(section, "class", "big-butterfly__container");
     			add_location(section, file$6, 7, 2, 92);
+=======
+    			add_location(h10, file$5, 8, 4, 139);
+    			add_location(h11, file$5, 12, 6, 222);
+    			attr_dev(div, "class", "svelte-vr1saa");
+    			add_location(div, file$5, 11, 4, 210);
+    			attr_dev(section, "class", "big-butterfly__container");
+    			add_location(section, file$5, 7, 2, 92);
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, section, anchor);
@@ -8665,7 +8944,11 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
+<<<<<<< HEAD
     		id: create_if_block$4.name,
+=======
+    		id: create_if_block$3.name,
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     		type: "if",
     		source: "(7:0) {#if selectedCountry !== \\\"\\\"}",
     		ctx
@@ -8674,9 +8957,15 @@ var app = (function () {
     	return block;
     }
 
+<<<<<<< HEAD
     function create_fragment$8(ctx) {
     	let if_block_anchor;
     	let if_block = /*selectedCountry*/ ctx[0] !== "" && create_if_block$4(ctx);
+=======
+    function create_fragment$7(ctx) {
+    	let if_block_anchor;
+    	let if_block = /*selectedCountry*/ ctx[0] !== "" && create_if_block$3(ctx);
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
 
     	const block = {
     		c: function create() {
@@ -8695,7 +8984,11 @@ var app = (function () {
     				if (if_block) {
     					if_block.p(ctx, dirty);
     				} else {
+<<<<<<< HEAD
     					if_block = create_if_block$4(ctx);
+=======
+    					if_block = create_if_block$3(ctx);
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     					if_block.c();
     					if_block.m(if_block_anchor.parentNode, if_block_anchor);
     				}
@@ -8714,7 +9007,11 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
+<<<<<<< HEAD
     		id: create_fragment$8.name,
+=======
+    		id: create_fragment$7.name,
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     		type: "component",
     		source: "",
     		ctx
@@ -8723,7 +9020,11 @@ var app = (function () {
     	return block;
     }
 
+<<<<<<< HEAD
     function instance$8($$self, $$props, $$invalidate) {
+=======
+    function instance$7($$self, $$props, $$invalidate) {
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots('BigButterflyContainer', slots, []);
     	let { selectedCountry } = $$props;
@@ -8753,13 +9054,21 @@ var app = (function () {
     class BigButterflyContainer extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
+<<<<<<< HEAD
     		init$1(this, options, instance$8, create_fragment$8, safe_not_equal, { selectedCountry: 0 });
+=======
+    		init$1(this, options, instance$7, create_fragment$7, safe_not_equal, { selectedCountry: 0 });
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
 
     		dispatch_dev("SvelteRegisterComponent", {
     			component: this,
     			tagName: "BigButterflyContainer",
     			options,
+<<<<<<< HEAD
     			id: create_fragment$8.name
+=======
+    			id: create_fragment$7.name
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     		});
 
     		const { ctx } = this.$$;
@@ -8781,7 +9090,11 @@ var app = (function () {
 
     /* src/Popup.svelte generated by Svelte v3.46.4 */
 
+<<<<<<< HEAD
     function create_fragment$7(ctx) {
+=======
+    function create_fragment$6(ctx) {
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     	let countrycardcontainer;
     	let updating_selectedRegion;
     	let updating_selectedCountry;
@@ -8895,7 +9208,11 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
+<<<<<<< HEAD
     		id: create_fragment$7.name,
+=======
+    		id: create_fragment$6.name,
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     		type: "component",
     		source: "",
     		ctx
@@ -8904,7 +9221,11 @@ var app = (function () {
     	return block;
     }
 
+<<<<<<< HEAD
     function instance$7($$self, $$props, $$invalidate) {
+=======
+    function instance$6($$self, $$props, $$invalidate) {
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots('Popup', slots, []);
     	let { selectedRegion } = $$props;
@@ -8969,7 +9290,11 @@ var app = (function () {
     	constructor(options) {
     		super(options);
 
+<<<<<<< HEAD
     		init$1(this, options, instance$7, create_fragment$7, safe_not_equal, {
+=======
+    		init$1(this, options, instance$6, create_fragment$6, safe_not_equal, {
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     			selectedRegion: 0,
     			selectedCountry: 1,
     			datasets: 2
@@ -8979,7 +9304,11 @@ var app = (function () {
     			component: this,
     			tagName: "Popup",
     			options,
+<<<<<<< HEAD
     			id: create_fragment$7.name
+=======
+    			id: create_fragment$6.name
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     		});
 
     		const { ctx } = this.$$;
@@ -9025,6 +9354,7 @@ var app = (function () {
 
     /* src/MapPoints.svelte generated by Svelte v3.46.4 */
 
+<<<<<<< HEAD
     const { console: console_1$1 } = globals;
     const file$5 = "src/MapPoints.svelte";
 
@@ -9049,13 +9379,43 @@ var app = (function () {
 
     // (147:4) {#if links !== undefined}
     function create_if_block$3(ctx) {
+=======
+    const { console: console_1 } = globals;
+    const file$4 = "src/MapPoints.svelte";
+
+    function get_each_context(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[24] = list[i].x;
+    	child_ctx[25] = list[i].y;
+    	child_ctx[26] = list[i].value;
+    	child_ctx[27] = list[i].regionIndex;
+    	child_ctx[28] = list[i].regionShape;
+    	child_ctx[29] = list[i].regionCode;
+    	return child_ctx;
+    }
+
+    function get_each_context_1(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[32] = list[i].CODE;
+    	child_ctx[33] = list[i].ORIG;
+    	child_ctx[26] = list[i].value;
+    	return child_ctx;
+    }
+
+    // (146:4) {#if links !== undefined}
+    function create_if_block$2(ctx) {
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     	let each_1_anchor;
     	let each_value_1 = /*links*/ ctx[1];
     	validate_each_argument(each_value_1);
     	let each_blocks = [];
 
     	for (let i = 0; i < each_value_1.length; i += 1) {
+<<<<<<< HEAD
     		each_blocks[i] = create_each_block_1$1(get_each_context_1$1(ctx, each_value_1, i));
+=======
+    		each_blocks[i] = create_each_block_1(get_each_context_1(ctx, each_value_1, i));
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     	}
 
     	const block = {
@@ -9080,12 +9440,20 @@ var app = (function () {
     				let i;
 
     				for (i = 0; i < each_value_1.length; i += 1) {
+<<<<<<< HEAD
     					const child_ctx = get_each_context_1$1(ctx, each_value_1, i);
+=======
+    					const child_ctx = get_each_context_1(ctx, each_value_1, i);
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
 
     					if (each_blocks[i]) {
     						each_blocks[i].p(child_ctx, dirty);
     					} else {
+<<<<<<< HEAD
     						each_blocks[i] = create_each_block_1$1(child_ctx);
+=======
+    						each_blocks[i] = create_each_block_1(child_ctx);
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     						each_blocks[i].c();
     						each_blocks[i].m(each_1_anchor.parentNode, each_1_anchor);
     					}
@@ -9106,17 +9474,28 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
+<<<<<<< HEAD
     		id: create_if_block$3.name,
     		type: "if",
     		source: "(147:4) {#if links !== undefined}",
+=======
+    		id: create_if_block$2.name,
+    		type: "if",
+    		source: "(146:4) {#if links !== undefined}",
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     		ctx
     	});
 
     	return block;
     }
 
+<<<<<<< HEAD
     // (148:6) {#each links as {CODE, ORIG, value}}
     function create_each_block_1$1(ctx) {
+=======
+    // (147:6) {#each links as {CODE, ORIG, value}}
+    function create_each_block_1(ctx) {
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     	let line_1;
     	let line_1_x__value;
     	let line_1_y__value;
@@ -9129,6 +9508,7 @@ var app = (function () {
     	let line_1_stroke_dasharray_value;
 
     	function func(...args) {
+<<<<<<< HEAD
     		return /*func*/ ctx[17](/*ORIG*/ ctx[34], ...args);
     	}
 
@@ -9142,6 +9522,21 @@ var app = (function () {
 
     	function func_3(...args) {
     		return /*func_3*/ ctx[20](/*CODE*/ ctx[33], ...args);
+=======
+    		return /*func*/ ctx[16](/*ORIG*/ ctx[33], ...args);
+    	}
+
+    	function func_1(...args) {
+    		return /*func_1*/ ctx[17](/*ORIG*/ ctx[33], ...args);
+    	}
+
+    	function func_2(...args) {
+    		return /*func_2*/ ctx[18](/*CODE*/ ctx[32], ...args);
+    	}
+
+    	function func_3(...args) {
+    		return /*func_3*/ ctx[19](/*CODE*/ ctx[32], ...args);
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     	}
 
     	const block = {
@@ -9151,6 +9546,7 @@ var app = (function () {
     			attr_dev(line_1, "y1", line_1_y__value = /*$butterflyPoints*/ ctx[2].filter(func_1)[0].y);
     			attr_dev(line_1, "x2", line_1_x__value_1 = /*$butterflyPoints*/ ctx[2].filter(func_2)[0].x);
     			attr_dev(line_1, "y2", line_1_y__value_1 = /*$butterflyPoints*/ ctx[2].filter(func_3)[0].y);
+<<<<<<< HEAD
     			attr_dev(line_1, "data-orig", line_1_data_orig_value = /*ORIG*/ ctx[34]);
     			attr_dev(line_1, "data-code", line_1_data_code_value = /*CODE*/ ctx[33]);
     			attr_dev(line_1, "data-value", line_1_data_value_value = /*value*/ ctx[27]);
@@ -9159,6 +9555,16 @@ var app = (function () {
     			attr_dev(line_1, "stroke-dasharray", line_1_stroke_dasharray_value = "1 " + /*pathScale*/ ctx[4](/*value*/ ctx[27]) * 2);
     			attr_dev(line_1, "stroke-linecap", "round");
     			add_location(line_1, file$5, 149, 8, 4299);
+=======
+    			attr_dev(line_1, "data-orig", line_1_data_orig_value = /*ORIG*/ ctx[33]);
+    			attr_dev(line_1, "data-code", line_1_data_code_value = /*CODE*/ ctx[32]);
+    			attr_dev(line_1, "data-value", line_1_data_value_value = /*value*/ ctx[26]);
+    			attr_dev(line_1, "stroke", "gray");
+    			attr_dev(line_1, "stroke-width", line_1_stroke_width_value = /*pathScale*/ ctx[4](/*value*/ ctx[26]));
+    			attr_dev(line_1, "stroke-dasharray", line_1_stroke_dasharray_value = "1 " + /*pathScale*/ ctx[4](/*value*/ ctx[26]) * 2);
+    			attr_dev(line_1, "stroke-linecap", "round");
+    			add_location(line_1, file$4, 148, 8, 4267);
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, line_1, anchor);
@@ -9182,6 +9588,7 @@ var app = (function () {
     				attr_dev(line_1, "y2", line_1_y__value_1);
     			}
 
+<<<<<<< HEAD
     			if (dirty[0] & /*links*/ 2 && line_1_data_orig_value !== (line_1_data_orig_value = /*ORIG*/ ctx[34])) {
     				attr_dev(line_1, "data-orig", line_1_data_orig_value);
     			}
@@ -9199,6 +9606,25 @@ var app = (function () {
     			}
 
     			if (dirty[0] & /*links*/ 2 && line_1_stroke_dasharray_value !== (line_1_stroke_dasharray_value = "1 " + /*pathScale*/ ctx[4](/*value*/ ctx[27]) * 2)) {
+=======
+    			if (dirty[0] & /*links*/ 2 && line_1_data_orig_value !== (line_1_data_orig_value = /*ORIG*/ ctx[33])) {
+    				attr_dev(line_1, "data-orig", line_1_data_orig_value);
+    			}
+
+    			if (dirty[0] & /*links*/ 2 && line_1_data_code_value !== (line_1_data_code_value = /*CODE*/ ctx[32])) {
+    				attr_dev(line_1, "data-code", line_1_data_code_value);
+    			}
+
+    			if (dirty[0] & /*links*/ 2 && line_1_data_value_value !== (line_1_data_value_value = /*value*/ ctx[26])) {
+    				attr_dev(line_1, "data-value", line_1_data_value_value);
+    			}
+
+    			if (dirty[0] & /*links*/ 2 && line_1_stroke_width_value !== (line_1_stroke_width_value = /*pathScale*/ ctx[4](/*value*/ ctx[26]))) {
+    				attr_dev(line_1, "stroke-width", line_1_stroke_width_value);
+    			}
+
+    			if (dirty[0] & /*links*/ 2 && line_1_stroke_dasharray_value !== (line_1_stroke_dasharray_value = "1 " + /*pathScale*/ ctx[4](/*value*/ ctx[26]) * 2)) {
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     				attr_dev(line_1, "stroke-dasharray", line_1_stroke_dasharray_value);
     			}
     		},
@@ -9209,17 +9635,28 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
+<<<<<<< HEAD
     		id: create_each_block_1$1.name,
     		type: "each",
     		source: "(148:6) {#each links as {CODE, ORIG, value}}",
+=======
+    		id: create_each_block_1.name,
+    		type: "each",
+    		source: "(147:6) {#each links as {CODE, ORIG, value}}",
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     		ctx
     	});
 
     	return block;
     }
 
+<<<<<<< HEAD
     // (167:2) {#each $butterflyPoints as {x, y, value, regionIndex, regionShape, regionCode}}
     function create_each_block$1(ctx) {
+=======
+    // (166:2) {#each $butterflyPoints as {x, y, value, regionIndex, regionShape, regionCode}}
+    function create_each_block(ctx) {
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     	let g1;
     	let g0;
     	let use;
@@ -9229,7 +9666,10 @@ var app = (function () {
     	let use_fill_value;
     	let use_data_region_index_value;
     	let use_data_region_code_value;
+<<<<<<< HEAD
     	let use_data_value_value;
+=======
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     	let g0_transform_value;
     	let g1_transform_value;
     	let mounted;
@@ -9240,6 +9680,7 @@ var app = (function () {
     			g1 = svg_element("g");
     			g0 = svg_element("g");
     			use = svg_element("use");
+<<<<<<< HEAD
     			xlink_attr(use, "xlink:href", use_xlink_href_value = "#butterfly-" + /*regionShape*/ ctx[29]);
     			attr_dev(use, "transform", use_transform_value = "scale(" + /*sScale*/ ctx[3](/*value*/ ctx[27]) + ", " + /*sScale*/ ctx[3](/*value*/ ctx[27]) + ")");
     			attr_dev(use, "stroke", use_stroke_value = regions[/*regionIndex*/ ctx[28]].color);
@@ -9257,6 +9698,24 @@ var app = (function () {
     			attr_dev(g1, "class", "butterfly-container");
     			attr_dev(g1, "transform", g1_transform_value = "translate(" + /*sScale*/ ctx[3](/*value*/ ctx[27]) * -50 + ", " + /*sScale*/ ctx[3](/*value*/ ctx[27]) * -50 + ")");
     			add_location(g1, file$5, 167, 4, 4960);
+=======
+    			xlink_attr(use, "xlink:href", use_xlink_href_value = "#butterfly-" + /*regionShape*/ ctx[28]);
+    			attr_dev(use, "transform", use_transform_value = "scale(" + /*sScale*/ ctx[3](/*value*/ ctx[26]) + ")");
+    			attr_dev(use, "stroke", use_stroke_value = regions[/*regionIndex*/ ctx[27]].color);
+    			attr_dev(use, "stroke-width", "1");
+    			attr_dev(use, "fill", use_fill_value = regions[/*regionIndex*/ ctx[27]].color);
+    			attr_dev(use, "fill-opacity", "0.5");
+    			attr_dev(use, "data-region-index", use_data_region_index_value = /*regionIndex*/ ctx[27]);
+    			attr_dev(use, "data-region-code", use_data_region_code_value = /*regionCode*/ ctx[29]);
+    			attr_dev(use, "class", "svelte-rmrozh");
+    			add_location(use, file$4, 175, 8, 5235);
+    			attr_dev(g0, "class", "butterfly svelte-rmrozh");
+    			attr_dev(g0, "transform", g0_transform_value = "translate(" + /*x*/ ctx[24] + ", " + /*y*/ ctx[25] + ") rotate(" + (Math.random() * 60 - 30) + ")");
+    			add_location(g0, file$4, 170, 6, 5051);
+    			attr_dev(g1, "class", "butterfly-container");
+    			attr_dev(g1, "transform", g1_transform_value = "translate(" + /*sScale*/ ctx[3](/*value*/ ctx[26]) * -50 + ", " + /*sScale*/ ctx[3](/*value*/ ctx[26]) * -50 + ")");
+    			add_location(g1, file$4, 166, 4, 4928);
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, g1, anchor);
@@ -9274,6 +9733,7 @@ var app = (function () {
     			}
     		},
     		p: function update(ctx, dirty) {
+<<<<<<< HEAD
     			if (dirty[0] & /*$butterflyPoints*/ 4 && use_xlink_href_value !== (use_xlink_href_value = "#butterfly-" + /*regionShape*/ ctx[29])) {
     				xlink_attr(use, "xlink:href", use_xlink_href_value);
     			}
@@ -9307,6 +9767,37 @@ var app = (function () {
     			}
 
     			if (dirty[0] & /*$butterflyPoints*/ 4 && g1_transform_value !== (g1_transform_value = "translate(" + /*sScale*/ ctx[3](/*value*/ ctx[27]) * -50 + ", " + /*sScale*/ ctx[3](/*value*/ ctx[27]) * -50 + ")")) {
+=======
+    			if (dirty[0] & /*$butterflyPoints*/ 4 && use_xlink_href_value !== (use_xlink_href_value = "#butterfly-" + /*regionShape*/ ctx[28])) {
+    				xlink_attr(use, "xlink:href", use_xlink_href_value);
+    			}
+
+    			if (dirty[0] & /*$butterflyPoints*/ 4 && use_transform_value !== (use_transform_value = "scale(" + /*sScale*/ ctx[3](/*value*/ ctx[26]) + ")")) {
+    				attr_dev(use, "transform", use_transform_value);
+    			}
+
+    			if (dirty[0] & /*$butterflyPoints*/ 4 && use_stroke_value !== (use_stroke_value = regions[/*regionIndex*/ ctx[27]].color)) {
+    				attr_dev(use, "stroke", use_stroke_value);
+    			}
+
+    			if (dirty[0] & /*$butterflyPoints*/ 4 && use_fill_value !== (use_fill_value = regions[/*regionIndex*/ ctx[27]].color)) {
+    				attr_dev(use, "fill", use_fill_value);
+    			}
+
+    			if (dirty[0] & /*$butterflyPoints*/ 4 && use_data_region_index_value !== (use_data_region_index_value = /*regionIndex*/ ctx[27])) {
+    				attr_dev(use, "data-region-index", use_data_region_index_value);
+    			}
+
+    			if (dirty[0] & /*$butterflyPoints*/ 4 && use_data_region_code_value !== (use_data_region_code_value = /*regionCode*/ ctx[29])) {
+    				attr_dev(use, "data-region-code", use_data_region_code_value);
+    			}
+
+    			if (dirty[0] & /*$butterflyPoints*/ 4 && g0_transform_value !== (g0_transform_value = "translate(" + /*x*/ ctx[24] + ", " + /*y*/ ctx[25] + ") rotate(" + (Math.random() * 60 - 30) + ")")) {
+    				attr_dev(g0, "transform", g0_transform_value);
+    			}
+
+    			if (dirty[0] & /*$butterflyPoints*/ 4 && g1_transform_value !== (g1_transform_value = "translate(" + /*sScale*/ ctx[3](/*value*/ ctx[26]) * -50 + ", " + /*sScale*/ ctx[3](/*value*/ ctx[26]) * -50 + ")")) {
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     				attr_dev(g1, "transform", g1_transform_value);
     			}
     		},
@@ -9319,16 +9810,26 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
+<<<<<<< HEAD
     		id: create_each_block$1.name,
     		type: "each",
     		source: "(167:2) {#each $butterflyPoints as {x, y, value, regionIndex, regionShape, regionCode}}",
+=======
+    		id: create_each_block.name,
+    		type: "each",
+    		source: "(166:2) {#each $butterflyPoints as {x, y, value, regionIndex, regionShape, regionCode}}",
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     		ctx
     	});
 
     	return block;
     }
 
+<<<<<<< HEAD
     function create_fragment$6(ctx) {
+=======
+    function create_fragment$5(ctx) {
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     	let g3;
     	let defs0;
     	let g0;
@@ -9337,13 +9838,21 @@ var app = (function () {
     	let g1;
     	let raw1_value = /*butterflies*/ ctx[0][1] + "";
     	let g2;
+<<<<<<< HEAD
     	let if_block = /*links*/ ctx[1] !== undefined && create_if_block$3(ctx);
+=======
+    	let if_block = /*links*/ ctx[1] !== undefined && create_if_block$2(ctx);
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     	let each_value = /*$butterflyPoints*/ ctx[2];
     	validate_each_argument(each_value);
     	let each_blocks = [];
 
     	for (let i = 0; i < each_value.length; i += 1) {
+<<<<<<< HEAD
     		each_blocks[i] = create_each_block$1(get_each_context$1(ctx, each_value, i));
+=======
+    		each_blocks[i] = create_each_block(get_each_context(ctx, each_value, i));
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     	}
 
     	const block = {
@@ -9361,6 +9870,7 @@ var app = (function () {
     			}
 
     			attr_dev(g0, "id", "butterfly-0");
+<<<<<<< HEAD
     			add_location(g0, file$5, 135, 4, 3987);
     			add_location(defs0, file$5, 134, 2, 3976);
     			attr_dev(g1, "id", "butterfly-1");
@@ -9370,6 +9880,17 @@ var app = (function () {
     			add_location(g2, file$5, 145, 2, 4141);
     			attr_dev(g3, "class", "map-points");
     			add_location(g3, file$5, 126, 0, 3819);
+=======
+    			add_location(g0, file$4, 134, 4, 3955);
+    			add_location(defs0, file$4, 133, 2, 3944);
+    			attr_dev(g1, "id", "butterfly-1");
+    			add_location(g1, file$4, 139, 4, 4037);
+    			add_location(defs1, file$4, 138, 2, 4026);
+    			attr_dev(g2, "class", "link-lines");
+    			add_location(g2, file$4, 144, 2, 4109);
+    			attr_dev(g3, "class", "map-points");
+    			add_location(g3, file$4, 125, 0, 3787);
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -9395,7 +9916,11 @@ var app = (function () {
     				if (if_block) {
     					if_block.p(ctx, dirty);
     				} else {
+<<<<<<< HEAD
     					if_block = create_if_block$3(ctx);
+=======
+    					if_block = create_if_block$2(ctx);
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     					if_block.c();
     					if_block.m(g2, null);
     				}
@@ -9410,12 +9935,20 @@ var app = (function () {
     				let i;
 
     				for (i = 0; i < each_value.length; i += 1) {
+<<<<<<< HEAD
     					const child_ctx = get_each_context$1(ctx, each_value, i);
+=======
+    					const child_ctx = get_each_context(ctx, each_value, i);
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
 
     					if (each_blocks[i]) {
     						each_blocks[i].p(child_ctx, dirty);
     					} else {
+<<<<<<< HEAD
     						each_blocks[i] = create_each_block$1(child_ctx);
+=======
+    						each_blocks[i] = create_each_block(child_ctx);
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     						each_blocks[i].c();
     						each_blocks[i].m(g3, null);
     					}
@@ -9439,7 +9972,11 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
+<<<<<<< HEAD
     		id: create_fragment$6.name,
+=======
+    		id: create_fragment$5.name,
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     		type: "component",
     		source: "",
     		ctx
@@ -9454,11 +9991,18 @@ var app = (function () {
     	setTimeout(setDasharray, 1000);
     }
 
+<<<<<<< HEAD
     function instance$6($$self, $$props, $$invalidate) {
     	let $butterflyPoints;
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots('MapPoints', slots, []);
     	let { width } = $$props;
+=======
+    function instance$5($$self, $$props, $$invalidate) {
+    	let $butterflyPoints;
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots('MapPoints', slots, []);
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     	let { regionFlow } = $$props;
     	let { datasets } = $$props;
     	let { data } = $$props;
@@ -9469,7 +10013,11 @@ var app = (function () {
     	let { selectedCountry } = $$props;
     	let links = [];
     	const { open } = getContext('simple-modal');
+<<<<<<< HEAD
     	const sScale = linear().domain(extent(data.features, d => d.properties.VALUE)).range([0.25, width / 1200]);
+=======
+    	const sScale = linear().domain(extent(data.features, d => d.properties.VALUE)).range([0.25, 1]);
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     	const pathScale = linear().domain(extent(regionFlow, d => d.value)).range([1, 10]);
 
     	let butterflyPoints = spring(
@@ -9540,7 +10088,10 @@ var app = (function () {
     	}
 
     	const writable_props = [
+<<<<<<< HEAD
     		'width',
+=======
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     		'regionFlow',
     		'datasets',
     		'data',
@@ -9552,7 +10103,11 @@ var app = (function () {
     	];
 
     	Object.keys($$props).forEach(key => {
+<<<<<<< HEAD
     		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console_1$1.warn(`<MapPoints> was created with unknown prop '${key}'`);
+=======
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console_1.warn(`<MapPoints> was created with unknown prop '${key}'`);
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     	});
 
     	const func = (ORIG, d) => d.regionCode == ORIG;
@@ -9561,11 +10116,18 @@ var app = (function () {
     	const func_3 = (CODE, d) => d.regionCode == CODE;
 
     	$$self.$$set = $$props => {
+<<<<<<< HEAD
     		if ('width' in $$props) $$invalidate(12, width = $$props.width);
     		if ('regionFlow' in $$props) $$invalidate(13, regionFlow = $$props.regionFlow);
     		if ('datasets' in $$props) $$invalidate(14, datasets = $$props.datasets);
     		if ('data' in $$props) $$invalidate(15, data = $$props.data);
     		if ('projection' in $$props) $$invalidate(16, projection = $$props.projection);
+=======
+    		if ('regionFlow' in $$props) $$invalidate(12, regionFlow = $$props.regionFlow);
+    		if ('datasets' in $$props) $$invalidate(13, datasets = $$props.datasets);
+    		if ('data' in $$props) $$invalidate(14, data = $$props.data);
+    		if ('projection' in $$props) $$invalidate(15, projection = $$props.projection);
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     		if ('butterflies' in $$props) $$invalidate(0, butterflies = $$props.butterflies);
     		if ('selectedRegion' in $$props) $$invalidate(9, selectedRegion = $$props.selectedRegion);
     		if ('hoveredRegionCode' in $$props) $$invalidate(10, hoveredRegionCode = $$props.hoveredRegionCode);
@@ -9575,9 +10137,16 @@ var app = (function () {
     	$$self.$capture_state = () => ({
     		spring,
     		getContext,
+<<<<<<< HEAD
     		scaleSqrt: sqrt,
     		scaleLinear: linear,
     		extent,
+=======
+    		scaleLinear: linear,
+    		extent,
+    		min,
+    		max,
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     		select,
     		selectAll,
     		groups,
@@ -9589,7 +10158,10 @@ var app = (function () {
     		forceY,
     		Popup,
     		regions,
+<<<<<<< HEAD
     		width,
+=======
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     		regionFlow,
     		datasets,
     		data,
@@ -9614,11 +10186,18 @@ var app = (function () {
     	});
 
     	$$self.$inject_state = $$props => {
+<<<<<<< HEAD
     		if ('width' in $$props) $$invalidate(12, width = $$props.width);
     		if ('regionFlow' in $$props) $$invalidate(13, regionFlow = $$props.regionFlow);
     		if ('datasets' in $$props) $$invalidate(14, datasets = $$props.datasets);
     		if ('data' in $$props) $$invalidate(15, data = $$props.data);
     		if ('projection' in $$props) $$invalidate(16, projection = $$props.projection);
+=======
+    		if ('regionFlow' in $$props) $$invalidate(12, regionFlow = $$props.regionFlow);
+    		if ('datasets' in $$props) $$invalidate(13, datasets = $$props.datasets);
+    		if ('data' in $$props) $$invalidate(14, data = $$props.data);
+    		if ('projection' in $$props) $$invalidate(15, projection = $$props.projection);
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     		if ('butterflies' in $$props) $$invalidate(0, butterflies = $$props.butterflies);
     		if ('selectedRegion' in $$props) $$invalidate(9, selectedRegion = $$props.selectedRegion);
     		if ('hoveredRegionCode' in $$props) $$invalidate(10, hoveredRegionCode = $$props.hoveredRegionCode);
@@ -9632,7 +10211,11 @@ var app = (function () {
     	}
 
     	$$self.$$.update = () => {
+<<<<<<< HEAD
     		if ($$self.$$.dirty[0] & /*data, projection*/ 98304) {
+=======
+    		if ($$self.$$.dirty[0] & /*data, projection*/ 49152) {
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     			{
     				forceSimulation(data.features).force("collide", forceCollide().radius(d => sScale(d.properties.VALUE) * 55)).force("x", forceX().x(d => projection(d.geometry.coordinates)[0])).force("y", forceY().y(d => projection(d.geometry.coordinates)[1])).force("link", forceLink().id(function (d) {
     					return d.CODE;
@@ -9665,7 +10248,10 @@ var app = (function () {
     		selectedRegion,
     		hoveredRegionCode,
     		selectedCountry,
+<<<<<<< HEAD
     		width,
+=======
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     		regionFlow,
     		datasets,
     		data,
@@ -9684,6 +10270,7 @@ var app = (function () {
     		init$1(
     			this,
     			options,
+<<<<<<< HEAD
     			instance$6,
     			create_fragment$6,
     			safe_not_equal,
@@ -9693,6 +10280,16 @@ var app = (function () {
     				datasets: 14,
     				data: 15,
     				projection: 16,
+=======
+    			instance$5,
+    			create_fragment$5,
+    			safe_not_equal,
+    			{
+    				regionFlow: 12,
+    				datasets: 13,
+    				data: 14,
+    				projection: 15,
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     				butterflies: 0,
     				selectedRegion: 9,
     				hoveredRegionCode: 10,
@@ -9706,12 +10303,17 @@ var app = (function () {
     			component: this,
     			tagName: "MapPoints",
     			options,
+<<<<<<< HEAD
     			id: create_fragment$6.name
+=======
+    			id: create_fragment$5.name
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     		});
 
     		const { ctx } = this.$$;
     		const props = options.props || {};
 
+<<<<<<< HEAD
     		if (/*width*/ ctx[12] === undefined && !('width' in props)) {
     			console_1$1.warn("<MapPoints> was created without expected prop 'width'");
     		}
@@ -9757,6 +10359,41 @@ var app = (function () {
     		throw new Error("<MapPoints>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
     	}
 
+=======
+    		if (/*regionFlow*/ ctx[12] === undefined && !('regionFlow' in props)) {
+    			console_1.warn("<MapPoints> was created without expected prop 'regionFlow'");
+    		}
+
+    		if (/*datasets*/ ctx[13] === undefined && !('datasets' in props)) {
+    			console_1.warn("<MapPoints> was created without expected prop 'datasets'");
+    		}
+
+    		if (/*data*/ ctx[14] === undefined && !('data' in props)) {
+    			console_1.warn("<MapPoints> was created without expected prop 'data'");
+    		}
+
+    		if (/*projection*/ ctx[15] === undefined && !('projection' in props)) {
+    			console_1.warn("<MapPoints> was created without expected prop 'projection'");
+    		}
+
+    		if (/*butterflies*/ ctx[0] === undefined && !('butterflies' in props)) {
+    			console_1.warn("<MapPoints> was created without expected prop 'butterflies'");
+    		}
+
+    		if (/*selectedRegion*/ ctx[9] === undefined && !('selectedRegion' in props)) {
+    			console_1.warn("<MapPoints> was created without expected prop 'selectedRegion'");
+    		}
+
+    		if (/*hoveredRegionCode*/ ctx[10] === undefined && !('hoveredRegionCode' in props)) {
+    			console_1.warn("<MapPoints> was created without expected prop 'hoveredRegionCode'");
+    		}
+
+    		if (/*selectedCountry*/ ctx[11] === undefined && !('selectedCountry' in props)) {
+    			console_1.warn("<MapPoints> was created without expected prop 'selectedCountry'");
+    		}
+    	}
+
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     	get regionFlow() {
     		throw new Error("<MapPoints>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
     	}
@@ -9822,6 +10459,7 @@ var app = (function () {
     	}
     }
 
+<<<<<<< HEAD
     /* src/Legend.svelte generated by Svelte v3.46.4 */
     const file$4 = "src/Legend.svelte";
 
@@ -10384,6 +11022,73 @@ var app = (function () {
     			attr_dev(div1, "aria-label", div1_aria_label_value = /*state*/ ctx[1].ariaLabelledBy
     			? null
     			: /*state*/ ctx[1].ariaLabel || null);
+=======
+    function fade(node, { delay = 0, duration = 400, easing = identity$5 } = {}) {
+        const o = +getComputedStyle(node).opacity;
+        return {
+            delay,
+            duration,
+            easing,
+            css: t => `opacity: ${t * o}`
+        };
+    }
+
+    /* src/Modal.svelte generated by Svelte v3.46.4 */
+
+    const { Object: Object_1, window: window_1 } = globals;
+    const file$3 = "src/Modal.svelte";
+
+    // (398:0) {#if Component}
+    function create_if_block$1(ctx) {
+    	let div3;
+    	let div2;
+    	let div1;
+    	let t;
+    	let div0;
+    	let switch_instance;
+    	let div0_class_value;
+    	let div1_class_value;
+    	let div1_aria_label_value;
+    	let div1_aria_labelledby_value;
+    	let div1_transition;
+    	let div2_class_value;
+    	let div3_class_value;
+    	let div3_transition;
+    	let current;
+    	let mounted;
+    	let dispose;
+    	let if_block = /*state*/ ctx[1].closeButton && create_if_block_1(ctx);
+    	var switch_value = /*Component*/ ctx[2];
+
+    	function switch_props(ctx) {
+    		return { $$inline: true };
+    	}
+
+    	if (switch_value) {
+    		switch_instance = new switch_value(switch_props());
+    	}
+
+    	const block = {
+    		c: function create() {
+    			div3 = element("div");
+    			div2 = element("div");
+    			div1 = element("div");
+    			if (if_block) if_block.c();
+    			t = space();
+    			div0 = element("div");
+    			if (switch_instance) create_component(switch_instance.$$.fragment);
+    			attr_dev(div0, "class", div0_class_value = "" + (null_to_empty(/*state*/ ctx[1].classContent) + " svelte-1247dek"));
+    			attr_dev(div0, "style", /*cssContent*/ ctx[9]);
+    			toggle_class(div0, "content", !/*unstyled*/ ctx[0]);
+    			add_location(div0, file$3, 441, 8, 11015);
+    			attr_dev(div1, "class", div1_class_value = "" + (null_to_empty(/*state*/ ctx[1].classWindow) + " svelte-1247dek"));
+    			attr_dev(div1, "role", "dialog");
+    			attr_dev(div1, "aria-modal", "true");
+
+    			attr_dev(div1, "aria-label", div1_aria_label_value = /*state*/ ctx[1].ariaLabelledBy
+    			? null
+    			: /*state*/ ctx[1].ariaLabel || null);
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
 
     			attr_dev(div1, "aria-labelledby", div1_aria_labelledby_value = /*state*/ ctx[1].ariaLabelledBy || null);
     			attr_dev(div1, "style", /*cssWindow*/ ctx[8]);
@@ -11705,7 +12410,11 @@ var app = (function () {
     /* src/MapContainer.svelte generated by Svelte v3.46.4 */
     const file$2 = "src/MapContainer.svelte";
 
+<<<<<<< HEAD
     // (33:2) {#if w !== undefined}
+=======
+    // (31:2) {#if w !== undefined}
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     function create_if_block(ctx) {
     	let modal_1;
     	let current;
@@ -11733,7 +12442,11 @@ var app = (function () {
     			const modal_1_changes = {};
     			if (dirty & /*$modal*/ 256) modal_1_changes.show = /*$modal*/ ctx[8];
 
+<<<<<<< HEAD
     			if (dirty & /*$$scope, w, h, projection, dataset, selectedRegion, hoveredRegionCode, selectedCountry, path*/ 524543) {
+=======
+    			if (dirty & /*$$scope, w, h, projection, dataset, selectedRegion, hoveredRegionCode, selectedCountry, path*/ 262399) {
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     				modal_1_changes.$$scope = { dirty, ctx };
     			}
 
@@ -11757,14 +12470,22 @@ var app = (function () {
     		block,
     		id: create_if_block.name,
     		type: "if",
+<<<<<<< HEAD
     		source: "(33:2) {#if w !== undefined}",
+=======
+    		source: "(31:2) {#if w !== undefined}",
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     		ctx
     	});
 
     	return block;
     }
 
+<<<<<<< HEAD
     // (34:4) <Modal show={$modal} transitionBgProps={{ duration: 0 }} styleCloseButton={{cursor: "pointer"}}>
+=======
+    // (32:4) <Modal show={$modal} transitionBgProps={{ duration: 0 }} styleCloseButton={{cursor: "pointer"}}>
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     function create_default_slot(ctx) {
     	let svg;
     	let mappath;
@@ -11772,9 +12493,12 @@ var app = (function () {
     	let updating_selectedRegion;
     	let updating_hoveredRegionCode;
     	let updating_selectedCountry;
+<<<<<<< HEAD
     	let t;
     	let div;
     	let legend;
+=======
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     	let current;
 
     	mappath = new MapPath({
@@ -11798,7 +12522,10 @@ var app = (function () {
     	}
 
     	let mappoints_props = {
+<<<<<<< HEAD
     		width: /*w*/ ctx[4],
+=======
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     		data: /*centroidsD*/ ctx[9],
     		regionFlow: /*regionFlow*/ ctx[12],
     		projection: /*projection*/ ctx[5],
@@ -11823,6 +12550,7 @@ var app = (function () {
     	binding_callbacks.push(() => bind$1(mappoints, 'hoveredRegionCode', mappoints_hoveredRegionCode_binding));
     	binding_callbacks.push(() => bind$1(mappoints, 'selectedCountry', mappoints_selectedCountry_binding));
 
+<<<<<<< HEAD
     	legend = new Legend({
     			props: {
     				width: /*w*/ ctx[4],
@@ -11832,11 +12560,14 @@ var app = (function () {
     			$$inline: true
     		});
 
+=======
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     	const block = {
     		c: function create() {
     			svg = svg_element("svg");
     			create_component(mappath.$$.fragment);
     			create_component(mappoints.$$.fragment);
+<<<<<<< HEAD
     			t = space();
     			div = element("div");
     			create_component(legend.$$.fragment);
@@ -11847,14 +12578,22 @@ var app = (function () {
     			attr_dev(div, "id", "legend");
     			attr_dev(div, "class", "svelte-1dqmfj6");
     			add_location(div, file$2, 38, 6, 1371);
+=======
+    			attr_dev(svg, "width", /*w*/ ctx[4]);
+    			attr_dev(svg, "height", /*h*/ ctx[6]);
+    			add_location(svg, file$2, 32, 6, 951);
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, svg, anchor);
     			mount_component(mappath, svg, null);
     			mount_component(mappoints, svg, null);
+<<<<<<< HEAD
     			insert_dev(target, t, anchor);
     			insert_dev(target, div, anchor);
     			mount_component(legend, div, null);
+=======
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     			current = true;
     		},
     		p: function update(ctx, dirty) {
@@ -11862,7 +12601,10 @@ var app = (function () {
     			if (dirty & /*path*/ 128) mappath_changes.path = /*path*/ ctx[7];
     			mappath.$set(mappath_changes);
     			const mappoints_changes = {};
+<<<<<<< HEAD
     			if (dirty & /*w*/ 16) mappoints_changes.width = /*w*/ ctx[4];
+=======
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     			if (dirty & /*projection*/ 32) mappoints_changes.projection = /*projection*/ ctx[5];
     			if (dirty & /*dataset*/ 8) mappoints_changes.datasets = /*dataset*/ ctx[3];
 
@@ -11893,32 +12635,44 @@ var app = (function () {
     			if (!current || dirty & /*h*/ 64) {
     				attr_dev(svg, "height", /*h*/ ctx[6]);
     			}
+<<<<<<< HEAD
 
     			const legend_changes = {};
     			if (dirty & /*w*/ 16) legend_changes.width = /*w*/ ctx[4];
     			if (dirty & /*h*/ 64) legend_changes.height = /*h*/ ctx[6];
     			legend.$set(legend_changes);
+=======
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     		},
     		i: function intro(local) {
     			if (current) return;
     			transition_in(mappath.$$.fragment, local);
     			transition_in(mappoints.$$.fragment, local);
+<<<<<<< HEAD
     			transition_in(legend.$$.fragment, local);
+=======
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     			current = true;
     		},
     		o: function outro(local) {
     			transition_out(mappath.$$.fragment, local);
     			transition_out(mappoints.$$.fragment, local);
+<<<<<<< HEAD
     			transition_out(legend.$$.fragment, local);
+=======
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     			current = false;
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(svg);
     			destroy_component(mappath);
     			destroy_component(mappoints);
+<<<<<<< HEAD
     			if (detaching) detach_dev(t);
     			if (detaching) detach_dev(div);
     			destroy_component(legend);
+=======
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     		}
     	};
 
@@ -11926,7 +12680,11 @@ var app = (function () {
     		block,
     		id: create_default_slot.name,
     		type: "slot",
+<<<<<<< HEAD
     		source: "(34:4) <Modal show={$modal} transitionBgProps={{ duration: 0 }} styleCloseButton={{cursor: \\\"pointer\\\"}}>",
+=======
+    		source: "(32:4) <Modal show={$modal} transitionBgProps={{ duration: 0 }} styleCloseButton={{cursor: \\\"pointer\\\"}}>",
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     		ctx
     	});
 
@@ -11943,9 +12701,15 @@ var app = (function () {
     		c: function create() {
     			section = element("section");
     			if (if_block) if_block.c();
+<<<<<<< HEAD
     			attr_dev(section, "class", "map__container svelte-1dqmfj6");
     			add_render_callback(() => /*section_elementresize_handler*/ ctx[16].call(section));
     			add_location(section, file$2, 31, 0, 816);
+=======
+    			attr_dev(section, "class", "map__container");
+    			add_render_callback(() => /*section_elementresize_handler*/ ctx[16].call(section));
+    			add_location(section, file$2, 29, 0, 766);
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -12025,7 +12789,10 @@ var app = (function () {
     	let butterflies = dataset[2];
     	let regions = dataset[8];
     	let regionFlow = dataset[9];
+<<<<<<< HEAD
     	let totalMigrants = dataset[10];
+=======
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     	let w;
     	const writable_props = ['dataset', 'selectedRegion', 'hoveredRegionCode', 'selectedCountry'];
 
@@ -12065,7 +12832,10 @@ var app = (function () {
     		geoPath,
     		MapPath,
     		MapPoints,
+<<<<<<< HEAD
     		Legend,
+=======
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     		Modal,
     		modal,
     		dataset,
@@ -12077,7 +12847,10 @@ var app = (function () {
     		butterflies,
     		regions,
     		regionFlow,
+<<<<<<< HEAD
     		totalMigrants,
+=======
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     		w,
     		projection,
     		path,
@@ -12095,7 +12868,10 @@ var app = (function () {
     		if ('butterflies' in $$props) $$invalidate(11, butterflies = $$props.butterflies);
     		if ('regions' in $$props) regions = $$props.regions;
     		if ('regionFlow' in $$props) $$invalidate(12, regionFlow = $$props.regionFlow);
+<<<<<<< HEAD
     		if ('totalMigrants' in $$props) totalMigrants = $$props.totalMigrants;
+=======
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     		if ('w' in $$props) $$invalidate(4, w = $$props.w);
     		if ('projection' in $$props) $$invalidate(5, projection = $$props.projection);
     		if ('path' in $$props) $$invalidate(7, path = $$props.path);
@@ -12112,7 +12888,11 @@ var app = (function () {
     		}
 
     		if ($$self.$$.dirty & /*w, h*/ 80) {
+<<<<<<< HEAD
     			$$invalidate(5, projection = geoNaturalEarth1().fitSize([w, h], outlineD).rotate([-5, 0, 0]));
+=======
+    			$$invalidate(5, projection = geoNaturalEarth1().fitSize([w, h], outlineD)); // .rotate([45, 0, 0]) would cut out Alaska
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     		}
 
     		if ($$self.$$.dirty & /*projection*/ 32) {
@@ -12330,8 +13110,11 @@ var app = (function () {
     }
 
     /* src/App.svelte generated by Svelte v3.46.4 */
+<<<<<<< HEAD
 
     const { console: console_1 } = globals;
+=======
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     const file = "src/App.svelte";
 
     // (1:0) <script>   import { text, json, csv }
@@ -12356,7 +13139,11 @@ var app = (function () {
     	return block;
     }
 
+<<<<<<< HEAD
     // (66:2) {:then dataset}
+=======
+    // (59:2) {:then dataset}
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     function create_then_block(ctx) {
     	let mapcontainer;
     	let updating_selectedRegion;
@@ -12460,14 +13247,22 @@ var app = (function () {
     		block,
     		id: create_then_block.name,
     		type: "then",
+<<<<<<< HEAD
     		source: "(66:2) {:then dataset}",
+=======
+    		source: "(59:2) {:then dataset}",
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     		ctx
     	});
 
     	return block;
     }
 
+<<<<<<< HEAD
     // (62:18)      <div>       Loading...     </div>   {:then dataset}
+=======
+    // (55:18)      <div>       Loading...     </div>   {:then dataset}
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     function create_pending_block(ctx) {
     	let div;
 
@@ -12476,7 +13271,11 @@ var app = (function () {
     			div = element("div");
     			div.textContent = "Loading...";
     			attr_dev(div, "class", "svelte-1brbny8");
+<<<<<<< HEAD
     			add_location(div, file, 62, 4, 1931);
+=======
+    			add_location(div, file, 55, 4, 1721);
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -12493,7 +13292,11 @@ var app = (function () {
     		block,
     		id: create_pending_block.name,
     		type: "pending",
+<<<<<<< HEAD
     		source: "(62:18)      <div>       Loading...     </div>   {:then dataset}",
+=======
+    		source: "(55:18)      <div>       Loading...     </div>   {:then dataset}",
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     		ctx
     	});
 
@@ -12527,7 +13330,11 @@ var app = (function () {
     			create_component(title.$$.fragment);
     			t = space();
     			info.block.c();
+<<<<<<< HEAD
     			add_location(main, file, 59, 0, 1889);
+=======
+    			add_location(main, file, 52, 0, 1679);
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -12591,11 +13398,14 @@ var app = (function () {
     	datasets[9].map(d => {
     		d.value = +d.value;
     	});
+<<<<<<< HEAD
 
     	// parse totalMigrants
     	datasets[10].map(d => {
     		d.TOTAL_MIGRANTS = +d.TOTAL_MIGRANTS;
     	});
+=======
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     }
 
     function instance($$self, $$props, $$invalidate) {
@@ -12609,7 +13419,11 @@ var app = (function () {
     	let promise = getData();
 
     	async function getData() {
+<<<<<<< HEAD
     		let mapCentroidsD = await json("data/mapData/region-centroids.geojson");
+=======
+    		let mapCentroidsD = await json("data/mapData/region-centroid.geojson");
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     		let mapOutlineD = await json("data/mapData/world.geojson");
     		let butterflySvg1 = await text(butterflies[0]);
     		let butterflySvg2 = await text(butterflies[1]);
@@ -12621,7 +13435,10 @@ var app = (function () {
     		let acqMode = await csv("data/modes_acq.csv");
     		let regions = await csv("data/regions.csv");
     		let regionFlow = await csv("data/region_flows.csv");
+<<<<<<< HEAD
     		let totalMigrants = await csv("data/total_migrants.csv");
+=======
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
 
     		$$invalidate(0, datasets = [
     			mapCentroidsD,
@@ -12633,18 +13450,29 @@ var app = (function () {
     			questions,
     			acqMode,
     			regions,
+<<<<<<< HEAD
     			regionFlow,
     			totalMigrants
     		]);
 
     		parseData(datasets);
     		console.log(datasets);
+=======
+    			regionFlow
+    		]);
+
+    		parseData(datasets);
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     	}
 
     	const writable_props = ['datasets'];
 
     	Object.keys($$props).forEach(key => {
+<<<<<<< HEAD
     		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console_1.warn(`<App> was created with unknown prop '${key}'`);
+=======
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<App> was created with unknown prop '${key}'`);
+>>>>>>> 9b4cedbf16e62d1900d84acb58ce2a32770c4745
     	});
 
     	function mapcontainer_selectedRegion_binding(value) {

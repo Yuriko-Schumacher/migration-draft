@@ -31,9 +31,8 @@
     let acqMode = await csv("data/modes_acq.csv")
     let regions = await csv("data/regions.csv")
     let regionFlow = await csv("data/region_flows.csv")
-    let totalMigrants = await csv("data/total_migrants.csv")
     datasets = [mapCentroidsD, mapOutlineD, butterflySvgs, byCountryD, warnings,
-    definitions, questions, acqMode, regions, regionFlow, totalMigrants];
+    definitions, questions, acqMode, regions, regionFlow];
     parseData(datasets);
     console.log(datasets)
   }
@@ -47,11 +46,6 @@
     // parse by regionFlow
     datasets[9].map(d => {
       d.value = +d.value;
-    })
-
-    // parse totalMigrants
-    datasets[10].map(d => {
-      d.TOTAL_MIGRANTS = +d.TOTAL_MIGRANTS;
     })
   }
 
