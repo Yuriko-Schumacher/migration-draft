@@ -1,11 +1,22 @@
-import { scaleSqrt } from 'd3';
+import regions from "./regions";
 
-//Title size scale
-export function sScale() {
+// Title Unique Array
+// Returns the unique values of a variable in a dataset as an array
+export function uniqueArray(data, variable) {
+  let all = data.map(function (d) {
+    return d[variable];
+  });
 
-    const sScale =  scaleSqrt()
-        .domain([5E5, 1E6, 5E6, 1E7])
-        .range([.15, .4]);
+  return [...new Set(all)];
+}
 
-    return sScale;
+// Title Region Color
+// Param region object containing a mapping between region and color
+export function findRegionColor(region) {
+  let regionIndex = regions.findIndex((re) => re.name === region);
+  let color = {
+    vivid: regions[regionIndex].color,
+    light: regions[regionIndex].colorLight,
+  };
+  return color;
 }

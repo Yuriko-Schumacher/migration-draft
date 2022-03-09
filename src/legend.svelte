@@ -21,6 +21,10 @@
       d.height = sScale(d.value) * 74;
       return d;
     })
+
+    $: {
+      sScale.range([0.25, width / 1200]);
+    }
 </script>
 
 {#if height !== undefined}
