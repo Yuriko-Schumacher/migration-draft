@@ -29,7 +29,11 @@
 
 <section class="map__container" bind:clientWidth={w}>
   {#if w !== undefined}
+<<<<<<< HEAD
     <Modal show={$modal} transitionBgProps={{ duration: 0 }} styleCloseButton={{cursor: "pointer"}} styleWindow = {{"border-radius": "8px"}}>
+=======
+    <Modal show={$modal} transitionBgProps={{ duration: 0 }} styleCloseButton={{cursor: "pointer"}}>
+>>>>>>> 9b63aa831e91eae383934752794fd60b82b23c37
       <svg id="world-map" width={w} height={h}>
         <MapPath data={outlineD} path={path}/>
         <MapPoints width={w} data={centroidsD} regionFlow ={regionFlow} projection={projection} butterflies={butterflies} bind:selectedRegion={selectedRegion} bind:hoveredRegionCode={hoveredRegionCode} bind:selectedCountry={selectedCountry} datasets={dataset}/>

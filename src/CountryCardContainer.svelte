@@ -5,6 +5,7 @@
 
   export let selectedRegion;
   export let selectedCountry;
+<<<<<<< HEAD
   export let countryData;
   export let regionData;
 
@@ -12,6 +13,9 @@
 
   const formatValue = format(",")
   let filteredData = countryData.filter(d => d.region == selectedRegion);
+=======
+  export let data;
+>>>>>>> 9b63aa831e91eae383934752794fd60b82b23c37
 </script>
 
 <section>

@@ -25,7 +25,11 @@
     let butterflySvg2 = await text(butterflies[1])
     let butterflySvg3 = await text(butterflies[2])
     let butterflySvgs = [butterflySvg1, butterflySvg2, butterflySvg3]
+<<<<<<< HEAD
     let byCountryD = await csv("data/by_country.csv")
+=======
+    let byCountryD = await csv("data/acq_by_country.csv")
+>>>>>>> 9b63aa831e91eae383934752794fd60b82b23c37
     let warnings = await csv("data/warnings.csv")
     let definitions = await csv("data/definitions.csv")
     let questions = await csv("data/questions.csv")
@@ -33,9 +37,14 @@
     let regions = await csv("data/regions.csv")
     let regionFlow = await csv("data/region_flows.csv")
     let questionsToMode = await csv("data/questions_modes.csv")
+<<<<<<< HEAD
     let modeA06a = await csv("data/modeA06a.csv")
     datasets = [mapCentroidsD, mapOutlineD, butterflySvgs, byCountryD, warnings,
     definitions, questions, acqMode, regions, regionFlow, questionsToMode, modeA06a];
+=======
+    datasets = [mapCentroidsD, mapOutlineD, butterflySvgs, byCountryD, warnings,
+    definitions, questions, acqMode, regions, regionFlow, questionsToMode];
+>>>>>>> 9b63aa831e91eae383934752794fd60b82b23c37
     parseData(datasets);
   }
 

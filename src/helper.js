@@ -1,5 +1,8 @@
 import regions from "./regions";
+<<<<<<< HEAD
 import { select } from "d3";
+=======
+>>>>>>> 9b63aa831e91eae383934752794fd60b82b23c37
 
 // Title Unique Array
 // Returns the unique values of a variable in a dataset as an array
@@ -10,6 +13,7 @@ export function uniqueArray(data, variable) {
 
   return [...new Set(all)];
 }
+<<<<<<< HEAD
 
 // Title Region Color
 // Param region object containing a mapping between region and color
@@ -341,4 +345,16 @@ export function highlightPath(
 
     butterflyPathsG.select("#" + i[0]).attr("stroke", color);
   }
+=======
+
+// Title Region Color
+// Param region object containing a mapping between region and color
+export function findRegionColor(region) {
+  let regionIndex = regions.findIndex((re) => re.name === region);
+  let color = {
+    vivid: regions[regionIndex].color,
+    light: regions[regionIndex].colorLight,
+  };
+  return color;
+>>>>>>> 9b63aa831e91eae383934752794fd60b82b23c37
 }

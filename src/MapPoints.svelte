@@ -17,7 +17,13 @@
   export let hoveredRegionCode;
   export let selectedCountry;
 
+<<<<<<< HEAD
   let dataset = [datasets[0].features, datasets[3], datasets[4], datasets[5], datasets[6], datasets[7], datasets[8], datasets[10], datasets[11]]
+=======
+  let dataset = [datasets[3], datasets[4], datasets[5], datasets[6], datasets[7], datasets[10]]
+
+  let links = [];
+>>>>>>> 9b63aa831e91eae383934752794fd60b82b23c37
 
   const { open } = getContext('simple-modal');
 
