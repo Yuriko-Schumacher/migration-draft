@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <script>
   import {getQuestionWithCountryName} from "./helper"
 
@@ -87,10 +86,3 @@
     margin-top: 0.5em;
   }
 </style>
-=======
-<div id="documentation">
-  <div id="warnings"></div>
-  <div id="specification"></div>
-  <div id="definitions"></div>
-</div>
->>>>>>> 9b63aa831e91eae383934752794fd60b82b23c37

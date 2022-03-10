@@ -79,15 +79,9 @@
         <div class="country-card__butterfly">
           <svg width=100 height=100>
             <use
-<<<<<<< HEAD
               transform="translate({xOffset}, {yOffset}) scale({sizeScale(value)}, {sizeScale(value)})"
               xlink:href="#butterfly-0"
               stroke="{color}"
-=======
-              transform="translate({selectedRegionInfo.shape == 0 ? 4.5 : 1.5}, {selectedRegionInfo.shape == 0 ? 13 : 6.5})"
-              xlink:href="#butterfly-0"
-              stroke="{selectedRegionInfo.color}"
->>>>>>> 9b63aa831e91eae383934752794fd60b82b23c37
               stroke-width=1
               fill="{color}"
               data-value="{value}"
