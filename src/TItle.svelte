@@ -29,7 +29,7 @@
   section {
     width: 80%;
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 3rem auto 0;
     display: flex;
     gap: 3rem;
   }
@@ -42,14 +42,21 @@
   }
   article {
     text-align: left;
-    margin-top: 3em;
     font-size: 0.8rem;
   }
-  span {
-    font-size: 2em;
-    font-weight: 900;
-  }
-  span a:link, span a:visited {
-    border-bottom: 0;
+  @media (max-width: 800px) {
+    h1 {
+      font-size: 2em;
+    }
+    section {
+      flex-direction: column;
+      gap: 0;
+    }
+    section > * {
+      width: 100%;
+    }
+    div {
+      text-align: left;
+    }
   }
 </style>
