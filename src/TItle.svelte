@@ -27,7 +27,8 @@
     font-size: 2.5em;
   }
   section {
-    width: 90%;
+    width: 80%;
+    max-width: 1200px;
     margin: 0 auto;
     display: flex;
     gap: 3rem;
