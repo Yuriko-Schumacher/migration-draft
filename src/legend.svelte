@@ -8,7 +8,7 @@
     const sScale = scaleLinear()
       .domain(extent(data.features, d => d.properties.VALUE))
       .range([0.25, width / 1200]);
-    let legendH = 300;
+    let legendH = 400;
 
     let legendD = [
       { value: 1000000, text: "< 1 million" },
@@ -21,6 +21,10 @@
       d.height = sScale(d.value) * 74;
       return d;
     })
+
+    $: {
+      sScale.range([0.25, width / 1200]);
+    }
 </script>
 
 {#if height !== undefined}
@@ -29,9 +33,9 @@
   </div>
     {#if width > 1220 * 0.9}
     <svg
-    width=200
-    height={legendH}
-  >
+      width=200
+      height={legendH}
+    >
       <g>
         {#each legendD as {width, height, value, text}, i}
           <use
@@ -55,7 +59,7 @@
     {:else}
     <svg
     width={width - 200}
-    height={100}
+    height={120}
   >
       <g>
         {#each legendD as {width, height, value, text}, i}
@@ -89,7 +93,7 @@
   }
   @media (max-width: 1220px) {
     div {
-      margin-top: 1rem;
+      margin-top: 0;
       padding: 0;
       text-align: left;
     }
