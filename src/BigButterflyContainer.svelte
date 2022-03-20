@@ -1,16 +1,8 @@
 <script>
   import { afterUpdate } from 'svelte';
-<<<<<<< HEAD
   import { html, select, selectAll } from "d3";
   import {uniqueArray, findRegionColor, getQuestionWithCountryName, createPossibleQuestions, createUnnecessaryQuestions, clickContainer, highlightPath} from "./helper.js"
   import Documentation from './Documentation.svelte'
-=======
-  import { select, selectAll, scaleOrdinal, mode } from "d3";
-  import {uniqueArray, findRegionColor, getQuestionWithCountryName, createPossibleQuestions, createUnnecessaryQuestions, clickContainer, highlightPath} from "./helper.js"
-  import Documentation from './Documentation.svelte'
-  import regions from './regions.js'
-  import { each } from 'svelte/internal';
->>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
 
   export let selectedRegion;
   export let selectedCountry;
@@ -51,11 +43,7 @@
 
     // console.log("possibleModes", possibleModes);
     // console.log("allQuestions", allQuestions);
-<<<<<<< HEAD
     console.log("possibleQuestions", possibleQuestions);
-=======
-    // console.log("possibleQuestions", possibleQuestions);
->>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     // console.log("unnecessaryQuestions", unnecessaryQuestions);
 
     // filter and see what modes are available
@@ -118,13 +106,8 @@
           }
         });
 
-<<<<<<< HEAD
       if (!butterflyCirclesG.empty()) {
         // populate questions
-=======
-      // populate questions
-      if (!butterflyCirclesG.empty()) {
->>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
         selectAll(".butterfly__questions__question").remove();
         questions.forEach(q => {
           let id = q.question_id;
@@ -159,7 +142,6 @@
               .style("text-align", side.h == 'left' ? "right" : "left")
               .style("line-height", 1)
               .style("transition", "all 0.2s ease")     
-<<<<<<< HEAD
 
               // add toggle switch
               let switchG = select("#butterfly__toggle")
@@ -214,13 +196,10 @@
                 .style("font-weight", "bold")
                 .text("")
                 .style("text-shadow", "-2px -2px 0 rgba(255, 255, 255, 0.7), 2px -2px 0 rgba(255, 255, 255, 0.7), -2px 2px 0 rgba(255, 255, 255, 0.7), 2px 2px 0 rgba(255, 255, 255, 0.7)")  
-=======
->>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
             }
         })
       }
 
-<<<<<<< HEAD
 //@Yuriko-Schumacher this branch some extra logic for A06a. One of the their weird ones that requires a checkbox or toggle. Al we should have to do is get the value from that checkbox and add it as status.
 
 // So I think the only thing we should need to change is on line 181. Right now I'm setting the status to "blah", which is just my way of saying temporary placeholder. What we'll want to do is set blah equal to the outcome of a user click event.
@@ -234,8 +213,6 @@
 
 // Let me know if any of this is confusing
 
-=======
->>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
       // circles on click event
       butterflyCirclesG.selectAll("circle").on("mouseover", function() {
         let id = select(this).attr("id");
@@ -255,7 +232,6 @@
       })
 
       butterflyCirclesG.selectAll("circle").on("click", function() {
-<<<<<<< HEAD
         let id = select(this).attr("id");
         let status;
         clicks.updateClick(id, status);
@@ -300,14 +276,6 @@
             })
           }
         })
-=======
-        let id = select(this).property("id");
-        let status = true;
-        clicks.updateClick(id, status);
-        if (id === "Q23") {
-          status = "blah";
-        }
->>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
         // if (status) {
           highlightPath(clicks, butterflyPathsG);
         // }
@@ -334,13 +302,8 @@
       Paths to acquire citizenship in <span class="country-highlight" style="background-color: {selectedColor.vivid}">{selectedCountry}</span>
     </h1>
     <div class="instructions">
-<<<<<<< HEAD
       <p class="user-signifier">Click
         <svg width=18 height=18>
-=======
-      Click
-        <svg width=27 height=18>
->>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
           <circle
             cx=9
             cy=9
@@ -351,17 +314,12 @@
           >
           </circle>
         </svg>
-<<<<<<< HEAD
         to answer questions. Paths will light up if there is a country-specific law that allows you to acquire citizenship with your condition.
       </p></div>
-=======
-      to answer questions. Paths will light up if there is a country-specific law that allows you to acquire citizenship with your condition.</div>
->>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     {#if w !== undefined}
       <div id="citizenship-paths" style="height: {h}">
         <div id="butterfly__graphic">
           {@html butterflies[2]}
-<<<<<<< HEAD
           <form id="answer-selection__Q22">
             <strong>How long did you live in {selectedCountry}?</strong><br>
             <input type="radio" id="fewer-than-five" name="answer__Q22" value="Fewer than 5 years">
@@ -374,8 +332,6 @@
             <label for="more-than-ten">More than 10 years</label>
             <div class="submit-button">Submit</div>
           </form>
-=======
->>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
         </div>
       </div>
       {#if trueMode !== undefined}
@@ -389,12 +345,9 @@
   #big-butterfly__container {
     margin-top: 7rem;
   }
-<<<<<<< HEAD
   #butterfly__graphic {
     position: relative;
   }
-=======
->>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
   .country-highlight {
     color: white;
     padding: 0.3em 0.5em;
@@ -403,7 +356,6 @@
   .instructions {
     padding: 10px;
     margin: 10px auto;
-<<<<<<< HEAD
     max-width: 600px;
     font-size: 18px;
   }
@@ -415,9 +367,6 @@
     text-align: left;
     bottom: 15vh;
     right: 0;
-=======
-    max-width: 800px;
->>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
   }
   .submit-button {
     cursor: pointer;

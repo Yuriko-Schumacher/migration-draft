@@ -56,14 +56,6 @@
     use.attr('fill', "white").attr('stroke', "white")
     select(this).select(".country-card__country-name").style("color", "white")
     selectedCountry = use.attr("data-country");
-<<<<<<< HEAD
-=======
-
-    setTimeout(() => {
-      select("#big-butterfly__container").select("h1").node().scrollIntoView({behavior: "smooth", block: "start"});
-    }, 10);
-  }
->>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
 
     setTimeout(() => {
       select("#big-butterfly__container").select("h1").node().scrollIntoView({behavior: "smooth", block: "start"});

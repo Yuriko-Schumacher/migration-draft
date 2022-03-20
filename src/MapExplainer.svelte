@@ -5,10 +5,6 @@
   export let hoveredRegionCode;
   export let data;
 
-  console.log(regions)
-  console.log(hoveredRegionCode)
-  console.log(data)
-
   const formatValue = format(",")
   let hoveredRegionData, hoveredRegion;
   $: if(hoveredRegionCode !== "") {
