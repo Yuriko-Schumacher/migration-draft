@@ -45,7 +45,6 @@
 
     acqModeFiltered = acqMode.filter(d => d.country == selectedCountry);
     possibleModes = uniqueArray(acqModeFiltered, "mode_id");
-
     possibleQuestions = createPossibleQuestions(possibleModes, questionToMode);
     unnecessaryQuestions = createUnnecessaryQuestions(allQuestions, possibleQuestions);
 
@@ -55,9 +54,9 @@
     // console.log(clicks);
 
     console.log("possibleModes", possibleModes);
-    // console.log("allQuestions", allQuestions);
+    console.log("allQuestions", allQuestions);
     console.log("possibleQuestions", possibleQuestions);
-    // console.log("unnecessaryQuestions", unnecessaryQuestions);
+    console.log("unnecessaryQuestions", unnecessaryQuestions);
 
     // filter and see what modes are available
     filteredAvailableModes = availableModes.filter(m => possibleModes.includes(m));
