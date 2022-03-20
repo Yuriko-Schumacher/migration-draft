@@ -15,7 +15,7 @@
       Although countries have their own laws to grant citizenship to migrants, in 2020, more than 85 million people migrated into another country, according to the <a href="https://www.un.org/development/desa/pd/content/international-migrant-stock" target="_blank">United Nations Population Devision</a>.
     </p>
     <p>
-      On the map below, the butterflies are placed on 21 subregions in the world, and their sizes reflect the number of people who moved migrated there from another region in 2020.
+      On the map below, the butterflies are placed on 21 subregions in the world, and their sizes reflect the number of people who moved there from another region in 2020.
     </p>
     <p>
       Hover over the butterflies to see how many people migrated into the region, and click the butterflies to show the number of migrants by country in the region, as well as to explore various ways to acquire citizeniship in each country.
