@@ -24,6 +24,7 @@
 
 <style>
   h1 {
+    font-family: "Abril Fatface", cursive;
     font-size: 2.5em;
   }
   section {
