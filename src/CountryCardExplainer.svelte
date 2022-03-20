@@ -26,7 +26,7 @@
       </p>
     {:else}
       <p style="padding-top: 10px;">
-        <span style="text-decoration: underline solid {regionData.color} 5px; text-underline-offset: 2px">{hoveredCountry}</span> had a total of <span style="text-decoration: underline solid {regionData.color} 5px; text-underline-offset: 2px">{formatValue(countryValue)}</span> migrants.
+        <span style="text-decoration: underline solid {regionData.color} 5px; text-underline-offset: 2px">{hoveredCountry}</span> had a total of <span style="text-decoration: underline solid {regionData.color} 5px; text-underline-offset: 2px">{formatValue(countryValue)}</span> migrants in 2020.
       </p>
     {/if}
   {:else}

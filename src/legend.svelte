@@ -58,9 +58,9 @@
       </svg>
     {:else}
     <svg
-    width={width - 200}
-    height={120}
-  >
+      width={width - 200}
+      height={120}
+    >
       <g>
         {#each legendD as {width, height, value, text}, i}
           <use
@@ -90,6 +90,10 @@
     font-weight: bold;
     line-height: 1;
     text-align: center;
+    font-size: 1rem;
+  }
+  text {
+    font-size: 0.8rem;
   }
   @media (max-width: 1220px) {
     div {
