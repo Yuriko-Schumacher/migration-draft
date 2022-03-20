@@ -44,7 +44,8 @@
 <style>
   .map__container {
     position: relative;
-    margin: 5rem auto;
+    padding: 5rem 0;
+    margin: 0 auto;
   }
   #legend {
     position: absolute;

@@ -21,6 +21,9 @@
 
 <div>
   {#if hoveredRegionCode == ""}
+    <p style="color: white;">
+      Hover over the butterflies.
+    </p>
     <p class="user-signifier">
       Hover over the butterflies to see how many people migrated into the region in 2020.<br><br>
     </p>

@@ -11,9 +11,9 @@
     let legendH = 400;
 
     let legendD = [
-      { value: 1000000, text: "< 1 million" },
-      { value: 5000000, text: "< 5 million" },
-      { value: 19715729, text: "> 5 million" }
+      { value: 1000000, text: "1 million" },
+      { value: 5000000, text: "5 million" },
+      { value: 10000000, text: "10 million" }
     ];
 
     legendD.map(d => {
