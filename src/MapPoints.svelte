@@ -1,7 +1,11 @@
 <script>
   import { spring } from "svelte/motion";
   import { getContext } from 'svelte';
+<<<<<<< HEAD
   import { scaleLinear, extent, select, scaleOrdinal } from 'd3';
+=======
+  import { scaleLinear, extent, min, max, select, selectAll, groups, line, map, scaleOrdinal } from 'd3';
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
   import { forceSimulation, forceCollide, forceLink, forceX, forceY } from "d3-force";
   
   import Popup from './Popup.svelte';

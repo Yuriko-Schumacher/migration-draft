@@ -37,7 +37,6 @@
     datasets = [mapCentroidsD, mapOutlineD, butterflySvgs, byCountryD, warnings,
     definitions, questions, acqMode, regions, regionFlow, questionsToMode, modeA06a];
     parseData(datasets);
-    console.log(datasets)
   }
 
   function parseData(datasets) {
@@ -67,6 +66,10 @@
     </div>
   {:then dataset}
     <MapContainer dataset={datasets} bind:selectedRegion={selectedRegion} bind:hoveredRegionCode={hoveredRegionCode} bind:selectedCountry={selectedCountry}/>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
   {/await}
   <Footer />
 </main>

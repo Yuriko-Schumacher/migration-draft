@@ -4,7 +4,11 @@ var app = (function () {
     'use strict';
 
     function noop$2() { }
+<<<<<<< HEAD
     const identity$4 = x => x;
+=======
+    const identity$5 = x => x;
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     function assign(tar, src) {
         // @ts-ignore
         for (const k in src)
@@ -268,6 +272,7 @@ var app = (function () {
         e.initCustomEvent(type, bubbles, false, detail);
         return e;
     }
+<<<<<<< HEAD
     class HtmlTag {
         constructor() {
             this.e = this.n = null;
@@ -301,6 +306,8 @@ var app = (function () {
             this.n.forEach(detach);
         }
     }
+=======
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
 
     // we need to store the information for multiple documents because a Svelte application could also contain iframes
     // https://github.com/sveltejs/svelte/issues/3624
@@ -580,7 +587,11 @@ var app = (function () {
             };
         }
         function go(b) {
+<<<<<<< HEAD
             const { delay = 0, duration = 300, easing = identity$4, tick = noop$2, css } = config || null_transition;
+=======
+            const { delay = 0, duration = 300, easing = identity$5, tick = noop$2, css } = config || null_transition;
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
             const program = {
                 start: now$1() + delay,
                 b
@@ -749,6 +760,16 @@ var app = (function () {
         : typeof globalThis !== 'undefined'
             ? globalThis
             : global);
+<<<<<<< HEAD
+=======
+    function each(items, fn) {
+        let str = '';
+        for (let i = 0; i < items.length; i += 1) {
+            str += fn(items[i], i);
+        }
+        return str;
+    }
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
 
     function bind$1(component, name, callback) {
         const index = component.$$.props[name];
@@ -1173,6 +1194,36 @@ var app = (function () {
       return value !== null && typeof value === "object" ? value.valueOf() : value;
     }
 
+<<<<<<< HEAD
+=======
+    function identity$4(x) {
+      return x;
+    }
+
+    function groups(values, ...keys) {
+      return nest(values, Array.from, identity$4, keys);
+    }
+
+    function nest(values, map, reduce, keys) {
+      return (function regroup(values, i) {
+        if (i >= keys.length) return reduce(values);
+        const groups = new InternMap();
+        const keyof = keys[i++];
+        let index = -1;
+        for (const value of values) {
+          const key = keyof(value, ++index, values);
+          const group = groups.get(key);
+          if (group) group.push(value);
+          else groups.set(key, [value]);
+        }
+        for (const [key, values] of groups) {
+          groups.set(key, regroup(values, i));
+        }
+        return map(groups);
+      })(values, 0);
+    }
+
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     var e10 = Math.sqrt(50),
         e5 = Math.sqrt(10),
         e2 = Math.sqrt(2);
@@ -1249,6 +1300,30 @@ var app = (function () {
       return max;
     }
 
+<<<<<<< HEAD
+=======
+    function min(values, valueof) {
+      let min;
+      if (valueof === undefined) {
+        for (const value of values) {
+          if (value != null
+              && (min > value || (min === undefined && value >= value))) {
+            min = value;
+          }
+        }
+      } else {
+        let index = -1;
+        for (let value of values) {
+          if ((value = valueof(value, ++index, values)) != null
+              && (min > value || (min === undefined && value >= value))) {
+            min = value;
+          }
+        }
+      }
+      return min;
+    }
+
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     function* flatten(arrays) {
       for (const array of arrays) {
         yield* array;
@@ -1259,6 +1334,42 @@ var app = (function () {
       return Array.from(flatten(arrays));
     }
 
+<<<<<<< HEAD
+=======
+    function mode(values, valueof) {
+      const counts = new InternMap();
+      if (valueof === undefined) {
+        for (let value of values) {
+          if (value != null && value >= value) {
+            counts.set(value, (counts.get(value) || 0) + 1);
+          }
+        }
+      } else {
+        let index = -1;
+        for (let value of values) {
+          if ((value = valueof(value, ++index, values)) != null && value >= value) {
+            counts.set(value, (counts.get(value) || 0) + 1);
+          }
+        }
+      }
+      let modeValue;
+      let modeCount = 0;
+      for (const [value, count] of counts) {
+        if (count > modeCount) {
+          modeCount = count;
+          modeValue = value;
+        }
+      }
+      return modeValue;
+    }
+
+    function map$1(values, mapper) {
+      if (typeof values[Symbol.iterator] !== "function") throw new TypeError("values is not iterable");
+      if (typeof mapper !== "function") throw new TypeError("mapper is not a function");
+      return Array.from(values, (value, index) => mapper(value, index, values));
+    }
+
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     var noop$1 = {value: () => {}};
 
     function dispatch() {
@@ -1410,7 +1521,11 @@ var app = (function () {
     // selection; we don’t ever want to create a selection backed by a live
     // HTMLCollection or NodeList. However, note that selection.selectAll will use a
     // static NodeList as a group, since it safely derived from querySelectorAll.
+<<<<<<< HEAD
     function array(x) {
+=======
+    function array$1(x) {
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
       return x == null ? [] : Array.isArray(x) ? x : Array.from(x);
     }
 
@@ -1426,7 +1541,11 @@ var app = (function () {
 
     function arrayAll(select) {
       return function() {
+<<<<<<< HEAD
         return array(select.apply(this, arguments));
+=======
+        return array$1(select.apply(this, arguments));
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
       };
     }
 
@@ -1530,7 +1649,11 @@ var app = (function () {
       querySelectorAll: function(selector) { return this._parent.querySelectorAll(selector); }
     };
 
+<<<<<<< HEAD
     function constant$2(x) {
+=======
+    function constant$3(x) {
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
       return function() {
         return x;
       };
@@ -1617,7 +1740,11 @@ var app = (function () {
           parents = this._parents,
           groups = this._groups;
 
+<<<<<<< HEAD
       if (typeof value !== "function") value = constant$2(value);
+=======
+      if (typeof value !== "function") value = constant$3(value);
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
 
       for (var m = groups.length, update = new Array(m), enter = new Array(m), exit = new Array(m), j = 0; j < m; ++j) {
         var parent = parents[j],
@@ -2269,7 +2396,11 @@ var app = (function () {
     function selectAll(selector) {
       return typeof selector === "string"
           ? new Selection$1([document.querySelectorAll(selector)], [document.documentElement])
+<<<<<<< HEAD
           : new Selection$1([array(selector)], root);
+=======
+          : new Selection$1([array$1(selector)], root);
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     }
 
     function define(constructor, factory, prototype) {
@@ -2653,7 +2784,11 @@ var app = (function () {
           : m1) * 255;
     }
 
+<<<<<<< HEAD
     var constant$1 = x => () => x;
+=======
+    var constant$2 = x => () => x;
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
 
     function linear$1(a, d) {
       return function(t) {
@@ -2669,13 +2804,21 @@ var app = (function () {
 
     function gamma(y) {
       return (y = +y) === 1 ? nogamma : function(a, b) {
+<<<<<<< HEAD
         return b - a ? exponential(a, b, y) : constant$1(isNaN(a) ? b : a);
+=======
+        return b - a ? exponential(a, b, y) : constant$2(isNaN(a) ? b : a);
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
       };
     }
 
     function nogamma(a, b) {
       var d = b - a;
+<<<<<<< HEAD
       return d ? linear$1(a, d) : constant$1(isNaN(a) ? b : a);
+=======
+      return d ? linear$1(a, d) : constant$2(isNaN(a) ? b : a);
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     }
 
     var interpolateRgb = (function rgbGamma(y) {
@@ -2831,7 +2974,11 @@ var app = (function () {
 
     function interpolate$1(a, b) {
       var t = typeof b, c;
+<<<<<<< HEAD
       return b == null || t === "boolean" ? constant$1(b)
+=======
+      return b == null || t === "boolean" ? constant$2(b)
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
           : (t === "number" ? interpolateNumber
           : t === "string" ? ((c = color(b)) ? (b = c, interpolateRgb) : interpolateString)
           : b instanceof color ? interpolateRgb
@@ -3941,6 +4088,138 @@ var app = (function () {
     selection.prototype.interrupt = selection_interrupt;
     selection.prototype.transition = selection_transition;
 
+<<<<<<< HEAD
+=======
+    const pi$1 = Math.PI,
+        tau$1 = 2 * pi$1,
+        epsilon$1 = 1e-6,
+        tauEpsilon = tau$1 - epsilon$1;
+
+    function Path() {
+      this._x0 = this._y0 = // start of current subpath
+      this._x1 = this._y1 = null; // end of current subpath
+      this._ = "";
+    }
+
+    function path() {
+      return new Path;
+    }
+
+    Path.prototype = path.prototype = {
+      constructor: Path,
+      moveTo: function(x, y) {
+        this._ += "M" + (this._x0 = this._x1 = +x) + "," + (this._y0 = this._y1 = +y);
+      },
+      closePath: function() {
+        if (this._x1 !== null) {
+          this._x1 = this._x0, this._y1 = this._y0;
+          this._ += "Z";
+        }
+      },
+      lineTo: function(x, y) {
+        this._ += "L" + (this._x1 = +x) + "," + (this._y1 = +y);
+      },
+      quadraticCurveTo: function(x1, y1, x, y) {
+        this._ += "Q" + (+x1) + "," + (+y1) + "," + (this._x1 = +x) + "," + (this._y1 = +y);
+      },
+      bezierCurveTo: function(x1, y1, x2, y2, x, y) {
+        this._ += "C" + (+x1) + "," + (+y1) + "," + (+x2) + "," + (+y2) + "," + (this._x1 = +x) + "," + (this._y1 = +y);
+      },
+      arcTo: function(x1, y1, x2, y2, r) {
+        x1 = +x1, y1 = +y1, x2 = +x2, y2 = +y2, r = +r;
+        var x0 = this._x1,
+            y0 = this._y1,
+            x21 = x2 - x1,
+            y21 = y2 - y1,
+            x01 = x0 - x1,
+            y01 = y0 - y1,
+            l01_2 = x01 * x01 + y01 * y01;
+
+        // Is the radius negative? Error.
+        if (r < 0) throw new Error("negative radius: " + r);
+
+        // Is this path empty? Move to (x1,y1).
+        if (this._x1 === null) {
+          this._ += "M" + (this._x1 = x1) + "," + (this._y1 = y1);
+        }
+
+        // Or, is (x1,y1) coincident with (x0,y0)? Do nothing.
+        else if (!(l01_2 > epsilon$1));
+
+        // Or, are (x0,y0), (x1,y1) and (x2,y2) collinear?
+        // Equivalently, is (x1,y1) coincident with (x2,y2)?
+        // Or, is the radius zero? Line to (x1,y1).
+        else if (!(Math.abs(y01 * x21 - y21 * x01) > epsilon$1) || !r) {
+          this._ += "L" + (this._x1 = x1) + "," + (this._y1 = y1);
+        }
+
+        // Otherwise, draw an arc!
+        else {
+          var x20 = x2 - x0,
+              y20 = y2 - y0,
+              l21_2 = x21 * x21 + y21 * y21,
+              l20_2 = x20 * x20 + y20 * y20,
+              l21 = Math.sqrt(l21_2),
+              l01 = Math.sqrt(l01_2),
+              l = r * Math.tan((pi$1 - Math.acos((l21_2 + l01_2 - l20_2) / (2 * l21 * l01))) / 2),
+              t01 = l / l01,
+              t21 = l / l21;
+
+          // If the start tangent is not coincident with (x0,y0), line to.
+          if (Math.abs(t01 - 1) > epsilon$1) {
+            this._ += "L" + (x1 + t01 * x01) + "," + (y1 + t01 * y01);
+          }
+
+          this._ += "A" + r + "," + r + ",0,0," + (+(y01 * x20 > x01 * y20)) + "," + (this._x1 = x1 + t21 * x21) + "," + (this._y1 = y1 + t21 * y21);
+        }
+      },
+      arc: function(x, y, r, a0, a1, ccw) {
+        x = +x, y = +y, r = +r, ccw = !!ccw;
+        var dx = r * Math.cos(a0),
+            dy = r * Math.sin(a0),
+            x0 = x + dx,
+            y0 = y + dy,
+            cw = 1 ^ ccw,
+            da = ccw ? a0 - a1 : a1 - a0;
+
+        // Is the radius negative? Error.
+        if (r < 0) throw new Error("negative radius: " + r);
+
+        // Is this path empty? Move to (x0,y0).
+        if (this._x1 === null) {
+          this._ += "M" + x0 + "," + y0;
+        }
+
+        // Or, is (x0,y0) not coincident with the previous point? Line to (x0,y0).
+        else if (Math.abs(this._x1 - x0) > epsilon$1 || Math.abs(this._y1 - y0) > epsilon$1) {
+          this._ += "L" + x0 + "," + y0;
+        }
+
+        // Is this arc empty? We’re done.
+        if (!r) return;
+
+        // Does the angle go the wrong way? Flip the direction.
+        if (da < 0) da = da % tau$1 + tau$1;
+
+        // Is this a complete circle? Draw two arcs to complete the circle.
+        if (da > tauEpsilon) {
+          this._ += "A" + r + "," + r + ",0,1," + cw + "," + (x - dx) + "," + (y - dy) + "A" + r + "," + r + ",0,1," + cw + "," + (this._x1 = x0) + "," + (this._y1 = y0);
+        }
+
+        // Is this arc non-empty? Draw an arc!
+        else if (da > epsilon$1) {
+          this._ += "A" + r + "," + r + ",0," + (+(da >= pi$1)) + "," + cw + "," + (this._x1 = x + r * Math.cos(a1)) + "," + (this._y1 = y + r * Math.sin(a1));
+        }
+      },
+      rect: function(x, y, w, h) {
+        this._ += "M" + (this._x0 = this._x1 = +x) + "," + (this._y0 = this._y1 = +y) + "h" + (+w) + "v" + (+h) + "h" + (-w) + "Z";
+      },
+      toString: function() {
+        return this._;
+      }
+    };
+
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     var EOL = {},
         EOF = {},
         QUOTE = 34,
@@ -4140,6 +4419,7 @@ var app = (function () {
       return fetch(input, init).then(responseJson);
     }
 
+<<<<<<< HEAD
     function parser(type) {
       return (input, init) => text(input, init)
         .then(text => (new DOMParser).parseFromString(text, type));
@@ -4147,6 +4427,8 @@ var app = (function () {
 
     var html = parser("text/html");
 
+=======
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     function tree_add(d) {
       const x = +this._x.call(null, d),
           y = +this._y.call(null, d);
@@ -4554,7 +4836,11 @@ var app = (function () {
     treeProto.x = tree_x;
     treeProto.y = tree_y;
 
+<<<<<<< HEAD
     function constant(x) {
+=======
+    function constant$1(x) {
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
       return function() {
         return x;
       };
@@ -4564,11 +4850,19 @@ var app = (function () {
       return (random() - 0.5) * 1e-6;
     }
 
+<<<<<<< HEAD
     function x(d) {
       return d.x + d.vx;
     }
 
     function y(d) {
+=======
+    function x$1(d) {
+      return d.x + d.vx;
+    }
+
+    function y$1(d) {
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
       return d.y + d.vy;
     }
 
@@ -4579,7 +4873,11 @@ var app = (function () {
           strength = 1,
           iterations = 1;
 
+<<<<<<< HEAD
       if (typeof radius !== "function") radius = constant(radius == null ? 1 : +radius);
+=======
+      if (typeof radius !== "function") radius = constant$1(radius == null ? 1 : +radius);
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
 
       function force() {
         var i, n = nodes.length,
@@ -4591,7 +4889,11 @@ var app = (function () {
             ri2;
 
         for (var k = 0; k < iterations; ++k) {
+<<<<<<< HEAD
           tree = quadtree(nodes, x, y).visitAfter(prepare);
+=======
+          tree = quadtree(nodes, x$1, y$1).visitAfter(prepare);
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
           for (i = 0; i < n; ++i) {
             node = nodes[i];
             ri = radii[node.index], ri2 = ri * ri;
@@ -4655,7 +4957,11 @@ var app = (function () {
       };
 
       force.radius = function(_) {
+<<<<<<< HEAD
         return arguments.length ? (radius = typeof _ === "function" ? _ : constant(+_), initialize(), force) : radius;
+=======
+        return arguments.length ? (radius = typeof _ === "function" ? _ : constant$1(+_), initialize(), force) : radius;
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
       };
 
       return force;
@@ -4675,7 +4981,11 @@ var app = (function () {
       var id = index,
           strength = defaultStrength,
           strengths,
+<<<<<<< HEAD
           distance = constant(30),
+=======
+          distance = constant$1(30),
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
           distances,
           nodes,
           count,
@@ -4766,11 +5076,19 @@ var app = (function () {
       };
 
       force.strength = function(_) {
+<<<<<<< HEAD
         return arguments.length ? (strength = typeof _ === "function" ? _ : constant(+_), initializeStrength(), force) : strength;
       };
 
       force.distance = function(_) {
         return arguments.length ? (distance = typeof _ === "function" ? _ : constant(+_), initializeDistance(), force) : distance;
+=======
+        return arguments.length ? (strength = typeof _ === "function" ? _ : constant$1(+_), initializeStrength(), force) : strength;
+      };
+
+      force.distance = function(_) {
+        return arguments.length ? (distance = typeof _ === "function" ? _ : constant$1(+_), initializeDistance(), force) : distance;
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
       };
 
       return force;
@@ -4932,12 +5250,20 @@ var app = (function () {
     }
 
     function forceX(x) {
+<<<<<<< HEAD
       var strength = constant(0.1),
+=======
+      var strength = constant$1(0.1),
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
           nodes,
           strengths,
           xz;
 
+<<<<<<< HEAD
       if (typeof x !== "function") x = constant(x == null ? 0 : +x);
+=======
+      if (typeof x !== "function") x = constant$1(x == null ? 0 : +x);
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
 
       function force(alpha) {
         for (var i = 0, n = nodes.length, node; i < n; ++i) {
@@ -4961,23 +5287,39 @@ var app = (function () {
       };
 
       force.strength = function(_) {
+<<<<<<< HEAD
         return arguments.length ? (strength = typeof _ === "function" ? _ : constant(+_), initialize(), force) : strength;
       };
 
       force.x = function(_) {
         return arguments.length ? (x = typeof _ === "function" ? _ : constant(+_), initialize(), force) : x;
+=======
+        return arguments.length ? (strength = typeof _ === "function" ? _ : constant$1(+_), initialize(), force) : strength;
+      };
+
+      force.x = function(_) {
+        return arguments.length ? (x = typeof _ === "function" ? _ : constant$1(+_), initialize(), force) : x;
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
       };
 
       return force;
     }
 
     function forceY(y) {
+<<<<<<< HEAD
       var strength = constant(0.1),
+=======
+      var strength = constant$1(0.1),
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
           nodes,
           strengths,
           yz;
 
+<<<<<<< HEAD
       if (typeof y !== "function") y = constant(y == null ? 0 : +y);
+=======
+      if (typeof y !== "function") y = constant$1(y == null ? 0 : +y);
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
 
       function force(alpha) {
         for (var i = 0, n = nodes.length, node; i < n; ++i) {
@@ -5001,11 +5343,19 @@ var app = (function () {
       };
 
       force.strength = function(_) {
+<<<<<<< HEAD
         return arguments.length ? (strength = typeof _ === "function" ? _ : constant(+_), initialize(), force) : strength;
       };
 
       force.y = function(_) {
         return arguments.length ? (y = typeof _ === "function" ? _ : constant(+_), initialize(), force) : y;
+=======
+        return arguments.length ? (strength = typeof _ === "function" ? _ : constant$1(+_), initialize(), force) : strength;
+      };
+
+      force.y = function(_) {
+        return arguments.length ? (y = typeof _ === "function" ? _ : constant$1(+_), initialize(), force) : y;
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
       };
 
       return force;
@@ -7385,6 +7735,7 @@ var app = (function () {
       return linearish(scale);
     }
 
+<<<<<<< HEAD
     /* src/TItle.svelte generated by Svelte v3.46.4 */
 
     const file$d = "src/TItle.svelte";
@@ -7457,11 +7808,135 @@ var app = (function () {
     			add_location(span, file$d, 23, 2, 1205);
     			attr_dev(section, "class", "svelte-16fvglo");
     			add_location(section, file$d, 4, 0, 21);
+=======
+    function constant(x) {
+      return function constant() {
+        return x;
+      };
+    }
+
+    function array(x) {
+      return typeof x === "object" && "length" in x
+        ? x // Array, TypedArray, NodeList, array-like
+        : Array.from(x); // Map, Set, iterable, string, or anything else
+    }
+
+    function Linear(context) {
+      this._context = context;
+    }
+
+    Linear.prototype = {
+      areaStart: function() {
+        this._line = 0;
+      },
+      areaEnd: function() {
+        this._line = NaN;
+      },
+      lineStart: function() {
+        this._point = 0;
+      },
+      lineEnd: function() {
+        if (this._line || (this._line !== 0 && this._point === 1)) this._context.closePath();
+        this._line = 1 - this._line;
+      },
+      point: function(x, y) {
+        x = +x, y = +y;
+        switch (this._point) {
+          case 0: this._point = 1; this._line ? this._context.lineTo(x, y) : this._context.moveTo(x, y); break;
+          case 1: this._point = 2; // falls through
+          default: this._context.lineTo(x, y); break;
+        }
+      }
+    };
+
+    function curveLinear(context) {
+      return new Linear(context);
+    }
+
+    function x(p) {
+      return p[0];
+    }
+
+    function y(p) {
+      return p[1];
+    }
+
+    function line(x$1, y$1) {
+      var defined = constant(true),
+          context = null,
+          curve = curveLinear,
+          output = null;
+
+      x$1 = typeof x$1 === "function" ? x$1 : (x$1 === undefined) ? x : constant(x$1);
+      y$1 = typeof y$1 === "function" ? y$1 : (y$1 === undefined) ? y : constant(y$1);
+
+      function line(data) {
+        var i,
+            n = (data = array(data)).length,
+            d,
+            defined0 = false,
+            buffer;
+
+        if (context == null) output = curve(buffer = path());
+
+        for (i = 0; i <= n; ++i) {
+          if (!(i < n && defined(d = data[i], i, data)) === defined0) {
+            if (defined0 = !defined0) output.lineStart();
+            else output.lineEnd();
+          }
+          if (defined0) output.point(+x$1(d, i, data), +y$1(d, i, data));
+        }
+
+        if (buffer) return output = null, buffer + "" || null;
+      }
+
+      line.x = function(_) {
+        return arguments.length ? (x$1 = typeof _ === "function" ? _ : constant(+_), line) : x$1;
+      };
+
+      line.y = function(_) {
+        return arguments.length ? (y$1 = typeof _ === "function" ? _ : constant(+_), line) : y$1;
+      };
+
+      line.defined = function(_) {
+        return arguments.length ? (defined = typeof _ === "function" ? _ : constant(!!_), line) : defined;
+      };
+
+      line.curve = function(_) {
+        return arguments.length ? (curve = _, context != null && (output = curve(context)), line) : curve;
+      };
+
+      line.context = function(_) {
+        return arguments.length ? (_ == null ? context = output = null : output = curve(context = _), line) : context;
+      };
+
+      return line;
+    }
+
+    /* src\TItle.svelte generated by Svelte v3.46.4 */
+
+    const file$c = "src\\TItle.svelte";
+
+    function create_fragment$e(ctx) {
+    	let div;
+    	let h1;
+
+    	const block = {
+    		c: function create() {
+    			div = element("div");
+    			h1 = element("h1");
+    			h1.textContent = "World Migration Data Project";
+    			attr_dev(h1, "class", "svelte-1voonu8");
+    			add_location(h1, file$c, 5, 2, 34);
+    			attr_dev(div, "class", "svelte-1voonu8");
+    			add_location(div, file$c, 4, 0, 25);
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
     		},
     		m: function mount(target, anchor) {
+<<<<<<< HEAD
     			insert_dev(target, section, anchor);
     			append_dev(section, h1);
     			append_dev(section, t1);
@@ -7481,18 +7956,30 @@ var app = (function () {
     			append_dev(section, t13);
     			append_dev(section, span);
     			append_dev(span, a1);
+=======
+    			insert_dev(target, div, anchor);
+    			append_dev(div, h1);
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     		},
     		p: noop$2,
     		i: noop$2,
     		o: noop$2,
     		d: function destroy(detaching) {
+<<<<<<< HEAD
     			if (detaching) detach_dev(section);
+=======
+    			if (detaching) detach_dev(div);
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     		}
     	};
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
+<<<<<<< HEAD
     		id: create_fragment$f.name,
+=======
+    		id: create_fragment$e.name,
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     		type: "component",
     		source: "",
     		ctx
@@ -7501,7 +7988,11 @@ var app = (function () {
     	return block;
     }
 
+<<<<<<< HEAD
     function instance$f($$self, $$props) {
+=======
+    function instance$e($$self, $$props) {
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots('TItle', slots, []);
     	const writable_props = [];
@@ -7516,17 +8007,26 @@ var app = (function () {
     class TItle extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
+<<<<<<< HEAD
     		init$1(this, options, instance$f, create_fragment$f, safe_not_equal, {});
+=======
+    		init$1(this, options, instance$e, create_fragment$e, safe_not_equal, {});
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
 
     		dispatch_dev("SvelteRegisterComponent", {
     			component: this,
     			tagName: "TItle",
     			options,
+<<<<<<< HEAD
     			id: create_fragment$f.name
+=======
+    			id: create_fragment$e.name
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     		});
     	}
     }
 
+<<<<<<< HEAD
     const regions = [
       {
         name: "Polynesia",
@@ -7968,6 +8468,11 @@ var app = (function () {
     /* src/MapPath.svelte generated by Svelte v3.46.4 */
 
     const file$b = "src/MapPath.svelte";
+=======
+    /* src\MapPath.svelte generated by Svelte v3.46.4 */
+
+    const file$b = "src\\MapPath.svelte";
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
 
     function create_fragment$d(ctx) {
     	let g;
@@ -7981,9 +8486,15 @@ var app = (function () {
     			attr_dev(path_1, "d", path_1_d_value = /*path*/ ctx[1](/*data*/ ctx[0].features[0]));
     			attr_dev(path_1, "fill", "#eeeeee");
     			attr_dev(path_1, "stroke-width", "0");
+<<<<<<< HEAD
     			add_location(path_1, file$b, 6, 2, 81);
     			attr_dev(g, "class", "map-path");
     			add_location(g, file$b, 5, 0, 58);
+=======
+    			add_location(path_1, file$b, 6, 2, 87);
+    			attr_dev(g, "class", "map-path");
+    			add_location(g, file$b, 5, 0, 63);
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -8261,8 +8772,13 @@ var app = (function () {
         tick: tick
     });
 
+<<<<<<< HEAD
     /* src/CountryCardExplainer.svelte generated by Svelte v3.46.4 */
     const file$a = "src/CountryCardExplainer.svelte";
+=======
+    /* src\CountryCardExplainer.svelte generated by Svelte v3.46.4 */
+    const file$a = "src\\CountryCardExplainer.svelte";
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
 
     // (32:2) {:else}
     function create_else_block_1(ctx) {
@@ -8274,7 +8790,11 @@ var app = (function () {
     			p.textContent = "Hover over the country.";
     			set_style(p, "color", "white");
     			attr_dev(p, "class", "svelte-yhjukw");
+<<<<<<< HEAD
     			add_location(p, file$a, 32, 4, 1102);
+=======
+    			add_location(p, file$a, 32, 4, 1111);
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p, anchor);
@@ -8370,6 +8890,7 @@ var app = (function () {
     			set_style(span0, "text-decoration", "underline solid " + /*regionData*/ ctx[0].color + " 5px");
     			set_style(span0, "text-underline-offset", "2px");
     			attr_dev(span0, "class", "svelte-yhjukw");
+<<<<<<< HEAD
     			add_location(span0, file$a, 28, 8, 787);
     			set_style(span1, "text-decoration", "underline solid " + /*regionData*/ ctx[0].color + " 5px");
     			set_style(span1, "text-underline-offset", "2px");
@@ -8377,6 +8898,15 @@ var app = (function () {
     			add_location(span1, file$a, 28, 145, 924);
     			attr_dev(p, "class", "svelte-yhjukw");
     			add_location(p, file$a, 27, 6, 775);
+=======
+    			add_location(span0, file$a, 28, 8, 792);
+    			set_style(span1, "text-decoration", "underline solid " + /*regionData*/ ctx[0].color + " 5px");
+    			set_style(span1, "text-underline-offset", "2px");
+    			attr_dev(span1, "class", "svelte-yhjukw");
+    			add_location(span1, file$a, 28, 145, 929);
+    			attr_dev(p, "class", "svelte-yhjukw");
+    			add_location(p, file$a, 27, 6, 779);
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p, anchor);
@@ -8434,7 +8964,11 @@ var app = (function () {
     			set_style(span, "text-decoration", "underline solid " + /*regionData*/ ctx[0].color + " 5px");
     			set_style(span, "text-underline-offset", "2px");
     			attr_dev(span, "class", "svelte-yhjukw");
+<<<<<<< HEAD
     			add_location(span, file$a, 24, 60, 623);
+=======
+    			add_location(span, file$a, 24, 60, 624);
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     			attr_dev(p, "class", "svelte-yhjukw");
     			add_location(p, file$a, 23, 6, 559);
     		},
@@ -8488,10 +9022,17 @@ var app = (function () {
     			p.textContent = "Select a country to show various ways you can aquire citizenship.";
     			t1 = space();
     			if_block.c();
+<<<<<<< HEAD
     			attr_dev(p, "class", "user-signifier svelte-yhjukw");
     			add_location(p, file$a, 18, 2, 353);
     			attr_dev(div, "class", "svelte-yhjukw");
     			add_location(div, file$a, 17, 0, 345);
+=======
+    			attr_dev(p, "class", "svelte-yhjukw");
+    			add_location(p, file$a, 18, 2, 371);
+    			attr_dev(div, "class", "svelte-yhjukw");
+    			add_location(div, file$a, 17, 0, 362);
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -8644,8 +9185,13 @@ var app = (function () {
     	}
     }
 
+<<<<<<< HEAD
     /* src/CountryCards.svelte generated by Svelte v3.46.4 */
     const file$9 = "src/CountryCards.svelte";
+=======
+    /* src\CountryCards.svelte generated by Svelte v3.46.4 */
+    const file$9 = "src\\CountryCards.svelte";
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
 
     function get_each_context$2(ctx, list, i) {
     	const child_ctx = ctx.slice();
@@ -8656,7 +9202,11 @@ var app = (function () {
     	return child_ctx;
     }
 
+<<<<<<< HEAD
     // (68:2) {#if selectedRegion !== ""}
+=======
+    // (69:2) {#if selectedRegion !== ""}
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     function create_if_block$4(ctx) {
     	let each_1_anchor;
     	let each_value = /*data*/ ctx[1];
@@ -8717,14 +9267,22 @@ var app = (function () {
     		block,
     		id: create_if_block$4.name,
     		type: "if",
+<<<<<<< HEAD
     		source: "(68:2) {#if selectedRegion !== \\\"\\\"}",
+=======
+    		source: "(69:2) {#if selectedRegion !== \\\"\\\"}",
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     		ctx
     	});
 
     	return block;
     }
 
+<<<<<<< HEAD
     // (69:4) {#each data as { value, country, xOffset, yOffset }}
+=======
+    // (70:4) {#each data as { value, country, xOffset, yOffset }}
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     function create_each_block$2(ctx) {
     	let div2;
     	let div0;
@@ -8759,6 +9317,7 @@ var app = (function () {
     			attr_dev(use, "data-value", use_data_value_value = /*value*/ ctx[10]);
     			attr_dev(use, "data-country", use_data_country_value = /*country*/ ctx[11]);
     			attr_dev(use, "data-color", /*color*/ ctx[2]);
+<<<<<<< HEAD
     			add_location(use, file$9, 79, 12, 2683);
     			attr_dev(svg, "width", "100");
     			attr_dev(svg, "height", "100");
@@ -8771,6 +9330,20 @@ var app = (function () {
     			attr_dev(div2, "class", "country-card svelte-f9fvk4");
     			set_style(div2, "background", "white");
     			add_location(div2, file$9, 70, 6, 2403);
+=======
+    			add_location(use, file$9, 80, 12, 2764);
+    			attr_dev(svg, "width", "100");
+    			attr_dev(svg, "height", "100");
+    			add_location(svg, file$9, 79, 10, 2724);
+    			attr_dev(div0, "class", "country-card__butterfly");
+    			add_location(div0, file$9, 78, 8, 2675);
+    			attr_dev(div1, "class", "country-card__country-name");
+    			set_style(div1, "color", "black");
+    			add_location(div1, file$9, 92, 8, 3178);
+    			attr_dev(div2, "class", "country-card svelte-f9fvk4");
+    			set_style(div2, "background", "white");
+    			add_location(div2, file$9, 71, 6, 2475);
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div2, anchor);
@@ -8830,7 +9403,11 @@ var app = (function () {
     		block,
     		id: create_each_block$2.name,
     		type: "each",
+<<<<<<< HEAD
     		source: "(69:4) {#each data as { value, country, xOffset, yOffset }}",
+=======
+    		source: "(70:4) {#each data as { value, country, xOffset, yOffset }}",
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     		ctx
     	});
 
@@ -8846,7 +9423,11 @@ var app = (function () {
     			div = element("div");
     			if (if_block) if_block.c();
     			attr_dev(div, "class", "country-cards__container svelte-f9fvk4");
+<<<<<<< HEAD
     			add_location(div, file$9, 66, 0, 2208);
+=======
+    			add_location(div, file$9, 67, 0, 2276);
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -9093,19 +9674,39 @@ var app = (function () {
     	}
     }
 
+<<<<<<< HEAD
     /* src/CountryCardContainer.svelte generated by Svelte v3.46.4 */
     const file$8 = "src/CountryCardContainer.svelte";
+=======
+    /* src\CountryCardContainer.svelte generated by Svelte v3.46.4 */
+    const file$8 = "src\\CountryCardContainer.svelte";
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
 
     function create_fragment$a(ctx) {
     	let section;
     	let div;
     	let h1;
+<<<<<<< HEAD
     	let span;
     	let t0;
     	let t1;
     	let countrycardexplainer;
     	let updating_hoveredCountry;
     	let t2;
+=======
+    	let t0;
+    	let span0;
+    	let t1_value = /*formatValue*/ ctx[4](/*regionData*/ ctx[2].value) + "";
+    	let t1;
+    	let t2;
+    	let span1;
+    	let t3;
+    	let t4;
+    	let t5;
+    	let countrycardexplainer;
+    	let updating_hoveredCountry;
+    	let t6;
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     	let countrycards;
     	let updating_selectedRegion;
     	let updating_selectedCountry;
@@ -9113,12 +9714,20 @@ var app = (function () {
     	let current;
 
     	function countrycardexplainer_hoveredCountry_binding(value) {
+<<<<<<< HEAD
     		/*countrycardexplainer_hoveredCountry_binding*/ ctx[6](value);
+=======
+    		/*countrycardexplainer_hoveredCountry_binding*/ ctx[7](value);
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     	}
 
     	let countrycardexplainer_props = {
     		regionData: /*regionData*/ ctx[2],
+<<<<<<< HEAD
     		countryData: /*filteredData*/ ctx[4]
+=======
+    		countryData: /*filteredData*/ ctx[5]
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     	};
 
     	if (/*hoveredCountry*/ ctx[3] !== void 0) {
@@ -9133,6 +9742,7 @@ var app = (function () {
     	binding_callbacks.push(() => bind$1(countrycardexplainer, 'hoveredCountry', countrycardexplainer_hoveredCountry_binding));
 
     	function countrycards_selectedRegion_binding(value) {
+<<<<<<< HEAD
     		/*countrycards_selectedRegion_binding*/ ctx[7](value);
     	}
 
@@ -9146,6 +9756,21 @@ var app = (function () {
 
     	let countrycards_props = {
     		data: /*filteredData*/ ctx[4],
+=======
+    		/*countrycards_selectedRegion_binding*/ ctx[8](value);
+    	}
+
+    	function countrycards_selectedCountry_binding(value) {
+    		/*countrycards_selectedCountry_binding*/ ctx[9](value);
+    	}
+
+    	function countrycards_hoveredCountry_binding(value) {
+    		/*countrycards_hoveredCountry_binding*/ ctx[10](value);
+    	}
+
+    	let countrycards_props = {
+    		data: /*filteredData*/ ctx[5],
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     		color: /*regionData*/ ctx[2].color
     	};
 
@@ -9175,6 +9800,7 @@ var app = (function () {
     			section = element("section");
     			div = element("div");
     			h1 = element("h1");
+<<<<<<< HEAD
     			span = element("span");
     			t0 = text$1(/*selectedRegion*/ ctx[0]);
     			t1 = space();
@@ -9189,6 +9815,31 @@ var app = (function () {
     			attr_dev(div, "class", "svelte-hc7xnx");
     			add_location(div, file$8, 17, 2, 434);
     			add_location(section, file$8, 16, 0, 422);
+=======
+    			t0 = text$1("In 2020, ");
+    			span0 = element("span");
+    			t1 = text$1(t1_value);
+    			t2 = text$1(" people migrated into ");
+    			span1 = element("span");
+    			t3 = text$1(/*selectedRegion*/ ctx[0]);
+    			t4 = text$1(".");
+    			t5 = space();
+    			create_component(countrycardexplainer.$$.fragment);
+    			t6 = space();
+    			create_component(countrycards.$$.fragment);
+    			set_style(span0, "text-decoration", "underline solid " + /*regionData*/ ctx[2].color + " 5px");
+    			set_style(span0, "text-underline-offset", "2px");
+    			attr_dev(span0, "class", "svelte-hc7xnx");
+    			add_location(span0, file$8, 19, 15, 483);
+    			attr_dev(span1, "class", "highlight svelte-hc7xnx");
+    			set_style(span1, "background-color", /*regionData*/ ctx[2].color);
+    			add_location(span1, file$8, 19, 173, 641);
+    			attr_dev(h1, "class", "svelte-hc7xnx");
+    			add_location(h1, file$8, 18, 4, 462);
+    			attr_dev(div, "class", "svelte-hc7xnx");
+    			add_location(div, file$8, 17, 2, 451);
+    			add_location(section, file$8, 16, 0, 438);
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -9197,19 +9848,45 @@ var app = (function () {
     			insert_dev(target, section, anchor);
     			append_dev(section, div);
     			append_dev(div, h1);
+<<<<<<< HEAD
     			append_dev(h1, span);
     			append_dev(span, t0);
     			append_dev(div, t1);
     			mount_component(countrycardexplainer, div, null);
     			append_dev(section, t2);
+=======
+    			append_dev(h1, t0);
+    			append_dev(h1, span0);
+    			append_dev(span0, t1);
+    			append_dev(h1, t2);
+    			append_dev(h1, span1);
+    			append_dev(span1, t3);
+    			append_dev(h1, t4);
+    			append_dev(div, t5);
+    			mount_component(countrycardexplainer, div, null);
+    			append_dev(section, t6);
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     			mount_component(countrycards, section, null);
     			current = true;
     		},
     		p: function update(ctx, [dirty]) {
+<<<<<<< HEAD
     			if (!current || dirty & /*selectedRegion*/ 1) set_data_dev(t0, /*selectedRegion*/ ctx[0]);
 
     			if (!current || dirty & /*regionData*/ 4) {
     				set_style(span, "background-color", /*regionData*/ ctx[2].color);
+=======
+    			if ((!current || dirty & /*regionData*/ 4) && t1_value !== (t1_value = /*formatValue*/ ctx[4](/*regionData*/ ctx[2].value) + "")) set_data_dev(t1, t1_value);
+
+    			if (!current || dirty & /*regionData*/ 4) {
+    				set_style(span0, "text-decoration", "underline solid " + /*regionData*/ ctx[2].color + " 5px");
+    			}
+
+    			if (!current || dirty & /*selectedRegion*/ 1) set_data_dev(t3, /*selectedRegion*/ ctx[0]);
+
+    			if (!current || dirty & /*regionData*/ 4) {
+    				set_style(span1, "background-color", /*regionData*/ ctx[2].color);
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     			}
 
     			const countrycardexplainer_changes = {};
@@ -9313,7 +9990,11 @@ var app = (function () {
     	$$self.$$set = $$props => {
     		if ('selectedRegion' in $$props) $$invalidate(0, selectedRegion = $$props.selectedRegion);
     		if ('selectedCountry' in $$props) $$invalidate(1, selectedCountry = $$props.selectedCountry);
+<<<<<<< HEAD
     		if ('countryData' in $$props) $$invalidate(5, countryData = $$props.countryData);
+=======
+    		if ('countryData' in $$props) $$invalidate(6, countryData = $$props.countryData);
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     		if ('regionData' in $$props) $$invalidate(2, regionData = $$props.regionData);
     	};
 
@@ -9334,10 +10015,17 @@ var app = (function () {
     	$$self.$inject_state = $$props => {
     		if ('selectedRegion' in $$props) $$invalidate(0, selectedRegion = $$props.selectedRegion);
     		if ('selectedCountry' in $$props) $$invalidate(1, selectedCountry = $$props.selectedCountry);
+<<<<<<< HEAD
     		if ('countryData' in $$props) $$invalidate(5, countryData = $$props.countryData);
     		if ('regionData' in $$props) $$invalidate(2, regionData = $$props.regionData);
     		if ('hoveredCountry' in $$props) $$invalidate(3, hoveredCountry = $$props.hoveredCountry);
     		if ('filteredData' in $$props) $$invalidate(4, filteredData = $$props.filteredData);
+=======
+    		if ('countryData' in $$props) $$invalidate(6, countryData = $$props.countryData);
+    		if ('regionData' in $$props) $$invalidate(2, regionData = $$props.regionData);
+    		if ('hoveredCountry' in $$props) $$invalidate(3, hoveredCountry = $$props.hoveredCountry);
+    		if ('filteredData' in $$props) $$invalidate(5, filteredData = $$props.filteredData);
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     	};
 
     	if ($$props && "$$inject" in $$props) {
@@ -9349,6 +10037,10 @@ var app = (function () {
     		selectedCountry,
     		regionData,
     		hoveredCountry,
+<<<<<<< HEAD
+=======
+    		formatValue,
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     		filteredData,
     		countryData,
     		countrycardexplainer_hoveredCountry_binding,
@@ -9365,7 +10057,11 @@ var app = (function () {
     		init$1(this, options, instance$a, create_fragment$a, safe_not_equal, {
     			selectedRegion: 0,
     			selectedCountry: 1,
+<<<<<<< HEAD
     			countryData: 5,
+=======
+    			countryData: 6,
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     			regionData: 2
     		});
 
@@ -9387,7 +10083,11 @@ var app = (function () {
     			console.warn("<CountryCardContainer> was created without expected prop 'selectedCountry'");
     		}
 
+<<<<<<< HEAD
     		if (/*countryData*/ ctx[5] === undefined && !('countryData' in props)) {
+=======
+    		if (/*countryData*/ ctx[6] === undefined && !('countryData' in props)) {
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     			console.warn("<CountryCardContainer> was created without expected prop 'countryData'");
     		}
 
@@ -9429,6 +10129,159 @@ var app = (function () {
     	}
     }
 
+<<<<<<< HEAD
+=======
+    const regions = [
+      {
+        name: "Polynesia",
+        shape: 0,
+        color: "#5C800B",
+        colorLight: "#ADC085",
+        code: "957",
+      },
+      {
+        name: "Melanesia",
+        shape: 0,
+        color: "#5C800B",
+        colorLight: "#ADC085",
+        code: "928",
+      },
+      {
+        name: "Southern Africa",
+        shape: 0,
+        color: "#E08F56",
+        colorLight: "#F0C7AB",
+        code: "913",
+      },
+      {
+        name: "Central America",
+        shape: 0,
+        color: "#AF70A5",
+        colorLight: "#D7B7D2",
+        code: "916",
+      },
+      {
+        name: "Caribbean",
+        shape: 0,
+        color: "#AF70A5",
+        colorLight: "#D7B7D2",
+        code: "915",
+      },
+      {
+        name: "Middle Africa",
+        shape: 0,
+        color: "#E08F56",
+        colorLight: "#F0C7AB",
+        code: "911",
+      },
+      {
+        name: "Northern Africa",
+        shape: 0,
+        color: "#E08F56",
+        colorLight: "#F0C7AB",
+        code: "912",
+      },
+      {
+        name: "South America",
+        shape: 0,
+        color: "#AF70A5",
+        colorLight: "#D7B7D2",
+        code: "931",
+      },
+      {
+        name: "Eastern Africa",
+        shape: 0,
+        color: "#E08F56",
+        colorLight: "#F0C7AB",
+        code: "910",
+      },
+      {
+        name: "Western Africa",
+        shape: 0,
+        color: "#E08F56",
+        colorLight: "#F0C7AB",
+        code: "914",
+      },
+      {
+        name: "South-eastern Asia",
+        shape: 1,
+        color: "#F6CC52",
+        colorLight: "#FAE5A8",
+        code: "920",
+      },
+      {
+        name: "Eastern Asia",
+        shape: 1,
+        color: "#F6CC52",
+        colorLight: "#FAE5A8",
+        code: "906",
+      },
+      {
+        name: "Central Asia",
+        shape: 1,
+        color: "#F6CC52",
+        colorLight: "#FAE5A8",
+        code: "5500",
+      },
+      {
+        name: "Southern Europe",
+        shape: 1,
+        color: "#78B2EB",
+        colorLight: "#BBD8F5",
+        code: "925",
+      },
+      {
+        name: "Northern Europe",
+        shape: 1,
+        color: "#78B2EB",
+        colorLight: "#BBD8F5",
+        code: "924",
+      },
+      {
+        name: "Australia and New Zealand",
+        shape: 0,
+        color: "#5C800B",
+        colorLight: "#ADC085",
+        code: "927",
+      },
+      {
+        name: "Western Asia",
+        shape: 1,
+        color: "#F6CC52",
+        colorLight: "#FAE5A8",
+        code: "922",
+      },
+      {
+        name: "Southern Asia",
+        shape: 1,
+        color: "#F6CC52",
+        colorLight: "#FAE5A8",
+        code: "5501",
+      },
+      {
+        name: "Western Europe",
+        shape: 1,
+        color: "#78B2EB",
+        colorLight: "#BBD8F5",
+        code: "926",
+      },
+      {
+        name: "Eastern Europe",
+        shape: 1,
+        color: "#78B2EB",
+        colorLight: "#BBD8F5",
+        code: "923",
+      },
+      {
+        name: "Northern America",
+        shape: 0,
+        color: "#AF70A5",
+        colorLight: "#D7B7D2",
+        code: "905",
+      },
+    ];
+
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     // Title Unique Array
     // Returns the unique values of a variable in a dataset as an array
     function uniqueArray(data, variable) {
@@ -9771,8 +10624,13 @@ var app = (function () {
       }
     }
 
+<<<<<<< HEAD
     /* src/Documentation.svelte generated by Svelte v3.46.4 */
     const file$7 = "src/Documentation.svelte";
+=======
+    /* src\Documentation.svelte generated by Svelte v3.46.4 */
+    const file$7 = "src\\Documentation.svelte";
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
 
     function create_fragment$9(ctx) {
     	let div2;
@@ -9801,6 +10659,7 @@ var app = (function () {
     			t5 = space();
     			t6 = text$1(/*definitionMessage*/ ctx[1]);
     			attr_dev(h30, "class", "svelte-1o8udgc");
+<<<<<<< HEAD
     			add_location(h30, file$7, 38, 4, 1466);
     			attr_dev(div0, "class", "svelte-1o8udgc");
     			add_location(div0, file$7, 37, 2, 1456);
@@ -9811,6 +10670,18 @@ var app = (function () {
     			attr_dev(div2, "id", "documentation");
     			attr_dev(div2, "class", "svelte-1o8udgc");
     			add_location(div2, file$7, 36, 0, 1429);
+=======
+    			add_location(h30, file$7, 61, 4, 2174);
+    			attr_dev(div0, "class", "svelte-1o8udgc");
+    			add_location(div0, file$7, 60, 2, 2163);
+    			attr_dev(h31, "class", "svelte-1o8udgc");
+    			add_location(h31, file$7, 65, 4, 2268);
+    			attr_dev(div1, "class", "svelte-1o8udgc");
+    			add_location(div1, file$7, 64, 2, 2257);
+    			attr_dev(div2, "id", "documentation");
+    			attr_dev(div2, "class", "svelte-1o8udgc");
+    			add_location(div2, file$7, 59, 0, 2135);
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -10019,12 +10890,19 @@ var app = (function () {
     	}
     }
 
+<<<<<<< HEAD
     /* src/BigButterflyContainer.svelte generated by Svelte v3.46.4 */
 
     const { console: console_1$1 } = globals;
     const file$6 = "src/BigButterflyContainer.svelte";
 
     // (300:2) {#if selectedCountry !== ""}
+=======
+    /* src\BigButterflyContainer.svelte generated by Svelte v3.46.4 */
+    const file$6 = "src\\BigButterflyContainer.svelte";
+
+    // (197:2) {#if selectedCountry !== ""}
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     function create_if_block$3(ctx) {
     	let h1;
     	let t0;
@@ -10032,7 +10910,10 @@ var app = (function () {
     	let t1;
     	let t2;
     	let div;
+<<<<<<< HEAD
     	let p;
+=======
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     	let t3;
     	let svg;
     	let circle;
@@ -10050,6 +10931,7 @@ var app = (function () {
     			t1 = text$1(/*selectedCountry*/ ctx[0]);
     			t2 = space();
     			div = element("div");
+<<<<<<< HEAD
     			p = element("p");
     			t3 = text$1("Click\n        ");
     			svg = svg_element("svg");
@@ -10063,12 +10945,27 @@ var app = (function () {
     			add_location(span, file$6, 301, 38, 11371);
     			attr_dev(h1, "class", "title");
     			add_location(h1, file$6, 300, 4, 11314);
+=======
+    			t3 = text$1("Click\r\n        ");
+    			svg = svg_element("svg");
+    			circle = svg_element("circle");
+    			t4 = text$1("\r\n      to answer questions. Paths will light up if there is a country-specific law that allows you to acquire citizenship with your condition.");
+    			t5 = space();
+    			if (if_block) if_block.c();
+    			if_block_anchor = empty$1();
+    			attr_dev(span, "class", "country-highlight svelte-1iw9sua");
+    			set_style(span, "background-color", /*selectedColor*/ ctx[8].vivid);
+    			add_location(span, file$6, 198, 38, 7372);
+    			attr_dev(h1, "class", "title");
+    			add_location(h1, file$6, 197, 4, 7314);
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     			attr_dev(circle, "cx", "9");
     			attr_dev(circle, "cy", "9");
     			attr_dev(circle, "r", "5");
     			attr_dev(circle, "stroke-width", "4");
     			attr_dev(circle, "stroke", "black");
     			attr_dev(circle, "fill", "white");
+<<<<<<< HEAD
     			add_location(circle, file$6, 306, 10, 11598);
     			attr_dev(svg, "width", "18");
     			attr_dev(svg, "height", "18");
@@ -10077,6 +10974,14 @@ var app = (function () {
     			add_location(p, file$6, 304, 6, 11523);
     			attr_dev(div, "class", "instructions svelte-dbpwj4");
     			add_location(div, file$6, 303, 4, 11490);
+=======
+    			add_location(circle, file$6, 203, 10, 7578);
+    			attr_dev(svg, "width", "27");
+    			attr_dev(svg, "height", "18");
+    			add_location(svg, file$6, 202, 8, 7542);
+    			attr_dev(div, "class", "instructions svelte-1iw9sua");
+    			add_location(div, file$6, 200, 4, 7493);
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, h1, anchor);
@@ -10085,11 +10990,18 @@ var app = (function () {
     			append_dev(span, t1);
     			insert_dev(target, t2, anchor);
     			insert_dev(target, div, anchor);
+<<<<<<< HEAD
     			append_dev(div, p);
     			append_dev(p, t3);
     			append_dev(p, svg);
     			append_dev(svg, circle);
     			append_dev(p, t4);
+=======
+    			append_dev(div, t3);
+    			append_dev(div, svg);
+    			append_dev(svg, circle);
+    			append_dev(div, t4);
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     			insert_dev(target, t5, anchor);
     			if (if_block) if_block.m(target, anchor);
     			insert_dev(target, if_block_anchor, anchor);
@@ -10144,13 +11056,18 @@ var app = (function () {
     		block,
     		id: create_if_block$3.name,
     		type: "if",
+<<<<<<< HEAD
     		source: "(300:2) {#if selectedCountry !== \\\"\\\"}",
+=======
+    		source: "(197:2) {#if selectedCountry !== \\\"\\\"}",
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     		ctx
     	});
 
     	return block;
     }
 
+<<<<<<< HEAD
     // (319:4) {#if w !== undefined}
     function create_if_block_1$2(ctx) {
     	let div2;
@@ -10186,12 +11103,21 @@ var app = (function () {
     	let t16;
     	let div0;
     	let t18;
+=======
+    // (215:4) {#if w !== undefined}
+    function create_if_block_1$2(ctx) {
+    	let div1;
+    	let div0;
+    	let raw_value = /*butterflies*/ ctx[4][2] + "";
+    	let t;
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     	let if_block_anchor;
     	let current;
     	let if_block = /*trueMode*/ ctx[6] !== undefined && create_if_block_2$1(ctx);
 
     	const block = {
     		c: function create() {
+<<<<<<< HEAD
     			div2 = element("div");
     			div1 = element("div");
     			html_tag = new HtmlTag();
@@ -10310,16 +11236,40 @@ var app = (function () {
     			append_dev(form, t16);
     			append_dev(form, div0);
     			insert_dev(target, t18, anchor);
+=======
+    			div1 = element("div");
+    			div0 = element("div");
+    			t = space();
+    			if (if_block) if_block.c();
+    			if_block_anchor = empty$1();
+    			attr_dev(div0, "id", "butterfly__graphic");
+    			add_location(div0, file$6, 216, 8, 8012);
+    			attr_dev(div1, "id", "citizenship-paths");
+    			set_style(div1, "height", /*h*/ ctx[7]);
+    			add_location(div1, file$6, 215, 6, 7954);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div1, anchor);
+    			append_dev(div1, div0);
+    			div0.innerHTML = raw_value;
+    			insert_dev(target, t, anchor);
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     			if (if_block) if_block.m(target, anchor);
     			insert_dev(target, if_block_anchor, anchor);
     			current = true;
     		},
     		p: function update(ctx, dirty) {
+<<<<<<< HEAD
     			if ((!current || dirty & /*butterflies*/ 16) && raw_value !== (raw_value = /*butterflies*/ ctx[4][2] + "")) html_tag.p(raw_value);
     			if (!current || dirty & /*selectedCountry*/ 1) set_data_dev(t2, /*selectedCountry*/ ctx[0]);
 
     			if (!current || dirty & /*h*/ 128) {
     				set_style(div2, "height", /*h*/ ctx[7]);
+=======
+    			if ((!current || dirty & /*butterflies*/ 16) && raw_value !== (raw_value = /*butterflies*/ ctx[4][2] + "")) div0.innerHTML = raw_value;
+    			if (!current || dirty & /*h*/ 128) {
+    				set_style(div1, "height", /*h*/ ctx[7]);
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     			}
 
     			if (/*trueMode*/ ctx[6] !== undefined) {
@@ -10355,8 +11305,13 @@ var app = (function () {
     			current = false;
     		},
     		d: function destroy(detaching) {
+<<<<<<< HEAD
     			if (detaching) detach_dev(div2);
     			if (detaching) detach_dev(t18);
+=======
+    			if (detaching) detach_dev(div1);
+    			if (detaching) detach_dev(t);
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     			if (if_block) if_block.d(detaching);
     			if (detaching) detach_dev(if_block_anchor);
     		}
@@ -10366,14 +11321,22 @@ var app = (function () {
     		block,
     		id: create_if_block_1$2.name,
     		type: "if",
+<<<<<<< HEAD
     		source: "(319:4) {#if w !== undefined}",
+=======
+    		source: "(215:4) {#if w !== undefined}",
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     		ctx
     	});
 
     	return block;
     }
 
+<<<<<<< HEAD
     // (337:6) {#if trueMode !== undefined}
+=======
+    // (221:6) {#if trueMode !== undefined}
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     function create_if_block_2$1(ctx) {
     	let documentation;
     	let updating_trueMode;
@@ -10442,7 +11405,11 @@ var app = (function () {
     		block,
     		id: create_if_block_2$1.name,
     		type: "if",
+<<<<<<< HEAD
     		source: "(337:6) {#if trueMode !== undefined}",
+=======
+    		source: "(221:6) {#if trueMode !== undefined}",
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     		ctx
     	});
 
@@ -10460,9 +11427,15 @@ var app = (function () {
     			section = element("section");
     			if (if_block) if_block.c();
     			attr_dev(section, "id", "big-butterfly__container");
+<<<<<<< HEAD
     			attr_dev(section, "class", "svelte-dbpwj4");
     			add_render_callback(() => /*section_elementresize_handler*/ ctx[14].call(section));
     			add_location(section, file$6, 298, 0, 11216);
+=======
+    			attr_dev(section, "class", "svelte-1iw9sua");
+    			add_render_callback(() => /*section_elementresize_handler*/ ctx[14].call(section));
+    			add_location(section, file$6, 195, 0, 7214);
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -10586,7 +11559,11 @@ var app = (function () {
     	];
 
     	Object.keys($$props).forEach(key => {
+<<<<<<< HEAD
     		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console_1$1.warn(`<BigButterflyContainer> was created with unknown prop '${key}'`);
+=======
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<BigButterflyContainer> was created with unknown prop '${key}'`);
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     	});
 
     	function documentation_trueMode_binding(value) {
@@ -10613,9 +11590,16 @@ var app = (function () {
 
     	$$self.$capture_state = () => ({
     		afterUpdate,
+<<<<<<< HEAD
     		html,
     		select,
     		selectAll,
+=======
+    		select,
+    		selectAll,
+    		scaleOrdinal: ordinal,
+    		mode,
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     		uniqueArray,
     		findRegionColor,
     		getQuestionWithCountryName,
@@ -10624,6 +11608,11 @@ var app = (function () {
     		clickContainer,
     		highlightPath,
     		Documentation,
+<<<<<<< HEAD
+=======
+    		regions,
+    		each,
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     		selectedRegion,
     		selectedCountry,
     		definitions,
@@ -10683,8 +11672,12 @@ var app = (function () {
     				// console.log(clicks);
     				// console.log("possibleModes", possibleModes);
     				// console.log("allQuestions", allQuestions);
+<<<<<<< HEAD
     				console.log("possibleQuestions", possibleQuestions);
 
+=======
+    				// console.log("possibleQuestions", possibleQuestions);
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     				// console.log("unnecessaryQuestions", unnecessaryQuestions);
     				// filter and see what modes are available
     				let filteredAvailableMode = availableMode.filter(m => possibleModes.includes(m));
@@ -10719,8 +11712,13 @@ var app = (function () {
     						}
     					});
 
+<<<<<<< HEAD
     					if (!butterflyCirclesG.empty()) {
     						// populate questions
+=======
+    					// populate questions
+    					if (!butterflyCirclesG.empty()) {
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     						selectAll(".butterfly__questions__question").remove();
 
     						questions.forEach(q => {
@@ -10743,6 +11741,7 @@ var app = (function () {
     								? position[1] - 30
     								: side.v == "middle" ? position[1] - 15 : position[1] + 10).attr("width", 170).attr("height", 170).// .style("opacity", q.visibility == "hidden" ? 0 : 1)
     								style("text-shadow", "-2px -2px 0 rgba(255, 255, 255, 0.7), 2px -2px 0 rgba(255, 255, 255, 0.7), -2px 2px 0 rgba(255, 255, 255, 0.7), 2px 2px 0 rgba(255, 255, 255, 0.7)").style("font-size", "0.8rem").style("text-align", side.h == 'left' ? "right" : "left").style("line-height", 1).style("transition", "all 0.2s ease");
+<<<<<<< HEAD
 
     								// add toggle switch
     								let switchG = select("#butterfly__toggle").append("g").classed("switch", true).attr("id", `switch__${id}`).attr("transform", `translate(${position[0] - 20}, ${position[1]})`).style("opacity", 0).style("pointer-events", "none");
@@ -10752,10 +11751,13 @@ var app = (function () {
     								switchG.append("circle").attr("cx", 20).attr("r", 10).attr("data-answer-state", "").attr('fill', "white").style("opacity", 1);
     								switchG.append("circle").attr("cx", 40).attr("r", 10).attr("data-answer-state", "Yes").attr("stroke", "black").attr('stroke-width', 7.8).attr('fill', "white").style("opacity", 0).style("cursor", "pointer");
     								switchG.append("text").attr("x", 10).attr("y", 30).style("font-size", "0.8rem").style("font-weight", "bold").text("").style("text-shadow", "-2px -2px 0 rgba(255, 255, 255, 0.7), 2px -2px 0 rgba(255, 255, 255, 0.7), -2px 2px 0 rgba(255, 255, 255, 0.7), 2px 2px 0 rgba(255, 255, 255, 0.7)");
+=======
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     							}
     						});
     					}
 
+<<<<<<< HEAD
     					//@Yuriko-Schumacher this branch some extra logic for A06a. One of the their weird ones that requires a checkbox or toggle. Al we should have to do is get the value from that checkbox and add it as status.
     					// So I think the only thing we should need to change is on line 181. Right now I'm setting the status to "blah", which is just my way of saying temporary placeholder. What we'll want to do is set blah equal to the outcome of a user click event.
     					// The options in the user click event should be:
@@ -10764,6 +11766,8 @@ var app = (function () {
     					// values: 3 text: "Between 5 years and 10 years",
     					// values: 4 text: "More than 10 years"
     					// Let me know if any of this is confusing
+=======
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     					// circles on click event
     					butterflyCirclesG.selectAll("circle").on("mouseover", function () {
     						let id = select(this).attr("id");
@@ -10782,6 +11786,7 @@ var app = (function () {
     					});
 
     					butterflyCirclesG.selectAll("circle").on("click", function () {
+<<<<<<< HEAD
     						let id = select(this).attr("id");
     						let status;
     						clicks.updateClick(id, status);
@@ -10831,6 +11836,15 @@ var app = (function () {
     								});
     							}
     						});
+=======
+    						let id = select(this).property("id");
+    						let status = true;
+    						clicks.updateClick(id, status);
+
+    						if (id === "Q23") {
+    							status = "blah";
+    						}
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
 
     						// if (status) {
     						highlightPath(clicks, butterflyPathsG);
@@ -10895,6 +11909,7 @@ var app = (function () {
     		const props = options.props || {};
 
     		if (/*selectedRegion*/ ctx[9] === undefined && !('selectedRegion' in props)) {
+<<<<<<< HEAD
     			console_1$1.warn("<BigButterflyContainer> was created without expected prop 'selectedRegion'");
     		}
 
@@ -10928,6 +11943,41 @@ var app = (function () {
 
     		if (/*modeA06a*/ ctx[12] === undefined && !('modeA06a' in props)) {
     			console_1$1.warn("<BigButterflyContainer> was created without expected prop 'modeA06a'");
+=======
+    			console.warn("<BigButterflyContainer> was created without expected prop 'selectedRegion'");
+    		}
+
+    		if (/*selectedCountry*/ ctx[0] === undefined && !('selectedCountry' in props)) {
+    			console.warn("<BigButterflyContainer> was created without expected prop 'selectedCountry'");
+    		}
+
+    		if (/*definitions*/ ctx[1] === undefined && !('definitions' in props)) {
+    			console.warn("<BigButterflyContainer> was created without expected prop 'definitions'");
+    		}
+
+    		if (/*warnings*/ ctx[2] === undefined && !('warnings' in props)) {
+    			console.warn("<BigButterflyContainer> was created without expected prop 'warnings'");
+    		}
+
+    		if (/*questions*/ ctx[10] === undefined && !('questions' in props)) {
+    			console.warn("<BigButterflyContainer> was created without expected prop 'questions'");
+    		}
+
+    		if (/*acqMode*/ ctx[3] === undefined && !('acqMode' in props)) {
+    			console.warn("<BigButterflyContainer> was created without expected prop 'acqMode'");
+    		}
+
+    		if (/*questionToMode*/ ctx[11] === undefined && !('questionToMode' in props)) {
+    			console.warn("<BigButterflyContainer> was created without expected prop 'questionToMode'");
+    		}
+
+    		if (/*butterflies*/ ctx[4] === undefined && !('butterflies' in props)) {
+    			console.warn("<BigButterflyContainer> was created without expected prop 'butterflies'");
+    		}
+
+    		if (/*modeA06a*/ ctx[12] === undefined && !('modeA06a' in props)) {
+    			console.warn("<BigButterflyContainer> was created without expected prop 'modeA06a'");
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     		}
     	}
 
@@ -11004,7 +12054,11 @@ var app = (function () {
     	}
     }
 
+<<<<<<< HEAD
     /* src/Popup.svelte generated by Svelte v3.46.4 */
+=======
+    /* src\Popup.svelte generated by Svelte v3.46.4 */
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
 
     function create_fragment$7(ctx) {
     	let countrycardcontainer;
@@ -11216,6 +12270,11 @@ var app = (function () {
     	};
 
     	$$self.$capture_state = () => ({
+<<<<<<< HEAD
+=======
+    		max,
+    		min,
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     		CountryCardContainer,
     		BigButterflyContainer,
     		regions,
@@ -11326,6 +12385,7 @@ var app = (function () {
     	}
     }
 
+<<<<<<< HEAD
     /* src/MapPoints.svelte generated by Svelte v3.46.4 */
     const file$5 = "src/MapPoints.svelte";
 
@@ -11340,6 +12400,22 @@ var app = (function () {
     }
 
     // (188:2) {#each $butterflyPoints as {x, y, value, regionIndex, regionCode}}
+=======
+    /* src\MapPoints.svelte generated by Svelte v3.46.4 */
+    const file$5 = "src\\MapPoints.svelte";
+
+    function get_each_context$1(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[22] = list[i].x;
+    	child_ctx[23] = list[i].y;
+    	child_ctx[24] = list[i].value;
+    	child_ctx[25] = list[i].regionIndex;
+    	child_ctx[26] = list[i].regionCode;
+    	return child_ctx;
+    }
+
+    // (203:2) {#each $butterflyPoints as {x, y, value, regionIndex, regionCode}}
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     function create_each_block$1(ctx) {
     	let g1;
     	let g0;
@@ -11349,7 +12425,10 @@ var app = (function () {
     	let use_fill_value;
     	let use_data_region_index_value;
     	let use_data_region_code_value;
+<<<<<<< HEAD
     	let use_data_value_value;
+=======
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     	let g0_transform_value;
     	let g1_transform_value;
     	let mounted;
@@ -11361,6 +12440,7 @@ var app = (function () {
     			g0 = svg_element("g");
     			use = svg_element("use");
     			xlink_attr(use, "xlink:href", "#butterfly-0");
+<<<<<<< HEAD
     			attr_dev(use, "transform", use_transform_value = "scale(" + /*sScale*/ ctx[2](/*value*/ ctx[23]) + ")");
     			attr_dev(use, "stroke", use_stroke_value = regions[/*regionIndex*/ ctx[24]].color);
     			attr_dev(use, "stroke-width", "1");
@@ -11377,6 +12457,23 @@ var app = (function () {
     			attr_dev(g1, "class", "butterfly-container");
     			attr_dev(g1, "transform", g1_transform_value = "translate(" + /*sScale*/ ctx[2](/*value*/ ctx[23]) * -50 + ", " + /*sScale*/ ctx[2](/*value*/ ctx[23]) * -50 + ")");
     			add_location(g1, file$5, 188, 4, 5916);
+=======
+    			attr_dev(use, "transform", use_transform_value = "scale(" + /*sScale*/ ctx[2](/*value*/ ctx[24]) + ")");
+    			attr_dev(use, "stroke", use_stroke_value = regions[/*regionIndex*/ ctx[25]].color);
+    			attr_dev(use, "stroke-width", "1");
+    			attr_dev(use, "fill", use_fill_value = regions[/*regionIndex*/ ctx[25]].color);
+    			attr_dev(use, "fill-opacity", "0.5");
+    			attr_dev(use, "data-region-index", use_data_region_index_value = /*regionIndex*/ ctx[25]);
+    			attr_dev(use, "data-region-code", use_data_region_code_value = /*regionCode*/ ctx[26]);
+    			attr_dev(use, "class", "svelte-rmrozh");
+    			add_location(use, file$5, 212, 8, 6806);
+    			attr_dev(g0, "class", "butterfly svelte-rmrozh");
+    			attr_dev(g0, "transform", g0_transform_value = "translate(" + /*x*/ ctx[22] + ", " + /*y*/ ctx[23] + ") rotate(" + (Math.random() * 60 - 30) + ")");
+    			add_location(g0, file$5, 207, 6, 6617);
+    			attr_dev(g1, "class", "butterfly-container");
+    			attr_dev(g1, "transform", g1_transform_value = "translate(" + /*sScale*/ ctx[2](/*value*/ ctx[24]) * -50 + ", " + /*sScale*/ ctx[2](/*value*/ ctx[24]) * -50 + ")");
+    			add_location(g1, file$5, 203, 4, 6490);
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, g1, anchor);
@@ -11394,6 +12491,7 @@ var app = (function () {
     			}
     		},
     		p: function update(ctx, dirty) {
+<<<<<<< HEAD
     			if (dirty & /*$butterflyPoints*/ 2 && use_transform_value !== (use_transform_value = "scale(" + /*sScale*/ ctx[2](/*value*/ ctx[23]) + ")")) {
     				attr_dev(use, "transform", use_transform_value);
     			}
@@ -11423,6 +12521,33 @@ var app = (function () {
     			}
 
     			if (dirty & /*$butterflyPoints*/ 2 && g1_transform_value !== (g1_transform_value = "translate(" + /*sScale*/ ctx[2](/*value*/ ctx[23]) * -50 + ", " + /*sScale*/ ctx[2](/*value*/ ctx[23]) * -50 + ")")) {
+=======
+    			if (dirty & /*$butterflyPoints*/ 2 && use_transform_value !== (use_transform_value = "scale(" + /*sScale*/ ctx[2](/*value*/ ctx[24]) + ")")) {
+    				attr_dev(use, "transform", use_transform_value);
+    			}
+
+    			if (dirty & /*$butterflyPoints*/ 2 && use_stroke_value !== (use_stroke_value = regions[/*regionIndex*/ ctx[25]].color)) {
+    				attr_dev(use, "stroke", use_stroke_value);
+    			}
+
+    			if (dirty & /*$butterflyPoints*/ 2 && use_fill_value !== (use_fill_value = regions[/*regionIndex*/ ctx[25]].color)) {
+    				attr_dev(use, "fill", use_fill_value);
+    			}
+
+    			if (dirty & /*$butterflyPoints*/ 2 && use_data_region_index_value !== (use_data_region_index_value = /*regionIndex*/ ctx[25])) {
+    				attr_dev(use, "data-region-index", use_data_region_index_value);
+    			}
+
+    			if (dirty & /*$butterflyPoints*/ 2 && use_data_region_code_value !== (use_data_region_code_value = /*regionCode*/ ctx[26])) {
+    				attr_dev(use, "data-region-code", use_data_region_code_value);
+    			}
+
+    			if (dirty & /*$butterflyPoints*/ 2 && g0_transform_value !== (g0_transform_value = "translate(" + /*x*/ ctx[22] + ", " + /*y*/ ctx[23] + ") rotate(" + (Math.random() * 60 - 30) + ")")) {
+    				attr_dev(g0, "transform", g0_transform_value);
+    			}
+
+    			if (dirty & /*$butterflyPoints*/ 2 && g1_transform_value !== (g1_transform_value = "translate(" + /*sScale*/ ctx[2](/*value*/ ctx[24]) * -50 + ", " + /*sScale*/ ctx[2](/*value*/ ctx[24]) * -50 + ")")) {
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     				attr_dev(g1, "transform", g1_transform_value);
     			}
     		},
@@ -11437,7 +12562,11 @@ var app = (function () {
     		block,
     		id: create_each_block$1.name,
     		type: "each",
+<<<<<<< HEAD
     		source: "(188:2) {#each $butterflyPoints as {x, y, value, regionIndex, regionCode}}",
+=======
+    		source: "(203:2) {#each $butterflyPoints as {x, y, value, regionIndex, regionCode}}",
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     		ctx
     	});
 
@@ -11445,10 +12574,20 @@ var app = (function () {
     }
 
     function create_fragment$6(ctx) {
+<<<<<<< HEAD
     	let g1;
     	let defs;
     	let g0;
     	let raw_value = /*butterflies*/ ctx[0][0] + "";
+=======
+    	let g2;
+    	let defs0;
+    	let g0;
+    	let raw0_value = /*butterflies*/ ctx[0][0] + "";
+    	let defs1;
+    	let g1;
+    	let raw1_value = /*butterflies*/ ctx[0][1] + "";
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     	let each_value = /*$butterflyPoints*/ ctx[1];
     	validate_each_argument(each_value);
     	let each_blocks = [];
@@ -11459,24 +12598,43 @@ var app = (function () {
 
     	const block = {
     		c: function create() {
+<<<<<<< HEAD
     			g1 = svg_element("g");
     			defs = svg_element("defs");
     			g0 = svg_element("g");
+=======
+    			g2 = svg_element("g");
+    			defs0 = svg_element("defs");
+    			g0 = svg_element("g");
+    			defs1 = svg_element("defs");
+    			g1 = svg_element("g");
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
 
     			for (let i = 0; i < each_blocks.length; i += 1) {
     				each_blocks[i].c();
     			}
 
     			attr_dev(g0, "id", "butterfly-0");
+<<<<<<< HEAD
     			add_location(g0, file$5, 182, 4, 5773);
     			add_location(defs, file$5, 181, 2, 5762);
     			attr_dev(g1, "class", "map-points");
     			add_location(g1, file$5, 180, 0, 5737);
+=======
+    			add_location(g0, file$5, 192, 4, 6254);
+    			add_location(defs0, file$5, 191, 2, 6242);
+    			attr_dev(g1, "id", "butterfly-1");
+    			add_location(g1, file$5, 197, 4, 6341);
+    			add_location(defs1, file$5, 196, 2, 6329);
+    			attr_dev(g2, "class", "map-points");
+    			add_location(g2, file$5, 183, 0, 6077);
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
     		},
     		m: function mount(target, anchor) {
+<<<<<<< HEAD
     			insert_dev(target, g1, anchor);
     			append_dev(g1, defs);
     			append_dev(defs, g0);
@@ -11488,6 +12646,22 @@ var app = (function () {
     		},
     		p: function update(ctx, [dirty]) {
     			if (dirty & /*butterflies*/ 1 && raw_value !== (raw_value = /*butterflies*/ ctx[0][0] + "")) g0.innerHTML = raw_value;
+=======
+    			insert_dev(target, g2, anchor);
+    			append_dev(g2, defs0);
+    			append_dev(defs0, g0);
+    			g0.innerHTML = raw0_value;
+    			append_dev(g2, defs1);
+    			append_dev(defs1, g1);
+    			g1.innerHTML = raw1_value;
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].m(g2, null);
+    			}
+    		},
+    		p: function update(ctx, [dirty]) {
+    			if (dirty & /*butterflies*/ 1 && raw0_value !== (raw0_value = /*butterflies*/ ctx[0][0] + "")) g0.innerHTML = raw0_value;			if (dirty & /*butterflies*/ 1 && raw1_value !== (raw1_value = /*butterflies*/ ctx[0][1] + "")) g1.innerHTML = raw1_value;
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     			if (dirty & /*sScale, $butterflyPoints, Math, regions, handleMouseOver, handleMouseOut, handleClick*/ 118) {
     				each_value = /*$butterflyPoints*/ ctx[1];
     				validate_each_argument(each_value);
@@ -11501,7 +12675,11 @@ var app = (function () {
     					} else {
     						each_blocks[i] = create_each_block$1(child_ctx);
     						each_blocks[i].c();
+<<<<<<< HEAD
     						each_blocks[i].m(g1, null);
+=======
+    						each_blocks[i].m(g2, null);
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     					}
     				}
 
@@ -11515,7 +12693,11 @@ var app = (function () {
     		i: noop$2,
     		o: noop$2,
     		d: function destroy(detaching) {
+<<<<<<< HEAD
     			if (detaching) detach_dev(g1);
+=======
+    			if (detaching) detach_dev(g2);
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     			destroy_each(each_blocks, detaching);
     		}
     	};
@@ -11641,8 +12823,11 @@ var app = (function () {
     	//       .attr("stroke", 2)
     	//       .attr("d", function(d) { return newLine(d[1]); });
     	function handleMouseOut() {
+<<<<<<< HEAD
     		$$invalidate(8, hoveredRegionCode = "");
 
+=======
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     		if (select(this).attr('data-region-index') != findRegionIndex(selectedRegion)) {
     			select(this).attr('fill-opacity', 0.5);
     		}
@@ -11677,6 +12862,14 @@ var app = (function () {
     		return regions.findIndex(re => re.name === region);
     	}
 
+<<<<<<< HEAD
+=======
+    	function findRegionShape(region) {
+    		let regionIndex = regions.findIndex(re => re.name === region);
+    		return regions[regionIndex].shape;
+    	}
+
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     	function findRegionCode(region) {
     		let regionIndex = regions.findIndex(re => re.name === region);
     		return +regions[regionIndex].code;
@@ -11715,7 +12908,17 @@ var app = (function () {
     		getContext,
     		scaleLinear: linear,
     		extent,
+<<<<<<< HEAD
     		select,
+=======
+    		min,
+    		max,
+    		select,
+    		selectAll,
+    		groups,
+    		line,
+    		map: map$1,
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     		scaleOrdinal: ordinal,
     		forceSimulation,
     		forceCollide,
@@ -11743,6 +12946,10 @@ var app = (function () {
     		handleMouseOut,
     		handleClick,
     		findRegionIndex,
+<<<<<<< HEAD
+=======
+    		findRegionShape,
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     		findRegionCode,
     		$butterflyPoints
     	});
@@ -11943,8 +13150,13 @@ var app = (function () {
     	}
     }
 
+<<<<<<< HEAD
     /* src/Legend.svelte generated by Svelte v3.46.4 */
     const file$4 = "src/Legend.svelte";
+=======
+    /* src\Legend.svelte generated by Svelte v3.46.4 */
+    const file$4 = "src\\Legend.svelte";
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
 
     function get_each_context_1(ctx, list, i) {
     	const child_ctx = ctx.slice();
@@ -11987,8 +13199,13 @@ var app = (function () {
     			t1 = space();
     			if_block.c();
     			if_block_anchor = empty$1();
+<<<<<<< HEAD
     			attr_dev(div, "class", "svelte-70slkm");
     			add_location(div, file$4, 30, 2, 672);
+=======
+    			attr_dev(div, "class", "svelte-a56aip");
+    			add_location(div, file$4, 30, 2, 702);
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -12050,10 +13267,17 @@ var app = (function () {
     				each_blocks[i].c();
     			}
 
+<<<<<<< HEAD
     			add_location(g, file$4, 63, 6, 1440);
     			attr_dev(svg, "width", svg_width_value = /*width*/ ctx[0] - 200);
     			attr_dev(svg, "height", 120);
     			add_location(svg, file$4, 59, 4, 1384);
+=======
+    			add_location(g, file$4, 63, 6, 1497);
+    			attr_dev(svg, "width", svg_width_value = /*width*/ ctx[0] - 200);
+    			attr_dev(svg, "height", 100);
+    			add_location(svg, file$4, 59, 4, 1437);
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, svg, anchor);
@@ -12130,10 +13354,17 @@ var app = (function () {
     				each_blocks[i].c();
     			}
 
+<<<<<<< HEAD
     			add_location(g, file$4, 38, 6, 812);
     			attr_dev(svg, "width", "200");
     			attr_dev(svg, "height", /*legendH*/ ctx[3]);
     			add_location(svg, file$4, 34, 4, 756);
+=======
+    			add_location(g, file$4, 38, 6, 844);
+    			attr_dev(svg, "width", "200");
+    			attr_dev(svg, "height", /*legendH*/ ctx[3]);
+    			add_location(svg, file$4, 34, 4, 790);
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, svg, anchor);
@@ -12203,11 +13434,19 @@ var app = (function () {
     			attr_dev(use, "stroke-width", "1");
     			attr_dev(use, "fill", "black");
     			attr_dev(use, "fill-opacity", "0.5");
+<<<<<<< HEAD
     			add_location(use, file$4, 65, 10, 1513);
     			attr_dev(text_1, "x", 50 + 85 * /*i*/ ctx[9] + /*width*/ ctx[0] / 2);
     			attr_dev(text_1, "y", 60 - /*height*/ ctx[1] / 2);
     			attr_dev(text_1, "text-anchor", "middle");
     			add_location(text_1, file$4, 73, 10, 1809);
+=======
+    			add_location(use, file$4, 65, 10, 1572);
+    			attr_dev(text_1, "x", 50 + 85 * /*i*/ ctx[9] + /*width*/ ctx[0] / 2);
+    			attr_dev(text_1, "y", 60 - /*height*/ ctx[1] / 2);
+    			attr_dev(text_1, "text-anchor", "middle");
+    			add_location(text_1, file$4, 73, 10, 1876);
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, use, anchor);
@@ -12250,11 +13489,19 @@ var app = (function () {
     			attr_dev(use, "stroke-width", "1");
     			attr_dev(use, "fill", "black");
     			attr_dev(use, "fill-opacity", "0.5");
+<<<<<<< HEAD
     			add_location(use, file$4, 40, 10, 885);
     			attr_dev(text_1, "x", "100");
     			attr_dev(text_1, "y", 5 + /*i*/ ctx[9] * 65 + /*height*/ ctx[1] / 2);
     			attr_dev(text_1, "text-anchor", "middle");
     			add_location(text_1, file$4, 48, 10, 1182);
+=======
+    			add_location(use, file$4, 40, 10, 919);
+    			attr_dev(text_1, "x", "100");
+    			attr_dev(text_1, "y", 5 + /*i*/ ctx[9] * 65 + /*height*/ ctx[1] / 2);
+    			attr_dev(text_1, "text-anchor", "middle");
+    			add_location(text_1, file$4, 48, 10, 1224);
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, use, anchor);
@@ -12448,7 +13695,11 @@ var app = (function () {
     	}
     }
 
+<<<<<<< HEAD
     function fade(node, { delay = 0, duration = 400, easing = identity$4 } = {}) {
+=======
+    function fade(node, { delay = 0, duration = 400, easing = identity$5 } = {}) {
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
         const o = +getComputedStyle(node).opacity;
         return {
             delay,
@@ -12458,10 +13709,17 @@ var app = (function () {
         };
     }
 
+<<<<<<< HEAD
     /* src/Modal.svelte generated by Svelte v3.46.4 */
 
     const { Object: Object_1, window: window_1 } = globals;
     const file$3 = "src/Modal.svelte";
+=======
+    /* src\Modal.svelte generated by Svelte v3.46.4 */
+
+    const { Object: Object_1, window: window_1 } = globals;
+    const file$3 = "src\\Modal.svelte";
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
 
     // (398:0) {#if Component}
     function create_if_block$1(ctx) {
@@ -12505,7 +13763,11 @@ var app = (function () {
     			attr_dev(div0, "class", div0_class_value = "" + (null_to_empty(/*state*/ ctx[1].classContent) + " svelte-1247dek"));
     			attr_dev(div0, "style", /*cssContent*/ ctx[9]);
     			toggle_class(div0, "content", !/*unstyled*/ ctx[0]);
+<<<<<<< HEAD
     			add_location(div0, file$3, 441, 8, 11015);
+=======
+    			add_location(div0, file$3, 441, 8, 11456);
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     			attr_dev(div1, "class", div1_class_value = "" + (null_to_empty(/*state*/ ctx[1].classWindow) + " svelte-1247dek"));
     			attr_dev(div1, "role", "dialog");
     			attr_dev(div1, "aria-modal", "true");
@@ -12517,6 +13779,7 @@ var app = (function () {
     			attr_dev(div1, "aria-labelledby", div1_aria_labelledby_value = /*state*/ ctx[1].ariaLabelledBy || null);
     			attr_dev(div1, "style", /*cssWindow*/ ctx[8]);
     			toggle_class(div1, "window", !/*unstyled*/ ctx[0]);
+<<<<<<< HEAD
     			add_location(div1, file$3, 413, 6, 10068);
     			attr_dev(div2, "class", div2_class_value = "" + (null_to_empty(/*state*/ ctx[1].classWindowWrap) + " svelte-1247dek"));
     			attr_dev(div2, "style", /*cssWindowWrap*/ ctx[7]);
@@ -12526,6 +13789,17 @@ var app = (function () {
     			attr_dev(div3, "style", /*cssBg*/ ctx[6]);
     			toggle_class(div3, "bg", !/*unstyled*/ ctx[0]);
     			add_location(div3, file$3, 398, 2, 9689);
+=======
+    			add_location(div1, file$3, 413, 6, 10481);
+    			attr_dev(div2, "class", div2_class_value = "" + (null_to_empty(/*state*/ ctx[1].classWindowWrap) + " svelte-1247dek"));
+    			attr_dev(div2, "style", /*cssWindowWrap*/ ctx[7]);
+    			toggle_class(div2, "wrap", !/*unstyled*/ ctx[0]);
+    			add_location(div2, file$3, 407, 4, 10342);
+    			attr_dev(div3, "class", div3_class_value = "" + (null_to_empty(/*state*/ ctx[1].classBg) + " svelte-1247dek"));
+    			attr_dev(div3, "style", /*cssBg*/ ctx[6]);
+    			toggle_class(div3, "bg", !/*unstyled*/ ctx[0]);
+    			add_location(div3, file$3, 398, 2, 10087);
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div3, anchor);
@@ -12847,7 +14121,11 @@ var app = (function () {
     			attr_dev(button, "aria-label", "Close modal");
     			attr_dev(button, "style", /*cssCloseButton*/ ctx[10]);
     			toggle_class(button, "close", !/*unstyled*/ ctx[0]);
+<<<<<<< HEAD
     			add_location(button, file$3, 432, 12, 10764);
+=======
+    			add_location(button, file$3, 432, 12, 11196);
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, button, anchor);
@@ -13831,10 +15109,17 @@ var app = (function () {
 
     const modal = writable(null);
 
+<<<<<<< HEAD
     /* src/MapContainer.svelte generated by Svelte v3.46.4 */
     const file$2 = "src/MapContainer.svelte";
 
     // (30:2) {#if w !== undefined}
+=======
+    /* src\MapContainer.svelte generated by Svelte v3.46.4 */
+    const file$2 = "src\\MapContainer.svelte";
+
+    // (31:2) {#if w !== undefined}
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     function create_if_block(ctx) {
     	let modal_1;
     	let current;
@@ -13863,7 +15148,11 @@ var app = (function () {
     			const modal_1_changes = {};
     			if (dirty & /*$modal*/ 256) modal_1_changes.show = /*$modal*/ ctx[8];
 
+<<<<<<< HEAD
     			if (dirty & /*$$scope, w, h, projection, dataset, selectedRegion, hoveredRegionCode, selectedCountry, path*/ 262399) {
+=======
+    			if (dirty & /*$$scope, w, h, projection, dataset, selectedRegion, hoveredRegionCode, selectedCountry, path*/ 524543) {
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     				modal_1_changes.$$scope = { dirty, ctx };
     			}
 
@@ -13887,29 +15176,45 @@ var app = (function () {
     		block,
     		id: create_if_block.name,
     		type: "if",
+<<<<<<< HEAD
     		source: "(30:2) {#if w !== undefined}",
+=======
+    		source: "(31:2) {#if w !== undefined}",
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     		ctx
     	});
 
     	return block;
     }
 
+<<<<<<< HEAD
     // (31:4) <Modal show={$modal} transitionBgProps={{ duration: 0 }} styleCloseButton={{cursor: "pointer"}} styleWindow = {{"border-radius": "8px"}}>
     function create_default_slot(ctx) {
     	let mapexplainer;
     	let updating_hoveredRegionCode;
     	let t0;
+=======
+    // (32:4) <Modal show={$modal} transitionBgProps={{ duration: 0 }} styleCloseButton={{cursor: "pointer"}} styleWindow = {{"border-radius": "8px"}}>
+    function create_default_slot(ctx) {
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     	let svg;
     	let mappath;
     	let mappoints;
     	let updating_selectedRegion;
+<<<<<<< HEAD
     	let updating_hoveredRegionCode_1;
     	let updating_selectedCountry;
     	let t1;
+=======
+    	let updating_hoveredRegionCode;
+    	let updating_selectedCountry;
+    	let t;
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     	let div;
     	let legend;
     	let current;
 
+<<<<<<< HEAD
     	function mapexplainer_hoveredRegionCode_binding(value) {
     		/*mapexplainer_hoveredRegionCode_binding*/ ctx[13](value);
     	}
@@ -13927,6 +15232,8 @@ var app = (function () {
 
     	binding_callbacks.push(() => bind$1(mapexplainer, 'hoveredRegionCode', mapexplainer_hoveredRegionCode_binding));
 
+=======
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     	mappath = new MapPath({
     			props: {
     				data: /*outlineD*/ ctx[10],
@@ -13936,6 +15243,7 @@ var app = (function () {
     		});
 
     	function mappoints_selectedRegion_binding(value) {
+<<<<<<< HEAD
     		/*mappoints_selectedRegion_binding*/ ctx[14](value);
     	}
 
@@ -13945,6 +15253,17 @@ var app = (function () {
 
     	function mappoints_selectedCountry_binding(value) {
     		/*mappoints_selectedCountry_binding*/ ctx[16](value);
+=======
+    		/*mappoints_selectedRegion_binding*/ ctx[13](value);
+    	}
+
+    	function mappoints_hoveredRegionCode_binding(value) {
+    		/*mappoints_hoveredRegionCode_binding*/ ctx[14](value);
+    	}
+
+    	function mappoints_selectedCountry_binding(value) {
+    		/*mappoints_selectedCountry_binding*/ ctx[15](value);
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     	}
 
     	let mappoints_props = {
@@ -13984,17 +15303,25 @@ var app = (function () {
 
     	const block = {
     		c: function create() {
+<<<<<<< HEAD
     			create_component(mapexplainer.$$.fragment);
     			t0 = space();
     			svg = svg_element("svg");
     			create_component(mappath.$$.fragment);
     			create_component(mappoints.$$.fragment);
     			t1 = space();
+=======
+    			svg = svg_element("svg");
+    			create_component(mappath.$$.fragment);
+    			create_component(mappoints.$$.fragment);
+    			t = space();
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     			div = element("div");
     			create_component(legend.$$.fragment);
     			attr_dev(svg, "id", "world-map");
     			attr_dev(svg, "width", /*w*/ ctx[4]);
     			attr_dev(svg, "height", /*h*/ ctx[6]);
+<<<<<<< HEAD
     			add_location(svg, file$2, 32, 6, 1137);
     			attr_dev(div, "id", "legend");
     			attr_dev(div, "class", "svelte-1offc0s");
@@ -14007,11 +15334,24 @@ var app = (function () {
     			mount_component(mappath, svg, null);
     			mount_component(mappoints, svg, null);
     			insert_dev(target, t1, anchor);
+=======
+    			add_location(svg, file$2, 32, 6, 1076);
+    			attr_dev(div, "id", "legend");
+    			attr_dev(div, "class", "svelte-1dqmfj6");
+    			add_location(div, file$2, 36, 6, 1450);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, svg, anchor);
+    			mount_component(mappath, svg, null);
+    			mount_component(mappoints, svg, null);
+    			insert_dev(target, t, anchor);
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     			insert_dev(target, div, anchor);
     			mount_component(legend, div, null);
     			current = true;
     		},
     		p: function update(ctx, dirty) {
+<<<<<<< HEAD
     			const mapexplainer_changes = {};
 
     			if (!updating_hoveredRegionCode && dirty & /*hoveredRegionCode*/ 2) {
@@ -14021,6 +15361,8 @@ var app = (function () {
     			}
 
     			mapexplainer.$set(mapexplainer_changes);
+=======
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     			const mappath_changes = {};
     			if (dirty & /*path*/ 128) mappath_changes.path = /*path*/ ctx[7];
     			mappath.$set(mappath_changes);
@@ -14035,10 +15377,17 @@ var app = (function () {
     				add_flush_callback(() => updating_selectedRegion = false);
     			}
 
+<<<<<<< HEAD
     			if (!updating_hoveredRegionCode_1 && dirty & /*hoveredRegionCode*/ 2) {
     				updating_hoveredRegionCode_1 = true;
     				mappoints_changes.hoveredRegionCode = /*hoveredRegionCode*/ ctx[1];
     				add_flush_callback(() => updating_hoveredRegionCode_1 = false);
+=======
+    			if (!updating_hoveredRegionCode && dirty & /*hoveredRegionCode*/ 2) {
+    				updating_hoveredRegionCode = true;
+    				mappoints_changes.hoveredRegionCode = /*hoveredRegionCode*/ ctx[1];
+    				add_flush_callback(() => updating_hoveredRegionCode = false);
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     			}
 
     			if (!updating_selectedCountry && dirty & /*selectedCountry*/ 4) {
@@ -14064,26 +15413,39 @@ var app = (function () {
     		},
     		i: function intro(local) {
     			if (current) return;
+<<<<<<< HEAD
     			transition_in(mapexplainer.$$.fragment, local);
+=======
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     			transition_in(mappath.$$.fragment, local);
     			transition_in(mappoints.$$.fragment, local);
     			transition_in(legend.$$.fragment, local);
     			current = true;
     		},
     		o: function outro(local) {
+<<<<<<< HEAD
     			transition_out(mapexplainer.$$.fragment, local);
+=======
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     			transition_out(mappath.$$.fragment, local);
     			transition_out(mappoints.$$.fragment, local);
     			transition_out(legend.$$.fragment, local);
     			current = false;
     		},
     		d: function destroy(detaching) {
+<<<<<<< HEAD
     			destroy_component(mapexplainer, detaching);
     			if (detaching) detach_dev(t0);
     			if (detaching) detach_dev(svg);
     			destroy_component(mappath);
     			destroy_component(mappoints);
     			if (detaching) detach_dev(t1);
+=======
+    			if (detaching) detach_dev(svg);
+    			destroy_component(mappath);
+    			destroy_component(mappoints);
+    			if (detaching) detach_dev(t);
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     			if (detaching) detach_dev(div);
     			destroy_component(legend);
     		}
@@ -14093,7 +15455,11 @@ var app = (function () {
     		block,
     		id: create_default_slot.name,
     		type: "slot",
+<<<<<<< HEAD
     		source: "(31:4) <Modal show={$modal} transitionBgProps={{ duration: 0 }} styleCloseButton={{cursor: \\\"pointer\\\"}} styleWindow = {{\\\"border-radius\\\": \\\"8px\\\"}}>",
+=======
+    		source: "(32:4) <Modal show={$modal} transitionBgProps={{ duration: 0 }} styleCloseButton={{cursor: \\\"pointer\\\"}} styleWindow = {{\\\"border-radius\\\": \\\"8px\\\"}}>",
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     		ctx
     	});
 
@@ -14110,10 +15476,16 @@ var app = (function () {
     		c: function create() {
     			section = element("section");
     			if (if_block) if_block.c();
+<<<<<<< HEAD
     			attr_dev(section, "id", "map__container");
     			attr_dev(section, "class", "map__container svelte-1offc0s");
     			add_render_callback(() => /*section_elementresize_handler*/ ctx[17].call(section));
     			add_location(section, file$2, 28, 0, 807);
+=======
+    			attr_dev(section, "class", "map__container svelte-1dqmfj6");
+    			add_render_callback(() => /*section_elementresize_handler*/ ctx[16].call(section));
+    			add_location(section, file$2, 29, 0, 847);
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -14121,7 +15493,11 @@ var app = (function () {
     		m: function mount(target, anchor) {
     			insert_dev(target, section, anchor);
     			if (if_block) if_block.m(section, null);
+<<<<<<< HEAD
     			section_resize_listener = add_resize_listener(section, /*section_elementresize_handler*/ ctx[17].bind(section));
+=======
+    			section_resize_listener = add_resize_listener(section, /*section_elementresize_handler*/ ctx[16].bind(section));
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     			current = true;
     		},
     		p: function update(ctx, [dirty]) {
@@ -14191,7 +15567,13 @@ var app = (function () {
     	let centroidsD = dataset[0];
     	let outlineD = dataset[1];
     	let butterflies = dataset[2];
+<<<<<<< HEAD
     	let regionFlow = dataset[9];
+=======
+    	let regions = dataset[8];
+    	let regionFlow = dataset[9];
+    	let totalMigrants = dataset[10];
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     	let w;
     	const writable_props = ['dataset', 'selectedRegion', 'hoveredRegionCode', 'selectedCountry'];
 
@@ -14199,11 +15581,14 @@ var app = (function () {
     		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<MapContainer> was created with unknown prop '${key}'`);
     	});
 
+<<<<<<< HEAD
     	function mapexplainer_hoveredRegionCode_binding(value) {
     		hoveredRegionCode = value;
     		$$invalidate(1, hoveredRegionCode);
     	}
 
+=======
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     	function mappoints_selectedRegion_binding(value) {
     		selectedRegion = value;
     		$$invalidate(0, selectedRegion);
@@ -14234,7 +15619,10 @@ var app = (function () {
     	$$self.$capture_state = () => ({
     		geoNaturalEarth1,
     		geoPath,
+<<<<<<< HEAD
     		MapExplainer,
+=======
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     		MapPath,
     		MapPoints,
     		Legend,
@@ -14247,7 +15635,13 @@ var app = (function () {
     		centroidsD,
     		outlineD,
     		butterflies,
+<<<<<<< HEAD
     		regionFlow,
+=======
+    		regions,
+    		regionFlow,
+    		totalMigrants,
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     		w,
     		projection,
     		path,
@@ -14263,7 +15657,13 @@ var app = (function () {
     		if ('centroidsD' in $$props) $$invalidate(9, centroidsD = $$props.centroidsD);
     		if ('outlineD' in $$props) $$invalidate(10, outlineD = $$props.outlineD);
     		if ('butterflies' in $$props) $$invalidate(11, butterflies = $$props.butterflies);
+<<<<<<< HEAD
     		if ('regionFlow' in $$props) $$invalidate(12, regionFlow = $$props.regionFlow);
+=======
+    		if ('regions' in $$props) regions = $$props.regions;
+    		if ('regionFlow' in $$props) $$invalidate(12, regionFlow = $$props.regionFlow);
+    		if ('totalMigrants' in $$props) totalMigrants = $$props.totalMigrants;
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     		if ('w' in $$props) $$invalidate(4, w = $$props.w);
     		if ('projection' in $$props) $$invalidate(5, projection = $$props.projection);
     		if ('path' in $$props) $$invalidate(7, path = $$props.path);
@@ -14302,7 +15702,10 @@ var app = (function () {
     		outlineD,
     		butterflies,
     		regionFlow,
+<<<<<<< HEAD
     		mapexplainer_hoveredRegionCode_binding,
+=======
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     		mappoints_selectedRegion_binding,
     		mappoints_hoveredRegionCode_binding,
     		mappoints_selectedCountry_binding,
@@ -14381,6 +15784,7 @@ var app = (function () {
     	}
     }
 
+<<<<<<< HEAD
     /* src/Overview.svelte generated by Svelte v3.46.4 */
 
     function create_fragment$2(ctx) {
@@ -14394,6 +15798,34 @@ var app = (function () {
     		i: noop$2,
     		o: noop$2,
     		d: noop$2
+=======
+    /* src\Overview.svelte generated by Svelte v3.46.4 */
+
+    const file$1 = "src\\Overview.svelte";
+
+    function create_fragment$2(ctx) {
+    	let h1;
+
+    	const block = {
+    		c: function create() {
+    			h1 = element("h1");
+    			h1.textContent = "Big butterfly for global view comes here.";
+    			attr_dev(h1, "class", "svelte-1wdv9cp");
+    			add_location(h1, file$1, 4, 0, 25);
+    		},
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, h1, anchor);
+    		},
+    		p: noop$2,
+    		i: noop$2,
+    		o: noop$2,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(h1);
+    		}
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     	};
 
     	dispatch_dev("SvelteRegisterBlock", {
@@ -14433,6 +15865,7 @@ var app = (function () {
     	}
     }
 
+<<<<<<< HEAD
     /* src/Footer.svelte generated by Svelte v3.46.4 */
 
     const file$1 = "src/Footer.svelte";
@@ -14517,6 +15950,21 @@ var app = (function () {
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(div);
     		}
+=======
+    /* src\Footer.svelte generated by Svelte v3.46.4 */
+
+    function create_fragment$1(ctx) {
+    	const block = {
+    		c: noop$2,
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: noop$2,
+    		p: noop$2,
+    		i: noop$2,
+    		o: noop$2,
+    		d: noop$2
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     	};
 
     	dispatch_dev("SvelteRegisterBlock", {
@@ -14556,12 +16004,19 @@ var app = (function () {
     	}
     }
 
+<<<<<<< HEAD
     /* src/App.svelte generated by Svelte v3.46.4 */
 
     const { console: console_1 } = globals;
     const file = "src/App.svelte";
 
     // (1:0) <script>   import { text, json, csv }
+=======
+    /* src\App.svelte generated by Svelte v3.46.4 */
+    const file = "src\\App.svelte";
+
+    // (1:0) <script>    import { text, json, csv }
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     function create_catch_block(ctx) {
     	const block = {
     		c: noop$2,
@@ -14576,14 +16031,22 @@ var app = (function () {
     		block,
     		id: create_catch_block.name,
     		type: "catch",
+<<<<<<< HEAD
     		source: "(1:0) <script>   import { text, json, csv }",
+=======
+    		source: "(1:0) <script>    import { text, json, csv }",
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     		ctx
     	});
 
     	return block;
     }
 
+<<<<<<< HEAD
     // (68:2) {:then dataset}
+=======
+    // (62:2) {:then dataset}
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     function create_then_block(ctx) {
     	let mapcontainer;
     	let updating_selectedRegion;
@@ -14676,14 +16139,22 @@ var app = (function () {
     		block,
     		id: create_then_block.name,
     		type: "then",
+<<<<<<< HEAD
     		source: "(68:2) {:then dataset}",
+=======
+    		source: "(62:2) {:then dataset}",
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     		ctx
     	});
 
     	return block;
     }
 
+<<<<<<< HEAD
     // (64:18)      <div>       Loading...     </div>   {:then dataset}
+=======
+    // (58:18)       <div>        Loading...      </div>    {:then dataset}
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     function create_pending_block(ctx) {
     	let div;
 
@@ -14692,7 +16163,11 @@ var app = (function () {
     			div = element("div");
     			div.textContent = "Loading...";
     			attr_dev(div, "class", "svelte-1brbny8");
+<<<<<<< HEAD
     			add_location(div, file, 64, 4, 2073);
+=======
+    			add_location(div, file, 58, 4, 1998);
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -14709,7 +16184,11 @@ var app = (function () {
     		block,
     		id: create_pending_block.name,
     		type: "pending",
+<<<<<<< HEAD
     		source: "(64:18)      <div>       Loading...     </div>   {:then dataset}",
+=======
+    		source: "(58:18)       <div>        Loading...      </div>    {:then dataset}",
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     		ctx
     	});
 
@@ -14719,9 +16198,13 @@ var app = (function () {
     function create_fragment(ctx) {
     	let main;
     	let title;
+<<<<<<< HEAD
     	let t0;
     	let t1;
     	let footer;
+=======
+    	let t;
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     	let current;
     	title = new TItle({ $$inline: true });
 
@@ -14738,17 +16221,26 @@ var app = (function () {
     	};
 
     	handle_promise(/*promise*/ ctx[4], info);
+<<<<<<< HEAD
     	footer = new Footer({ $$inline: true });
+=======
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
 
     	const block = {
     		c: function create() {
     			main = element("main");
     			create_component(title.$$.fragment);
+<<<<<<< HEAD
     			t0 = space();
     			info.block.c();
     			t1 = space();
     			create_component(footer.$$.fragment);
     			add_location(main, file, 61, 0, 2031);
+=======
+    			t = space();
+    			info.block.c();
+    			add_location(main, file, 55, 0, 1953);
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -14756,12 +16248,19 @@ var app = (function () {
     		m: function mount(target, anchor) {
     			insert_dev(target, main, anchor);
     			mount_component(title, main, null);
+<<<<<<< HEAD
     			append_dev(main, t0);
     			info.block.m(main, info.anchor = null);
     			info.mount = () => main;
     			info.anchor = t1;
     			append_dev(main, t1);
     			mount_component(footer, main, null);
+=======
+    			append_dev(main, t);
+    			info.block.m(main, info.anchor = null);
+    			info.mount = () => main;
+    			info.anchor = null;
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     			current = true;
     		},
     		p: function update(new_ctx, [dirty]) {
@@ -14772,7 +16271,10 @@ var app = (function () {
     			if (current) return;
     			transition_in(title.$$.fragment, local);
     			transition_in(info.block);
+<<<<<<< HEAD
     			transition_in(footer.$$.fragment, local);
+=======
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     			current = true;
     		},
     		o: function outro(local) {
@@ -14783,7 +16285,10 @@ var app = (function () {
     				transition_out(block);
     			}
 
+<<<<<<< HEAD
     			transition_out(footer.$$.fragment, local);
+=======
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     			current = false;
     		},
     		d: function destroy(detaching) {
@@ -14792,7 +16297,10 @@ var app = (function () {
     			info.block.d();
     			info.token = null;
     			info = null;
+<<<<<<< HEAD
     			destroy_component(footer);
+=======
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     		}
     	};
 
@@ -14817,11 +16325,14 @@ var app = (function () {
     	datasets[9].map(d => {
     		d.value = +d.value;
     	});
+<<<<<<< HEAD
 
     	// parse totalMigrants
     	datasets[10].map(d => {
     		d.TOTAL_MIGRANTS = +d.TOTAL_MIGRANTS;
     	});
+=======
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     }
 
     function instance($$self, $$props, $$invalidate) {
@@ -14867,13 +16378,20 @@ var app = (function () {
     		]);
 
     		parseData(datasets);
+<<<<<<< HEAD
     		console.log(datasets);
+=======
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     	}
 
     	const writable_props = ['datasets'];
 
     	Object.keys($$props).forEach(key => {
+<<<<<<< HEAD
     		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console_1.warn(`<App> was created with unknown prop '${key}'`);
+=======
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<App> was created with unknown prop '${key}'`);
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
     	});
 
     	function mapcontainer_selectedRegion_binding(value) {

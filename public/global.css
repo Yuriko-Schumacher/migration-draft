@@ -39,6 +39,7 @@ h2 {
   margin-top: 10px;
 }
 
+<<<<<<< HEAD
 a:link,
 a:visited {
   text-decoration: none;
@@ -58,12 +59,15 @@ a:hover {
   font-size: 0.8em;
 }
 
+=======
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
 .title {
   padding: 20px;
   margin: 10px;
   padding-top: 60px;
 }
 
+<<<<<<< HEAD
 .svelte-yhjukw {
   padding-top: 10px;
 }
@@ -87,4 +91,40 @@ a:hover {
 
 #legend {
   bottom: 0;
+=======
+
+.svelte-yhjukw
+{
+  padding-top: 10px;
+>>>>>>> 7e49559adfc3d3313de7f55ed7e08b286d025f66
+}
+
+.svelte-1iw9sua
+{
+    padding: 4px;
+    border-radius: 4px;
+}
+
+.country-highlight
+{
+  color: white;
+}
+
+#citizenship-paths
+{
+  padding-top: 40px;
+}
+
+.instructions
+{
+  font-size: 14px;
+}
+
+.country-card__country-name
+{
+  height: 40px;
+}
+
+#legend {
+  top: 0;
 }
