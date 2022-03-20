@@ -10,7 +10,6 @@
   $: if(hoveredRegionCode !== "") {
     hoveredRegion = regions.filter(d => d.code == hoveredRegionCode)[0];
     hoveredRegion = hoveredRegion.name;
-    console.log(hoveredRegion)
     let hoveredRegionValue = data.features.filter(d => d.properties.SUBREGION == hoveredRegion)
     hoveredRegionValue = hoveredRegionValue[0].properties.VALUE
     let hoveredRegionColor = regions.filter(d => d.name == hoveredRegion)[0].color

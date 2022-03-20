@@ -16,21 +16,21 @@
 </script>
 
 <div>
-  <p class="user-signifier">
+  <p class="user-signifier" style="padding-top: 10px;">
     Select a country to show various ways you can aquire citizenship.
   </p>
   {#if hoveredCountry !== ""}
     {#if hoveredCountry == "Taiwan" | hoveredCountry == "Kosovo"}
-      <p>
+      <p style="padding-top: 10px;">
         The data is missing about the number of migrants in <span style="text-decoration: underline solid {regionData.color} 5px; text-underline-offset: 2px">{hoveredCountry}</span>.
       </p>
     {:else}
-      <p>
+      <p style="padding-top: 10px;">
         <span style="text-decoration: underline solid {regionData.color} 5px; text-underline-offset: 2px">{hoveredCountry}</span> had a total of <span style="text-decoration: underline solid {regionData.color} 5px; text-underline-offset: 2px">{formatValue(countryValue)}</span> migrants.
       </p>
     {/if}
   {:else}
-    <p style="color: white;">
+    <p style="color: white; padding-top: 10px;">
       Hover over the country.
     </p>
   {/if}

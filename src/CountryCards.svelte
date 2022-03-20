@@ -91,7 +91,7 @@
         </div>
         <div
           class="country-card__country-name"
-          style="color: black;">
+          style="color: #222222;">
           {country}
         </div>
       </div>
@@ -108,7 +108,9 @@
     flex-wrap: wrap;
     justify-content: center;
   }
-
+  div.country-card__country-name {
+    height: 40px;
+  }
   div.country-card {
     width: calc(100px + 2rem);
     padding: 0.5rem 1rem;

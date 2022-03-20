@@ -153,7 +153,6 @@
 
   function handleClick() {
     select(".map-points").selectAll("use").attr('fill-opacity', 0.5);
-    select(this).attr('fill-opacity', 1);
     let selectedRegionIndex = select(this).attr('data-region-index');
     selectedRegion = regions[selectedRegionIndex].name;
     open(Popup, { selectedRegion: selectedRegion, selectedCountry: selectedCountry, datasets: dataset, butterflies: butterflies});

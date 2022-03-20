@@ -43,7 +43,7 @@
 
     // console.log("possibleModes", possibleModes);
     // console.log("allQuestions", allQuestions);
-    console.log("possibleQuestions", possibleQuestions);
+    // console.log("possibleQuestions", possibleQuestions);
     // console.log("unnecessaryQuestions", unnecessaryQuestions);
 
     // filter and see what modes are available
@@ -352,6 +352,11 @@
     color: white;
     padding: 0.3em 0.5em;
     border-radius: 8px;
+  }
+  .title {
+    padding: 20px;
+    margin: 10px;
+    padding-top: 60px;
   }
   .instructions {
     padding: 10px;

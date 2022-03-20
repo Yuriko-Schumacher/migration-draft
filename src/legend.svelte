@@ -29,7 +29,7 @@
 
 {#if height !== undefined}
   <div>
-    Total # of migrants to a region
+    Total number of migrants to a region
   </div>
     {#if width > 1220 * 0.9}
     <svg

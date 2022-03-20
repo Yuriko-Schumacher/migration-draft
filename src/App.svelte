@@ -3,9 +3,6 @@
 
   import Title from './TItle.svelte';
   import MapContainer from './MapContainer.svelte';
-  import CountryCardContainer from './CountryCardContainer.svelte';
-  import BigButterflyContainer from './BigButterflyContainer.svelte';
-  import Overview from './Overview.svelte';
   import Footer from './Footer.svelte';
 
   export let datasets = [];
