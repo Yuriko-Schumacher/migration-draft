@@ -88,7 +88,7 @@
   div {
     padding: 0 1rem 1rem 1rem;
     font-weight: bold;
-    line-height: 1.2;
+    line-height: 1;
     text-align: center;
   }
   @media (max-width: 1220px) {
