@@ -46,11 +46,6 @@
     datasets[9].map(d => {
       d.value = +d.value;
     })
-
-    // parse totalMigrants
-    datasets[10].map(d => {
-      d.TOTAL_MIGRANTS = +d.TOTAL_MIGRANTS;
-    })
   }
 
 </script>
