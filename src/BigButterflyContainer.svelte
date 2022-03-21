@@ -150,10 +150,10 @@
               .html(getQuestionWithCountryName(selectedCountry, text, a06aText))
               .classed("butterfly__questions__question", true)
               .attr("data-question-id", id)
-              .attr("x", side.h == "left" ? position[0] - 170 - 30 : position[0] + 30)
+              .attr("x", side.h == "left" ? position[0] - 120 - 30 : position[0] + 30)
               .attr("y", side.v == "upper" ? position[1] - 30 : side.v == "middle" ? position[1] - 15 : position[1] + 10)
-              .attr("width", 170)
-              .attr("height", 170)
+              .attr("width", 120)
+              .attr("height", 120)
               .style("opacity", q.visibility == "hidden" ? 0 : 1)
               .style("text-shadow", "-2px -2px 0 rgba(255, 255, 255, 0.7), 2px -2px 0 rgba(255, 255, 255, 0.7), -2px 2px 0 rgba(255, 255, 255, 0.7), 2px 2px 0 rgba(255, 255, 255, 0.7)")          
               .style("font-size", "0.8rem")
@@ -448,6 +448,7 @@
 <style>
   #big-butterfly__container {
     margin-top: 7rem;
+    width: 100%;
   }
   #butterfly__graphic {
     position: relative;
